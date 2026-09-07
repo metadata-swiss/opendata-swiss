@@ -141,13 +141,13 @@ public class SearchTest extends BaseSystemTest {
         String sort = "relevance";
         String filters = "dataset";
 
-        // TODO: select facet - "publisher": ["Verein ABC"],
         // Catalogues, Categories, Formats
         // Keywords, Licenses, Publisher
         String facets = """
             {
               "catalog": ["%s"],
               "categories": ["ENVI"],
+              "publisher": ["Verein ABC"],
               
               "format": ["CSV"],
               "license": ["http://dcat-ap.ch/vocabulary/licenses/cc-by/4.0"],
