@@ -116,7 +116,6 @@ export class DcatApChV2DatasetAdapter {
    *
    */
   get publisher() {
-    const publisher = this.#dataset.getPublisher
     // the interface in piveau is wrong.
     // i get this ...
     // {
@@ -125,14 +124,10 @@ export class DcatApChV2DatasetAdapter {
     //   type: "Agent",
     // }
 
-    if (!publisher) {
-      return undefined
-    }
-
-    return {
-      type: publisher.type ?? '',
-      name: publisher.name ?? '',
-      resource: (publisher as unknown as { resource: string }).resource ?? '',
+    return this.#dataset.getPublisher as unknown as {
+      id: string | undefined
+      name: Record<string, string>
+      homepage: string | undefined
     }
   }
 
