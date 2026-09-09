@@ -33,7 +33,7 @@ CKAN_TO_I14Y_ORG_MAPPING: dict[str, str] = {
     "kanton-basel-landschaft": "ch-kt-bl",
     "kanton-basel-stadt": "ch-kt-bs",
     "kanton-st-gallen": "ch-kt-sg",
-    "lustat": "ch-lustat",
+    "lustat": "ch-kt-luzern-lustat",
     "dienst-ueberwachung-post-und-fernmeldeverkehr-uepf": "ch-uepf",
     "direktion-fur-entwicklung-und-zusammenarbeit-deza": "ch-deza",
     "eth-bibliothek": "ch-eth-lib",
