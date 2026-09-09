@@ -311,6 +311,7 @@ def generate_pipe_and_catalogue_files(pipes: bool = True, catalogues: bool = Tru
 
 
     pipe_names = []
+    catalogues_without_publisher_iri = []
 
     for i, harverster in enumerate(harversters):
         id = harverster["id"]
@@ -358,6 +359,8 @@ def generate_pipe_and_catalogue_files(pipes: bool = True, catalogues: bool = Tru
         org_titles = to_dict(organization.get("title", "{}"))
         publisher_slug = resolve_i14y_publisher_slug(ckan_org_id=org_id)
         publisher_iri = organization_uri(publisher_slug) if publisher_slug else None
+        if publisher_iri is None:
+            catalogues_without_publisher_iri.append(catalogue_name)
 
         if catalogues:
             generate_catalogue_metadata(
@@ -385,6 +388,15 @@ def generate_pipe_and_catalogue_files(pipes: bool = True, catalogues: bool = Tru
     
     if pipes:
         generate_bulk_triggers(pipe_names)
+
+    if catalogues_without_publisher_iri:
+        logging.warning(
+            "orga mappings missing? there are catalogues without publisher_iri (%d):\n%s",
+            len(catalogues_without_publisher_iri),
+            "\n".join(catalogues_without_publisher_iri),
+        )
+    else:
+        logging.info("All catalogues resolved to a publisher_iri.")
 
 
 # run this locally and push the generated files to repo
