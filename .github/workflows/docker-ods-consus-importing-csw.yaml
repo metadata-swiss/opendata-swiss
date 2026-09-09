@@ -44,7 +44,7 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: |
-            ghcr.io/opendata-swiss/ods-consus-importing-csw
+            ghcr.io/metadata-swiss/ods-consus-importing-csw
           tags: |
             type=ref,event=branch
             type=sha

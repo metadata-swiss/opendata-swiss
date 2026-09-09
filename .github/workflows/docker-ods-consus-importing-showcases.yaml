@@ -44,7 +44,7 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: |
-            ghcr.io/opendata-swiss/ods-consus-importing-showcases
+            ghcr.io/metadata-swiss/ods-consus-importing-showcases
           tags: |
             type=ref,event=branch
             type=sha
