@@ -23,6 +23,8 @@ ORGANIZATION_BASE_IRI = "https://opendata.swiss/id/organization/"
 LEGAL_FORM_BASE_IRI = "https://register.ld.admin.ch/i14y/concept/legalForm/"
 ODSN_ORGA = Namespace(ORGANIZATION_BASE_IRI)
 LEGAL_FORM = Namespace(LEGAL_FORM_BASE_IRI)
+SCHEMA = Namespace("http://schema.org/")
+VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -227,12 +229,17 @@ def generate_bulk_triggers(pipe_names: list) -> None:
 def generate_organization_metadata(
         slug: str,
         identifier: str,
+        uid: str | None,
         subAgentOf_slug: str,
+        subAgent_slugs: list[str],
         classification_code: str,
         names: dict,
         prefLabels: dict,
         descriptions: dict,
         homepage: str,
+        spatial: list[str],
+        images: list[dict],
+        contact_point: dict,
 ) -> None:
     """
     Generates an RDF metadata file for an organization in Turtle format.
@@ -240,12 +247,17 @@ def generate_organization_metadata(
     Args:
         slug (str):                The slug of the organization.
         identifier (str):          The identifier of the organization.
+        uid (str | None):          Additional organization identifier, if provided.
         subAgentOf_slug (str):     The slug of the parent organization, if any.
+        subAgent_slugs (list[str]): Slugs of child organizations, if any.
         classification_code (str): The classification code of the organization.
         names (dict):              A dictionary of names for the organization, with language codes as keys.
         prefLabels (dict):         A dictionary of preferred labels for the organization, with language codes as keys.
         descriptions (dict):       A dictionary of descriptions for the organization, with language codes as keys.
         homepage (str):            The URL to the organization's homepage.
+        spatial (list[str]):       Spatial coverage identifiers.
+        images (list[dict]):       Image objects with URI values.
+        contact_point (dict):      Contact point data for the organization.
 
     Returns:
         None
@@ -254,6 +266,11 @@ def generate_organization_metadata(
 
     g.bind("dcterms", DCTERMS)
     g.bind("foaf", FOAF)
+    g.bind("org", ORG)
+    g.bind("schema", SCHEMA)
+    g.bind("skos", SKOS)
+    g.bind("vcard", VCARD)
+    g.bind("dcat", DCAT)
 
     orga_uri = ODSN_ORGA[slug]
 
@@ -261,12 +278,26 @@ def generate_organization_metadata(
     g.add((orga_uri, RDF.type, FOAF.Organization))
     g.add((orga_uri, RDF.type, ORG.Organization))
     g.add((orga_uri, DCTERMS.identifier, Literal(identifier)))
+    if uid:
+        g.add((orga_uri, SCHEMA.identifier, Literal(uid)))
 
     if subAgentOf_slug:
         g.add((orga_uri, ORG.subOrganizationOf, ODSN_ORGA[subAgentOf_slug]))
+
+    for subAgent_slug in subAgent_slugs:
+        g.add((orga_uri, ORG.hasSubOrganization, ODSN_ORGA[subAgent_slug]))
     
     if classification_code:
         g.add((orga_uri, ORG.classification, LEGAL_FORM[classification_code])) 
+
+    for spatial_value in spatial:
+        if spatial_value:
+            g.add((orga_uri, DCTERMS.spatial, Literal(spatial_value)))
+
+    for image in images:
+        image_uri = image.get("uri")
+        if image_uri:
+            g.add((orga_uri, SCHEMA.image, URIRef(image_uri)))
 
     for lang, name in names.items():
         if name:
@@ -283,6 +314,24 @@ def generate_organization_metadata(
     if homepage:
         g.add((orga_uri, FOAF.homepage, URIRef(homepage)))
         g.add((URIRef(homepage), RDF.type, FOAF.Document))
+
+    if contact_point:
+        contact_node = BNode()
+        g.add((orga_uri, DCAT.contactPoint, contact_node))
+        g.add((contact_node, RDF.type, VCARD.Organization))
+
+        addresses = to_dict(contact_point.get("hasAddress", {}))
+        for lang, address in addresses.items():
+            if address:
+                g.add((contact_node, VCARD.hasAddress, Literal(address, lang=lang)))
+
+        email = contact_point.get("hasEmail")
+        if email:
+            g.add((contact_node, VCARD.hasEmail, URIRef("mailto:" + email)))
+
+        telephone = contact_point.get("hasTelephone")
+        if telephone:
+            g.add((contact_node, VCARD.hasTelephone, Literal(telephone)))
 
     output_file = Path(ORGANIZATIONS_PATH) / f"{slug}.ttl"
     g.serialize(destination=output_file, format="turtle")
@@ -486,6 +535,11 @@ def generate_organizations() -> None:
             parent_org_id = parent_orgs[0].get("id")
             subAgentOf_slug = id_to_slug.get(parent_org_id)
 
+        subAgent_slugs = [
+            id_to_slug[subAgent["id"]]
+            for subAgent in organization.get("subAgents", [])
+            if subAgent.get("id") in id_to_slug
+        ]
         ancestors = build_ancestors(subAgentOf_slug) if subAgentOf_slug else []
         hierarchy_level = len(ancestors)
         classification_code = (organization.get("classification") or {}).get("code", "")
@@ -497,12 +551,17 @@ def generate_organizations() -> None:
         generate_organization_metadata(
             slug=slug,
             identifier=organization["identifier"],
+            uid=organization.get("uid"),
             subAgentOf_slug=subAgentOf_slug,
+            subAgent_slugs=subAgent_slugs,
             classification_code=classification_code,
             names=names,
             prefLabels=pref_labels,
             descriptions=descriptions,
             homepage=homepage,
+            spatial=organization.get("spatial", []),
+            images=organization.get("images", []),
+            contact_point=organization.get("contactPoint", {}),
         )
 
 def main()-> None:

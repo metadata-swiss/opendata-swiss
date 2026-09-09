@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch1> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,24 @@
         "L'OFS est le centre de compétence de la statistique publique suisse. Il produit des informations statistiques sur la population, l'économie, la société, la formation et la recherche, le territoire et l'environnement. Ces informations servent à la formation de l’opinion publique. Elles sont un outil de planification et de gouvernance dans tous les domaines de l’action politique et contribuent au bon fonctionnement de notre État moderne et démocratique."@fr,
         "L’UST è il centro di competenza nazionale per la statistica pubblica della Svizzera. Produce e pubblica informazioni statistiche sullo stato e sull'evoluzione della popolazione, dell'economia, della società, della formazione, della ricerca, del territorio e dell'ambiente. Queste informazioni servono alla formazione dell'opinione pubblica nonché alla pianificazione e alla gestione in ambiti politici di centrale importanza. Forniscono un importante contributo per uno Stato moderno e democratico."@it ;
     dcterms:identifier "CH1" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE131608474" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BFS"@de,
         "FSO"@en,
         "OFS"@fr,
         "UFS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Espace de l'Europe 10, 2010 Neuchâtel, Neuchâtel, NE"@de,
+                "Espace de l'Europe 10, 2010 Neuchâtel, Neuchâtel, NE"@en,
+                "Espace de l'Europe 10, 2010 Neuchâtel, Neuchâtel, NE"@fr,
+                "Espace de l'Europe 10, 2010 Neuchâtel, Neuchâtel, NE"@it ;
+            vcard:hasEmail <mailto:info@bfs.admin.ch> ;
+            vcard:hasTelephone "+41 58 463 60 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-bfs-poku>,
+        <https://opendata.swiss/id/organization/ch-gogd>,
+        <https://opendata.swiss/id/organization/i14y-test-organisation> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://bfs.admin.ch> ;
     foaf:name "Bundesamt für Statistik (BFS)"@de,
