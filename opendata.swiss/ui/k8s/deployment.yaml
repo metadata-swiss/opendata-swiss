@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: piveau-ui
-          image: ghcr.io/opendata-swiss/ods-ui
+          image: ghcr.io/metadata-swiss/ods-ui
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

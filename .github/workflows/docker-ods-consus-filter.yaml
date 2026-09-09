@@ -44,7 +44,7 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: |
-            ghcr.io/opendata-swiss/ods-consus-filter
+            ghcr.io/metadata-swiss/ods-consus-filter
           tags: |
             type=ref,event=branch
             type=sha
