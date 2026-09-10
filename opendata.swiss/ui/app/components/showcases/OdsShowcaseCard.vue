@@ -18,7 +18,7 @@
           {{ (showcaseType(showcase) && showcaseType(showcase)!.pref_label) || '' }}
         </span>
         <span class="meta-info__item">
-          {{ t('message.showcase.search.dataset_references', { count: showcase.references.length }) }}
+          {{ t('message.showcase.search.dataset_references', { count: showcase.references?.length || 0 }) }}
         </span>
       </div>
     </template>

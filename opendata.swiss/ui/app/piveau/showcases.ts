@@ -5,7 +5,7 @@ export const facets = ['categories', 'keywords', 'type']
 
 const schema = z.object({
   image: z.array(z.string()),
-  references: z.array(z.any()),
+  references: z.array(z.any()).optional(),
   keywords: z.array(
     z.object({
       id: z.string(),
