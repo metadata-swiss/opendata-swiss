@@ -16,7 +16,16 @@
     dct:description "(fr) Showcases sur opendata.swiss"@fr ;
     dct:description "(it) Showcases su opendata.swiss"@it ;
 
-    dct:publisher <https://opendata.swiss/id/organization/ch1> ;
+    dct:publisher [
+        a foaf:Agent ;
+        dct:type publishertype:NationalAuthority ;
+        foaf:homepage  <https://www.bfs.admin.ch> ;
+        foaf:mbox      <mailto:opendata@bfs.admin.ch> ;
+        foaf:name      "Federal Statistical Office"@en ;
+        foaf:name      "Bundesamt für Statistik"@de ;
+        foaf:name      "Office fédéral de la statistique"@fr ;
+        foaf:name      "Ufficio federale di statistica"@it
+    ];
 
     foaf:homepage      <https://opendata.swiss> .
 
