@@ -80,7 +80,7 @@ function scrollToResults() {
 
 const initialSort = 'modified+desc'
 const piveauQueryParams: SearchParamsBase = reactive({
-  limit: 10,
+  limit: 9,
   page: route.query.page ? Number(route.query.page) - 1 : 0,
   q: Array.isArray(route.query.q) ? route.query.q.join(' ') : route.query.q || '',
   sort: initialSort,

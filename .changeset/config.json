@@ -9,7 +9,7 @@
       "repo": "opendata-swiss/metadata.swiss"
     }
   ],
-  "commit": true,
+  "commit": false,
   "ignore": [],
   "fixed": [],
   "linked": [],
