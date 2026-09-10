@@ -67,6 +67,19 @@ pv:Organization_Shape
         pv:mappingName "identifier" ;
     ] ;
     sh:property [
+        sh:maxCount 1 ;
+        sh:path schema:identifier ;
+        sh:nodeKind sh:Literal ;
+        pv:mappingClass "StandardText" ;
+        pv:mappingName "uid" ;
+    ] ;
+    sh:property [
+        sh:path dct:spatial ;
+        sh:nodeKind sh:Literal ;
+        pv:mappingClass "StandardDisabled" ;
+        pv:mappingName "spatial" ;
+    ] ;
+    sh:property [
         sh:path org:subOrganizationOf ;
         sh:nodeKind sh:Literal ;
         pv:mappingClass "StandardText" ;
@@ -114,5 +127,16 @@ pv:Organization_Shape
         sh:maxCount 1 ;
         pv:mappingClass "StandardKeyword" ;
         pv:mappingName "resource"
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        sh:path dcat:contactPoint ;
+        pv:mappingClass "ContactPoint" ;
+        pv:mappingName "contact_point"
+    ] ;
+    sh:property [
+        sh:path schema:image ;
+        pv:mappingClass "StandardDisabled" ;
+        pv:mappingName "image"
     ] ;
     sh:targetClass org:Organization .
