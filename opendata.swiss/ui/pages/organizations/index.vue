@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 import OdsPage from '../../app/components/OdsPage.vue'
 import OdsBreadcrumbs from '../../app/components/OdsBreadcrumbs.vue'
@@ -8,6 +8,7 @@ import OdsOrganizationTree from '../../app/components/organizations/OdsOrganizat
 import { homePageBreadcrumb } from '../../app/composables/breadcrumbs'
 import { useFetch, useRuntimeConfig, useSeoMeta } from 'nuxt/app'
 import { useI18n } from 'vue-i18n'
+import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
 
 interface OrganizationItem {
   id: string
@@ -53,9 +54,20 @@ interface HubSearchDatasetFacetsResponse {
 }
 
 const { t, locale } = useI18n()
+const router = useRouter()
+const route = useRoute()
 
-const searchInput = ref('')
+const searchInput = ref(route.query.q || '')
 const baseUrl = useRuntimeConfig().public.piveauHubSearchUrl as string
+
+const onSearch = () => {
+  router.push({
+    name: route.name,
+    query: {
+      q: searchInput.value || undefined,
+    },
+  })
+}
 
 const { data, pending, error } = await useFetch<HubSearchOrganizationResponse>(() => `${baseUrl}search`, {
   query: {
@@ -255,6 +267,18 @@ const breadcrumbs = [
 useSeoMeta({
   title: `${t('message.header.navigation.organizations')} | opendata.swiss`,
 })
+
+const { facetRefs, resetAllFacets } = useFacets(['organization'])
+
+onMounted(() => {
+  syncFacetsFromRoute({
+    facetRefs,
+  })
+
+  useFacetSync({
+    facetRefs,
+  })
+})
 </script>
 
 <template>
@@ -264,11 +288,13 @@ useSeoMeta({
     </template>
 
     <OdsSearchPanel
+      auto-search
       :search-input="searchInput"
       :search-prompt="t('message.organizations.search_placeholder')"
       :title="t('message.header.navigation.organizations')"
-      @search="(value) => searchInput = value"
-      @update:search-input="(value) => searchInput = Array.isArray(value) ? (value[0] || '') : value"
+      @search="onSearch"
+      @reset-all-facets="resetAllFacets"
+      @update:search-input="value => searchInput = value"
     />
 
     <section class="section section--default">
