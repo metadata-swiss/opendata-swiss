@@ -18,7 +18,7 @@ import SvgIcon from '../../app/components/SvgIcon.vue'
 import { useSeoMeta } from 'nuxt/app'
 import { clearDatasetBreadcrumbFromSessionStorage } from './[datasetId]/breadcrumb-session-stoage'
 import { DcatApChV2DatasetAdapter } from '../../app/components/dataset-detail/model/dcat-ap-ch-v2-dataset-adapter'
-import { syncFacetsFromRoute, useFacetSync } from '../../app/composables/useFacetSync'
+import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
 
 import OdsSearchPanel from '../../app/components/OdsSearchPanel.vue'
 import OdsSearchResults from '../../app/components/OdsSearchResults.vue'
@@ -28,33 +28,7 @@ const { t, locale } = useI18n()
 
 const router = useRouter()
 const route = useRoute()
-
-// 1. Main reactive object for your logic/UI
-const selectedFacets = reactive(
-  Object.fromEntries(facets.map(facet => [facet, [] as string[]])),
-)
-
-// 2. facetRefs for useSearch API (syncs with selectedFacets)
-const facetRefs = Object.fromEntries(
-  facets.map(facet => [facet, computed({
-    get: () => selectedFacets[facet],
-    set: (val: string[]) => { selectedFacets[facet] = val },
-  })]),
-)
-
-// 3. Use selectedFacets everywhere in your code and UI
-function resetAllFacets() {
-  for (const key in selectedFacets) {
-    selectedFacets[key] = []
-  }
-  // Reset the 'facets' query parameter
-  const query = { ...route.query }
-  if (query.page && query.page !== '1') {
-    query.page = '1' // Reset page to 1 if facets are restored from route
-  }
-  query['facets'] = encodeURIComponent(JSON.stringify({}))
-  router.push({ query })
-}
+const { facetRefs, resetAllFacets } = useFacets(facets)
 
 if (import.meta.client) {
   clearDatasetBreadcrumbFromSessionStorage()
@@ -219,16 +193,11 @@ watch(() => route.query.q, (searchTerm) => {
 
 onMounted(() => {
   syncFacetsFromRoute({
-    facets,
     facetRefs,
-    route,
   })
 
   useFacetSync({
-    facets,
     facetRefs,
-    route,
-    router,
   })
 })
 

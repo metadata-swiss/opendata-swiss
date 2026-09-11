@@ -12,7 +12,7 @@ import { useShowcaseSearch, facets } from '../../app/piveau/showcases'
 import type { SearchResultFacetGroupLocalized } from '@piveau/sdk-vue'
 import OdsSearchPanel from '../../app/components/OdsSearchPanel.vue'
 import OdsSearchResults from '../../app/components/OdsSearchResults.vue'
-import { syncFacetsFromRoute, useFacetSync } from '../../app/composables/useFacetSync'
+import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
 import OdsSortSelect from '../../app/components/dataset/OdsSortSelect.vue'
 import { useSorting } from '../../app/composables/sort'
 import OdsShowcaseCard from '../../app/components/showcases/OdsShowcaseCard.vue'
@@ -27,32 +27,7 @@ const router = useRouter()
 
 const searchInput = ref(route.query.q)
 
-// 1. Main reactive object for your logic/UI
-const selectedFacets = reactive(
-  Object.fromEntries(facets.map(facet => [facet, [] as string[]])),
-)
-
-// 2. facetRefs for useSearch API (syncs with selectedFacets)
-const facetRefs = Object.fromEntries(
-  facets.map(facet => [facet, computed({
-    get: () => selectedFacets[facet],
-    set: (val: string[]) => { selectedFacets[facet] = val },
-  })]),
-)
-
-// 3. Use selectedFacets everywhere in your code and UI
-function resetAllFacets() {
-  for (const key in selectedFacets) {
-    selectedFacets[key] = []
-  }
-  // Reset the 'facets' query parameter
-  const query = { ...route.query }
-  if (query.page && query.page !== '1') {
-    query.page = '1' // Reset page to 1 if facets are restored from route
-  }
-  query['facets'] = encodeURIComponent(JSON.stringify({}))
-  router.push({ query })
-}
+const { facetRefs, resetAllFacets } = useFacets(facets)
 
 const onSearch = () => goToPage(1, { q: searchInput.value })
 
@@ -147,16 +122,11 @@ watch(() => route.query.q, (searchTerm) => {
 
 onMounted(() => {
   syncFacetsFromRoute({
-    facets,
     facetRefs,
-    route,
   })
 
   useFacetSync({
-    facets,
     facetRefs,
-    route,
-    router,
   })
 })
 
