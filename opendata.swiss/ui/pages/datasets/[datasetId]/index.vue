@@ -21,6 +21,7 @@ import { useRuntimeConfig, useSeoMeta } from 'nuxt/app'
 import { getDatasetBreadcrumbFromSessionStorage, storeDatasetBreadcrumbInSessionStorage } from './breadcrumb-session-stoage'
 import type { TagItem } from '../../../app/components/OdsTagItem.vue'
 import OdsItemKind from '../../../app/components/dataset-detail/OdsItemKind.vue'
+import { getTranslationFor } from '@piveau/sdk-vue'
 
 const { locale, t } = useI18n()
 const route = useRoute()
@@ -219,15 +220,21 @@ await suspense()
             v-if="dataset.publisher && dataset.publisher.name"
             class="authors__names"
           >
+            <NuxtLinkLocale
+              v-if="dataset.publisher.id"
+              :to="{ name: 'organizations-id', params: { id: dataset.publisher.id } }"
+            >
+              {{ getTranslationFor(dataset.publisher.name, [locale]) }}
+            </NuxtLinkLocale>
             <a
-              v-if="dataset.publisher.resource"
+              v-else-if="dataset.publisher.homepage"
               class="link author__name link--external"
               target="_blank"
-              :href="dataset.publisher.resource"
-            >{{ dataset.publisher.name }}</a>
-            <div v-else>
-              {{ dataset.publisher.name }}
-            </div>
+              :href="dataset.publisher.homepage"
+            >{{ getTranslationFor(dataset.publisher.name, [locale]) }}</a>
+            <span v-else>
+              {{ getTranslationFor(dataset.publisher.name, [locale]) }}
+            </span>
           </address>
         </template>
       </Hero>
