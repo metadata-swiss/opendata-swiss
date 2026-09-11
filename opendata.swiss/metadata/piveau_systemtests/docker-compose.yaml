@@ -27,7 +27,7 @@ services:
       - ../piveau_profile:/piv-profile:ro
 
   piveau-hub-search:
-    image: registry.gitlab.com/piveau/hub/piveau-hub-search:5.3.9
+    image: registry.gitlab.com/piveau/hub/piveau-hub-search:5.3.10
     restart: unless-stopped
     logging:
       options:
@@ -44,6 +44,7 @@ services:
       - PIVEAU_FEATURE_FLAGS=${PIVEAU_FEATURE_FLAGS}
       - PIVEAU_PROFILE=${PIVEAU_PROFILE}
       - PIVEAU_HUB_SEARCH_API_KEY=${PIVEAU_HUB_SEARCH_API_KEY}
+      - PIVEAU_DCATAP_SCHEMA_CONFIG={"baseUri":"https://opendata.swiss/"}
       - PIVEAU_HUB_SEARCH_CLI_CONFIG={"http":{},"telnet":{}}
       - PIVEAU_HUB_SEARCH_ES_CONFIG=${PIVEAU_HUB_SEARCH_ES_CONFIG}
       - PIVEAU_HUB_SEARCH_GAZETTEER_CONFIG={"url":"http://doesnotmatter.eu"}
