@@ -73,9 +73,10 @@ interface PropTypes {
   title?: string
   facetRefs?: Record<string, Ref<string[]>>
   activeFacets?: SearchResultFacetGroupLocalized[]
+  autoSearch?: boolean
 }
 
-const props = defineProps<PropTypes>()
+const { searchInput, autoSearch } = defineProps<PropTypes>()
 
 const emit = defineEmits({
   'search': (_: string) => true,
@@ -85,12 +86,17 @@ const emit = defineEmits({
 
 const modelValue = computed({
   get: () => {
-    if (Array.isArray(props.searchInput)) {
-      return props.searchInput[0] || ''
+    if (Array.isArray(searchInput)) {
+      return searchInput[0] || ''
     }
-    return props.searchInput || ''
+    return searchInput || ''
   },
-  set: (value: string) => emit('update:searchInput', value),
+  set: (value: string) => {
+    emit('update:searchInput', value)
+    if (autoSearch) {
+      onSearch()
+    }
+  },
 })
 
 const _inputElement = ref<HTMLInputElement | null>(null)
