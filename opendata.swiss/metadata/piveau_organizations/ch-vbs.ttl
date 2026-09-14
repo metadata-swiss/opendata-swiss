@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-vbs> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,27 @@
         "Le DDPS est chargé d'élaborer la politique de sécurité de la Suisse. La promotion du sport et la géoinformation font aussi partie du mandat du DDPS."@fr,
         "Il DDPS è incaricato di elaborare la politica di sicurezza della Svizzera. Fanno parte del mandato del DDPS anche la promozione dello sport e la geoinformazione."@it ;
     dcterms:identifier "CH_VBS" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE132071565" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "VBS"@de,
         "VBS"@en,
         "DDPS"@fr,
         "DDPS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "3013, Bern, BE, BE"@de,
+                "3013, Bern, BE, BE"@en,
+                "3013, Bern, BE, BE"@fr,
+                "3013, Bern, BE, BE"@it ;
+            vcard:hasEmail <mailto:postmaster-vbs@gs-vbs.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-armasuisse>,
+        <https://opendata.swiss/id/organization/ch-babs>,
+        <https://opendata.swiss/id/organization/ch-bacs>,
+        <https://opendata.swiss/id/organization/ch-baspo>,
+        <https://opendata.swiss/id/organization/ch-gs-vbs>,
+        <https://opendata.swiss/id/organization/ch-swisstopo>,
+        <https://opendata.swiss/id/organization/ch-vtg> ;
     foaf:homepage <http://www.vbs.admin.ch> ;
     foaf:name "Eidgenössisches Departement für Verteidigung, Bevölkerungsschutz und Sport (VBS)"@de,
         "Federals Departement für Verteidigung, Bevölkerungsschutz und Sport (VBS)"@en,

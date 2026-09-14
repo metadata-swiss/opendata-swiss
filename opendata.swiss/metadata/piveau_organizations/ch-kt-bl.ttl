@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-bl> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_BL" ;
+    dcterms:spatial "BL" ;
+    schema1:identifier "CHE114809333" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/Logo_BL.png> ;
     skos:prefLabel "BL"@de,
         "BL"@en,
         "BL"@fr,
         "BL"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rheinstrasse 42, 4410 Liestal, BL"@de,
+                "Rheinstrasse 42, 4410 Liestal, BL"@en,
+                "Rheinstrasse 42, 4410 Liestal, BL"@fr,
+                "Rheinstrasse 42, 4410 Liestal, BL"@it ;
+            vcard:hasEmail <mailto:daten@bl.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     foaf:homepage <https://www.baselland.ch> ;
     foaf:name "Kanton Basel-Landschaft"@de,

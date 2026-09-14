@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-gr-alg-geo> a org:Organization,
         foaf:Organization ;
@@ -10,6 +12,8 @@
     skos:prefLabel "Geoinformation Kanton Graubünden"@de,
         "Geoinformation Canton Grisons"@fr,
         "Geoinformazione Canton Grigioni"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@alg.gr.ch> ] ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-gr> ;
     foaf:homepage <https://map.geo.gr.ch> ;
     foaf:name "Geoinformation Kanton Graubünden"@de,

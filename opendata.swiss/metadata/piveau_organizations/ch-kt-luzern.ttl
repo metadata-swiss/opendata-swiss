@@ -1,16 +1,34 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-luzern> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_LUZERN" ;
+    dcterms:spatial "LU" ;
+    schema1:identifier "CHE114965111" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/luzern_logo.png> ;
     skos:prefLabel "LU"@de,
         "LU"@en,
         "LU"@fr,
         "LU"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "LU"@de,
+                "LU"@en,
+                "LU"@fr,
+                "LU"@it ;
+            vcard:hasEmail <mailto:info@lu.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-luzern-bkd>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-buwd>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-fd>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-gsd>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-jsd>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-staatskanzlei> ;
     foaf:homepage <https://www.lu.ch> ;
     foaf:name "Kanton Luzern"@de,
         "Canton Luzern"@en,

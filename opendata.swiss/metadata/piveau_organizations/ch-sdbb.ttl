@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-sdbb> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das SDBB ist eine Institution der Schweizerischen Konferenz der kantonalen Erziehungsdirektoren EDK. Es erbringt für die Kantone und Verbundpartner Dienstleistungen in der Berufsbildung und der Berufs-, Studien- und Laufbahnberatung."@de ;
     dcterms:identifier "CH_SDBB" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE113583698" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sdbb.png> ;
     skos:prefLabel "SDBB"@de,
         "CSFO"@fr,
         "CSFO"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress " Belpstrasse 37, Bern, BE, BE"@de,
+                " Belpstrasse 37, Bern, BE, BE"@en,
+                " Belpstrasse 37, Bern, BE, BE"@fr,
+                " Belpstrasse 37, Bern, BE, BE"@it ;
+            vcard:hasEmail <mailto:info@sdbb.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0109> ;
     foaf:homepage <https://www.sdbb.ch> ;
     foaf:name "Schweizerisches Dienstleistungszentrum Berufsbildung / Berufs-, Studien- und Laufbahnberatung (SDBB)"@de,

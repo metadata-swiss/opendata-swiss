@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bag> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,23 @@
         "L’OFSP s’engage pour la santé de la population. Responsable de la politique nationale en matière de santé publique ainsi que de l’assurance maladie et accidents, il œuvre également au niveau international en faveur des questions de santé."@fr,
         "L’UFSP si impegna per la salute della popolazione. È competente per la politica nazionale della sanità nonché per l’assicurazione malattie e infortuni. Inoltre si prodiga anche a livello internazionale per temi riguardanti la salute."@it ;
     dcterms:identifier "CH_BAG" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE467023568" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAG"@de,
         "FOPH"@en,
         "OFSP"@fr,
         "UFSP"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schwarzenburgstrasse 157, 3097, Liebefeld, BE"@de,
+                "Schwarzenburgstrasse 157, 3097, Liebefeld, BE"@en,
+                "Schwarzenburgstrasse 157, 3097, Liebefeld, BE"@fr,
+                "Schwarzenburgstrasse 157, 3097, Liebefeld, BE"@it ;
+            vcard:hasEmail <mailto:info@bag.admin.ch> ;
+            vcard:hasTelephone "+41 58 4646700" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/abteilung-uebertragbare-krankheiten>,
+        <https://opendata.swiss/id/organization/ch-bag-dku> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.bag.admin.ch> ;
     foaf:name "Bundesamt für Gesundheit (BAG)"@de,

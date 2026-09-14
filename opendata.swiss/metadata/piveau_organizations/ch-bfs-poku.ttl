@@ -1,15 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bfs-poku> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BFS_POKU" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE131608474" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "POKU (BFS)"@de,
         "POKU (FSO)"@en,
         "POKU (OFS)"@fr,
         "POKU (UST)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Espace de l'Europe 10, 2010, Neuchâtel, NE"@de,
+                "Espace de l'Europe 10, 2010, Neuchâtel, NE"@en,
+                "Espace de l'Europe 10, 2010, Neuchâtel, NE"@fr,
+                "Espace de l'Europe 10, 2010, Neuchâtel, NE"@it ;
+            vcard:hasEmail <mailto:poku@bfs.admin.ch> ;
+            vcard:hasTelephone "+41 58 463 61 58" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch1> ;
     foaf:name "Sektion Politik, Kultur, Medien (POKU) des Bundesamts für Statistik (BFS)"@de,

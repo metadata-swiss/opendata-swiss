@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-armasuisse> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_ARMASUISSE" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE115257146" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "armasuisse"@de,
         "armasuisse"@en,
         "armasuisse"@fr,
         "armasuisse"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Guisanplatz 1, 3014 Bern, BE"@de,
+                "Guisanplatz 1, 3014 Bern, BE"@en,
+                "Guisanplatz 1, 3014 Bern, BE"@fr,
+                "Guisanplatz 1, 3014 Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@armasuisse.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-vbs> ;
     foaf:homepage <https://armasuisse.ch> ;

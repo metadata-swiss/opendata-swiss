@@ -1,15 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-ekz> a org:Organization,
         foaf:Organization ;
     dcterms:description "EKZ ist einer der grössten Energiedienstleister der Schweiz und versorgt rund eine Million Menschen mit Strom. Zu den Kunden von EKZ zählen Private, Unternehmen und andere Schweizer Energieversorger. EKZ versorgt von den 162 Gemeinden im Kanton Zürich 125 direkt, 35 über andere Endverteiler. Die Stadt Zürich und Winterthur versorgen sich komplett selbst."@de ;
     dcterms:identifier "CH_KT_ZH_EKZ" ;
+    dcterms:spatial "ZH" ;
+    schema1:identifier "CHE108954688" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ekz.png> ;
     skos:prefLabel "EKZ"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Dreikönigstrasse 18, 8002, Zürich, ZH"@de,
+                "Dreikönigstrasse 18, 8002, Zürich, ZH"@en,
+                "Dreikönigstrasse 18, 8002, Zürich, ZH"@fr,
+                "Dreikönigstrasse 18, 8002, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@ekz.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0117> ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh> ;
     foaf:homepage <https://www.ekz.ch> ;
     foaf:name "Elektrizitätswerke des Kantons Zürich (EKZ)"@de .
 

@@ -1,17 +1,31 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-koeniz> a org:Organization,
         foaf:Organization ;
     dcterms:description "Die Gemeinde Köniz ist mit 43'000 Einwohner die viertgrösste Gemeinde im Kanton Bern. Zurzeit stellt die Gemeinde nur Geodaten auf opendata.swiss zur Verfügung. Die Geodaten der Gemeinde Köniz welchen den Prinzipien der Open Government Data Strategie entsprechen, werden vom Dienstzweig Geomatik Schritt für Schritt auf opendata.swiss zur Verfügung gestellt."@de ;
     dcterms:identifier "CH_GDE_KOENIZ" ;
+    dcterms:spatial "Köniz" ;
+    schema1:identifier "CHE114891300" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_k%C3%B6niz.jpg> ;
     skos:prefLabel "Gemeinde Köniz"@de,
         "Gemeinde Köniz"@en,
         "Commune de Köniz"@fr,
         "Comune di Köniz"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Köniz, BE, Köniz, BE"@de,
+                "Köniz, BE, Köniz, BE"@en,
+                "Köniz, BE, Köniz, BE"@fr,
+                "Köniz, BE, Köniz, BE"@it ;
+            vcard:hasEmail <mailto:info@koeniz.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0223> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-gde-koeniz-geomatik>,
+        <https://opendata.swiss/id/organization/che-107-148-124> ;
     foaf:homepage <https://www.koeniz.ch> ;
     foaf:name "Gemeinde Köniz"@de,
         "Gemeinde Köniz"@en,

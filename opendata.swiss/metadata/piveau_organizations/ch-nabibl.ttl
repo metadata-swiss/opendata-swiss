@@ -1,15 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-nabibl> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_NABIBL" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE363192993" ;
     skos:prefLabel "NB"@de,
         "NL"@en,
         "BN"@fr,
         "BN"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Hallwylstrasse 15, 3005 Bern, BE"@de,
+                "Hallwylstrasse 15, 3005 Bern, BE"@en,
+                "Hallwylstrasse 15, 3005 Bern, BE"@fr,
+                "Hallwylstrasse 15, 3005 Bern, BE"@it,
+                "Hallwylstrasse 15, 3005 Bern, BE"@rm ;
+            vcard:hasEmail <mailto:info@nb.admin.ch> ;
+            vcard:hasTelephone " +41 58 462 89 35" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-bak> ;
     foaf:name "Schweizerische Nationalbibliothek (NB)"@de,

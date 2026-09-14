@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-vbs-v-dma> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,14 @@
         "Sis à Berne, le Centre des médias numériques de l’armée MNA est le centre de compétences pour les produits et services dans les domaines de la formation et de la communication."@fr,
         "Il Centro dei media digitali dell’esercito MDE, con sede a Berna, è il centro di competenza per i prodotti e le prestazioni nei settori dell'istruzione e della comunicazione."@it ;
     dcterms:identifier "CH_VBS_V_DMA" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "Zentrum digitale Medien der Armee DMA"@de,
         "Armed Forces Digital Media Centre AFDM"@en,
         "Centre des médias numériques de l’armée MNA"@fr,
         "Centro dei media digitali dell’esercito MDE"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:dma-info.lba@vtg.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-vtg> ;
     foaf:homepage <https://www.vtg.admin.ch/de/service/zem.html> ;

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-ejpd-isc> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Le CSI-DFJP développe, intègre et exploite des applications spécialisées conçues spécifiquement pour répondre aux besoins de ses clients, principalement des unités administratives, et qui soutiennent ceux-ci dans l’accomplissement de leurs tâches essentielles."@fr,
         "l Servizio Servizio Sorveglianza della corrispondenza postale e del traffico delle telecomunicazioni (SCPT) è un servizio indipendente preposto alla sorveglianza della corrispondenza postale e del traffico delle telecomunicazioni in Svizzera. Sul piano amministrativo, il Servizio SCPT è aggregato al Centro servizi informatici del Dipartimento federale di giustizia e polizia."@it ;
     dcterms:identifier "CH_EJPD_ISC" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE450220178" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ISC-EJPD"@de,
         "CSI_DFJP"@fr,
         "CSI-DFGP"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eichenweg 3, 3052, Zollikofen, BE"@de,
+                "Eichenweg 3, 3052, Zollikofen, BE"@en,
+                "Eichenweg 3, 3052, Zollikofen, BE"@fr,
+                "Eichenweg 3, 3052, Zollikofen, BE"@it ;
+            vcard:hasEmail <mailto:info@isc-ejpd.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-uepf> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-ejpd> ;
     foaf:homepage <https://www.isc-ejpd.admin.ch> ;
     foaf:name "Informatik Service Center ISC-EJPD"@de,

@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-sphn> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_SPHN" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "Swiss Personalized Health Network"@de,
         "Swiss Personalized Health Network"@en,
         "Swiss Personalized Health Network"@fr,

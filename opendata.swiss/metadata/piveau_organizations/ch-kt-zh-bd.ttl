@@ -1,15 +1,30 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-bd> a org:Organization,
         foaf:Organization ;
     dcterms:description "Wir planen, bauen, bewirtschaften und erhalten – diese vier Grundtätigkeiten sind auf ein gemeinsames Ziel ausgerichtet: einen nachhaltig attraktiven Kanton Zürich zu schaffen!"@de ;
     dcterms:identifier "CH_KT_ZH_BD" ;
+    dcterms:spatial "ZH" ;
+    schema1:identifier "CHE472482999" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
     skos:prefLabel "Baudirektion (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "ZH, 8001, Zürich, ZH"@de,
+                "ZH, 8001, Zürich, ZH"@en,
+                "ZH, 8001, Zürich, ZH"@fr,
+                "ZH, 8001, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@bd.zh.ch> ;
+            vcard:hasTelephone " +41 43 259 28 00" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-zh-bd-are>,
+        <https://opendata.swiss/id/organization/ch-kt-zh-bd-ima>,
+        <https://opendata.swiss/id/organization/ch-kt-zh-bd-tiefbau> ;
     foaf:homepage <https://www.zh.ch/bd> ;
     foaf:name "Baudirektion (ZH)"@de .
 

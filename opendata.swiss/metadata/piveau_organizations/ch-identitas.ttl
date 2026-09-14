@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-identitas> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_IDENTITAS" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "IDENTITAS AG"@de,
         "IDENTITAS"@en,
         "IDENTITAS SA"@fr,

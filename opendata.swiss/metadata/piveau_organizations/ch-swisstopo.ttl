@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-swisstopo> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_SWISSTOPO" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE208913684" ;
     skos:prefLabel "swisstopo"@de,
         "swisstopo"@en,
         "swisstopo"@fr,
         "swisstopo"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Seftigenstrasse 264, 3084 Wabern, BE"@de,
+                "Seftigenstrasse 264, 3084 Wabern, BE"@en,
+                "Seftigenstrasse 264, 3084 Wabern, BE"@fr,
+                "Seftigenstrasse 264, 3084 Wabern, BE"@it,
+                "Seftigenstrasse 264, 3084 Wabern, BE"@rm ;
+            vcard:hasEmail <mailto:info@swisstopo.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-vbs> ;
     foaf:homepage <https://www.swisstopo.ch> ;

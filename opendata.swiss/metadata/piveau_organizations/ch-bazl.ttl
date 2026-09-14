@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bazl> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "La Suisse joue les premiers rôles dans l'aviation civile internationale, notamment dans la recherche et le développement de technologies de pointe. L'aviation est essentielle pour la compétitivité de la place économique suisse et la desserte internationale de la Suisse."@fr,
         "La Svizzera ricopre un ruolo di primo piano a livello internazionale nella ricerca e nello sviluppo di tecnologie innovative per l’aviazione civile. L’aviazione è indispensabile per la competitività della piazza economica svizzera e per il collegamento del Paese con il resto del mondo."@it ;
     dcterms:identifier "CH_BAZL" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE188858471" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAZL"@de,
         "FOCA"@en,
         "OFAC"@fr,
         "UFAC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Papiermühlestrasse 172, 3063, Ittigen, BE"@de,
+                "Papiermühlestrasse 172, 3063, Ittigen, BE"@en,
+                "Papiermühlestrasse 172, 3063, Ittigen, BE"@fr,
+                "Papiermühlestrasse 172, 3063, Ittigen, BE"@it ;
+            vcard:hasEmail <mailto:info@bazl.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://bazl.admin.ch> ;

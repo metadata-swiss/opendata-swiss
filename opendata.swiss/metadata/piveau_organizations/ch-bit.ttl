@@ -1,16 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bit> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BIT" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE221032573" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BIT"@de,
         "FOITT"@en,
         "OFIT"@fr,
         "UFIT"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eichenweg 3, 3052 Zollikofen, BE"@de,
+                "Eichenweg 3, 3052 Zollikofen, BE"@en,
+                "Eichenweg 3, 3052 Zollikofen, BE"@fr,
+                "Eichenweg 3, 3052 Zollikofen, BE"@it ;
+            vcard:hasEmail <mailto:info@bit.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-bit-sap> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efd> ;
     foaf:name "Bundesamt für Informatik und Telekommunikation (BIT)"@de,
         "Federal Office of Information Technology, Systems and Telecommunication (FOITT)"@en,

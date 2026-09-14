@@ -1,14 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-health-hug> a org:Organization,
         foaf:Organization ;
     dcterms:description "Services médicaux, chirurgie, consultation ambulatoire, informations pour les patients et les professionnels de santé, toute l’actualité des soins et de la formation."@fr ;
     dcterms:identifier "CH_HEALTH_HUG" ;
+    dcterms:spatial "GE" ;
+    schema1:identifier "CHE108907884" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_hug.png> ;
     skos:prefLabel "HUG (GE)"@de,
         "HUG (GE)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "rue Gabrielle-Perret-Gentil 4, 1205, Genève, GE"@de,
+                "rue Gabrielle-Perret-Gentil 4, 1205, Genève, GE"@en,
+                "rue Gabrielle-Perret-Gentil 4, 1205, Genève, GE"@fr,
+                "rue Gabrielle-Perret-Gentil 4, 1205, Genève, GE"@it ;
+            vcard:hasEmail <mailto:info@hug.ch> ;
+            vcard:hasTelephone "+41 22 372 33 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     foaf:homepage <https://www.hug.ch> ;
     foaf:name "Universitätsspital Genf (HUG)"@de,

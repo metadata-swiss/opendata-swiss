@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-snf> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Le Fonds national suisse (FNS) soutient la recherche de haut niveau dans les hautes écoles et d’autres institutions – de la chimie à la sociologie en passant par la médecine. Des milliers d’équipes créent des connaissances pour un avenir meilleur. Avec nos partenaires, nous façonnons la place scientifique suisse."@fr,
         "Il Fondo nazionale svizzero per la ricerca scientifica (FNS) promuove la ricerca d’eccellenza presso le scuole universitarie e altre istituzioni: dalla chimica alla sociologia passando per la medicina. Sono migliaia i gruppi di ricerca impegnati nel creare il sapere necessario per garantire un futuro migliore all’umanità. Con i nostri partner istituzionali forgiamo la ricerca svizzera."@it ;
     dcterms:identifier "CH_SNF" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE107810911" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/snf_logo.PNG> ;
     skos:prefLabel "SNF"@de,
         "SNSF"@en,
         "FNS"@fr,
         "FNS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Wildhainweg 3, 3012, Bern, BE"@de,
+                "Wildhainweg 3, 3012, Bern, BE"@en,
+                "Wildhainweg 3, 3012, Bern, BE"@fr,
+                "Wildhainweg 3, 3012, Bern, BE"@it ;
+            vcard:hasEmail <mailto:desk@snf.ch> ;
+            vcard:hasTelephone "+41 31 308 22 22" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0110> ;
     foaf:homepage <https://www.snf.ch> ;
     foaf:name "Schweizerischer Nationalfonds zur Förderung der wissenschaftlichen Forschung (SNF)"@de,

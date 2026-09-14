@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-eda> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,22 @@
         "Le DFAE sauvegarde les intérêts de la Suisse en matière de politique extérieure. Il entretient des relations avec d’autres États et des organisations internationales telles que l’UE et l’ONU. Il propose des prestations aux citoyennes et citoyens suisses à l’étranger. La coopération au développement et l’aide humanitaire entrent également dans son champ d’activités. La Suisse est présente dans le monde entier grâce à un réseau comptant quelque 170 représentations."@fr,
         "Il DFAE tutela gli interessi della Svizzera in materia di politica estera. Cura le relazioni con altri Stati e con organizzazioni internazionali come l’UE e l’ONU. Offre servizi alle Svizzere e agli Svizzeri che vivono o si trovano all’estero. I suoi compiti comprendono anche la cooperazione allo sviluppo e l’aiuto umanitario. Grazie alle sue circa 170 rappresentanze, la Svizzera è presente in tutto il mondo."@it ;
     dcterms:identifier "CH_EDA" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE335670007" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "EDA"@de,
         "FDFA"@en,
         "DFAE"@fr,
         "DFAE"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress " Bundesgasse 1, 3003 Bern, BE"@de,
+                " Bundesgasse 1, 3003 Bern, BE"@en,
+                " Bundesgasse 1, 3003 Bern, BE"@fr,
+                " Bundesgasse 1, 3003 Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@eda.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 21 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-deza> ;
     foaf:homepage <https://www.eda.admin.ch> ;
     foaf:name "Eidgenössisches Departement für auswärtige Angelegenheiten (EDA)"@de,
         "Federal Department of Foreign Affairs (FDFA)"@en,

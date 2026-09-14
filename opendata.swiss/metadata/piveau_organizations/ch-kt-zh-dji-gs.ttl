@@ -1,12 +1,19 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-dji-gs> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_ZH_DJI_GS" ;
+    dcterms:spatial "ZH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
     skos:prefLabel "Generalsekretariat der Direktion der Justiz und des Innern (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@zh.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh-dji> ;
     foaf:name "Generalsekretariat der Direktion der Justiz und des Innern (ZH)"@de .

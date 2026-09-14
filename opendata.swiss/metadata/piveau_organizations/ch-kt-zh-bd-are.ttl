@@ -1,14 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-bd-are> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Amt für Raumentwicklung ist die kantonale Fachstelle für Raumplanung, Geoinformation und Kulturgütererhaltung. Es trägt zur Förderung der Standortqualität des Lebens- und Wirtschaftsraums Zürich bei."@de ;
     dcterms:identifier "CH_KT_ZH_BD_ARE" ;
+    dcterms:spatial "ZH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
     skos:prefLabel "Raumentwicklung (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Stampfenbachstrasse 12, 8090, Zürich, ZH"@de,
+                "Stampfenbachstrasse 12, 8090, Zürich, ZH"@en,
+                "Stampfenbachstrasse 12, 8090, Zürich, ZH"@fr,
+                "Stampfenbachstrasse 12, 8090, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:are@bd.zh.ch> ;
+            vcard:hasTelephone "+41 43 259 30 22" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-zh-are-geo>,
+        <https://opendata.swiss/id/organization/ch-kt-zh-bd-awel> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh-bd> ;
     foaf:homepage <https://www.zh.ch/de/baudirektion/amt-fuer-raumentwicklung.html> ;
     foaf:name "Amt für Raumentwickung (ZH)"@de .

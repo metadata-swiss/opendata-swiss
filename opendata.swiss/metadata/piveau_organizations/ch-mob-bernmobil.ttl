@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-mob-bernmobil> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Transports publics dans et autour de la ville de Berne"@fr,
         "Trasporto pubblico nella città di Berna e dintorni"@it ;
     dcterms:identifier "CH_MOB_BERNMOBIL" ;
+    dcterms:spatial "Stadt Bern" ;
+    schema1:identifier "CHE116244755" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/bernmobil_logo.jpg> ;
     skos:prefLabel "BERNMOBIL"@de,
         "BERNMOBIL"@en,
         "BERNMOBIL"@fr,
         "BERNMOBIL"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eigerplatz 3, 3007, Bern, BE"@de,
+                "Eigerplatz 3, 3007, Bern, BE"@en,
+                "Eigerplatz 3, 3007, Bern, BE"@fr,
+                "Eigerplatz 3, 3007, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@bernmobil.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://bernmobil.ch> ;
     foaf:name "BERNMOBIL AG"@de,

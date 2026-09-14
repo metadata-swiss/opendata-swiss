@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-luzern-bkd-kultur> a org:Organization,
         foaf:Organization ;
@@ -12,6 +14,8 @@
     skos:prefLabel "Dienststelle Kultur (LU)"@de,
         "Department of Culture (LU)"@en,
         "Office de la culture (LU)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@lu.ch> ] ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-luzern-bkd> ;
     foaf:homepage <https://www.lu.ch/verwaltung/BKD/bkd_dienststellen/bkd_kultur> ;
     foaf:name "Dienststelle Kultur (LU)"@de,

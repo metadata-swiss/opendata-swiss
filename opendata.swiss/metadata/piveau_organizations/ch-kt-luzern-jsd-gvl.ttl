@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-luzern-jsd-gvl> a org:Organization,
         foaf:Organization ;
@@ -9,10 +12,19 @@
         "The Buildings Insurance Lucerne is an independent, nonprofit organization founded in 1810. Organizationally, it operates as an independent agency affiliated with the Cantonal Department of Justice and Security and, in accordance with the Buildings Insurance Act, is committed to protecting the population and all buildings in the canton of Lucerne."@en,
         "L'Assurance des bâtiments de Lucerne est une entreprise indépendante à but non lucratif fondée en 1810. Sur le plan organisationnel, elle est rattachée au Département cantonal de la justice et de la sécurité en tant qu'établissement autonome et s'engage, en vertu de la loi sur l'assurance des bâtiments, à protéger la population et l'ensemble des bâtiments du canton de Lucerne."@fr ;
     dcterms:identifier "CH_KT_LUZERN_JSD_GVL" ;
+    dcterms:spatial "LU" ;
+    schema1:identifier "CHE108954174" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/luzern_logo.png> ;
     skos:prefLabel "Gebäudeversicherung (LU)"@de,
         "Buildings Insurance (LU)"@en,
         "Assurance des bâtiments (LU)"@fr,
         "Gebäudeversicherung (LU)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Hirschengraben 19, 6002, Luzern, LU"@de,
+                "Hirschengraben 19, 6002, Luzern, LU"@en,
+                "Hirschengraben 19, 6002, Luzern, LU"@fr,
+                "Hirschengraben 19, 6002, Luzern, LU"@it ;
+            vcard:hasEmail <mailto:kundendienst@gvl.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0117> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-luzern-jsd> ;
     foaf:homepage <https://www.gvl.ch> ;

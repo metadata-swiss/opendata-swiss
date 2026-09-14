@@ -1,15 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-ulag> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_ULAG" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE114152355" ;
     skos:prefLabel "Uli Lippuner AG"@de,
         "Uli Lippuner AG"@en,
         "Uli Lippuner AG"@fr,
         "Uli Lippuner AG"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Ragazerstrasse 29, 7320 Sargans, SG"@de,
+                "Ragazerstrasse 29, 7320 Sargans, SG"@en,
+                "Ragazerstrasse 29, 7320 Sargans, SG"@fr,
+                "Ragazerstrasse 29, 7320 Sargans, SG"@it ;
+            vcard:hasEmail <mailto:info@ulippuner.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0106> ;
     foaf:homepage <https://www.ulippuner.ch> ;
     foaf:name "Uli Lippuner AG"@de,

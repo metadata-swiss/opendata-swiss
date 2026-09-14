@@ -1,15 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-sg-bau-areg> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Amt für Raumentwicklung und Geoinformation des Kantons St.Gallen (AREG) ist verantwortlich für die Raumentwicklungspolitik, die amtliche Vermessung und die Bereitstellung von Geoinformationen. Die Abteilung Geoinformation erbringt als Kompetenzzentrum  digitale Leistungen für die gemeinsame Geodateninfrastruktur des Kantons St.Gallen und der St.Galler Gemeinden und stellt Geodaten für Nutzer ausserhalb der Kantonsverwaltung zur Verfügung."@de,
         "L'Office d'aménagement du territoire et d'information géographique (AREG) du canton de Saint-Gall est responsable de la politique d'aménagement du territoire, de la mensuration officielle et de la mise à disposition d'informations géographiques. En tant que centre de compétence, le département de géoinformation offre des services numériques pour l'infrastructure de géodonnées et propose des géodonnées aux utilisateurs des secteurs public et privé et des particuliers."@fr ;
     dcterms:identifier "CH_KT_SG_BAU_AREG" ;
+    dcterms:spatial "SG" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sg.jpg> ;
     skos:prefLabel "AREG (SG)"@de,
         "AREG (SG)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "SG, SG"@de,
+                "SG, SG"@en,
+                "SG, SG"@fr,
+                "SG, SG"@it ;
+            vcard:hasEmail <mailto:info.budareg@sg.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-sg-bau> ;
     foaf:homepage <https://www.sg.ch/bauen/raumentwicklung.html> ;

@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/fl-geo> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Amt für Tiefbau und Geoinformation ist zuständig für den Bau,  Betrieb und Unterhalt der Landstrassen, die Koordination der Geodateninfrastrukur, die Amtliche Vermessung und den ÖREB-Kataster."@de,
         "The Civil Engineering and Geoinformation Office is responsible for the construction,  operation and maintenance of main roads, the coordination of geodata infrastructure, official surveying and the catastre of Public Law Restrictions on Landownership (PLR-cadastre)."@en ;
     dcterms:identifier "FL_GEO" ;
+    dcterms:spatial "FL" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_liechtenstein.jpg> ;
     skos:prefLabel "Amt für Tiefbau und Geoinformation (FL)"@de,
         "Civil Engineering and Geoinformation Office (FL)"@en ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Giessenstrasse 3, 9490 , Vaduz, FL"@de,
+                "Giessenstrasse 3, 9490 , Vaduz, FL"@en,
+                "Giessenstrasse 3, 9490 , Vaduz, FL"@fr,
+                "Giessenstrasse 3, 9490 , Vaduz, FL"@it ;
+            vcard:hasEmail <mailto:info.atg@llv.li> ;
+            vcard:hasTelephone "+423 236 71 09" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0328> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/fl> ;
     foaf:homepage <https://www.llv.li/de/landesverwaltung/amt-fuer-tiefbau-und-geoinformation> ;

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-snm> a org:Organization,
         foaf:Organization ;
@@ -11,10 +14,20 @@
         "Il Museo nazionale svizzero (MNS) riunisce sotto lo stesso tetto tre musei nonché il Centro delle collezioni di Affoltern am Albis. Con le loro mostre i musei presentano la storia della Svizzera dagli inizi ad oggi e valorizzano l’identità svizzera e la varietà storica e culturale del nostro Paese. Le mostre temporanee su temi attuali offrono ulteriori impressioni."@it,
         "Sut il tetg dal Museum naziunal svizzer èn unids trais museums sco er il Center da collecziuns ad Affoltern am Albis. Ils museums preschentan l’istorgia svizra dal cumenzament fin oz e rendan accessiblas er cun exposiziuns temporaras davart temas actuals las identitads svizras e la diversitad da l’istorgia e da la cultura da noss pajais."@rm ;
     dcterms:identifier "CH_SNM" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE115401147" ;
     skos:prefLabel "SNM"@de,
         "SNM"@en,
         "MNS"@fr,
         "MNS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Museumstrasse 2, 8021 Zürich, ZH"@de,
+                "Museumstrasse 2, 8021 Zürich, ZH"@en,
+                "Museumstrasse 2, 8021 Zürich, ZH"@fr,
+                "Museumstrasse 2, 8021 Zürich, ZH"@it,
+                "Museumstrasse 2, 8021 Zürich, ZH"@rm ;
+            vcard:hasEmail <mailto:info@nationalmuseum.ch> ;
+            vcard:hasTelephone "+41 44 218 65 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0117> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.nationalmuseum.ch> ;

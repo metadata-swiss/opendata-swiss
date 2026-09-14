@@ -1,18 +1,39 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-seco> a org:Organization,
         foaf:Organization ;
+    dcterms:description "Das SECO ist das Kompetenzzentrum des Bundes für zentrale Fragen der Wirtschaftspolitik. Es setzt sich für nachhaltiges Wachstum, hohe Beschäftigung und faire Arbeitsbedingungen ein."@de,
+        "SECO is the federal government's centre of expertise for core economic policy issues. We work to ensure sustainable economic growth, high employment and fair working conditions."@en,
+        "Le SECO est le centre de compétence de la Confédération pour les questions de politique économique. Son but est d’assurer une croissance économique durable, un niveau d’emploi élevé et des conditions de travail équitables."@fr,
+        "La SECO è il centro di competenza della Confederazione per tutte le questioni fondamentali riguardanti la politica economica. Mira a uno sviluppo economico sostenibile, un’occupazione elevata e condizioni di lavoro eque."@it ;
     dcterms:identifier "CH_SECO" ;
-    skos:prefLabel "Staatssekretariat für Wirtschaft SECO"@de,
-        "State Secretariat for Economic Affairs SECO"@en,
-        "Secrétariat d'État à l'économie SECO"@fr,
-        "Segreteria di Stato dell'economia SECO"@it ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE392445860" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
+    skos:prefLabel "Staatssekretariat für Wirtschaft (SECO)"@de,
+        "SECO"@en,
+        "SECO"@fr,
+        "SECO"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Holzikofenweg 36, 3007, Bern, BE"@de,
+                "Holzikofenweg 36, 3007, Bern, BE"@en,
+                "Holzikofenweg 36, 3007, Bern, BE"@fr,
+                "Holzikofenweg 36, 3007, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@seco.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 56 56" ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-wbf> ;
-    foaf:name "Staatssekretariat für Wirtschaft SECO"@de,
-        "State Secretariat for Economic Affairs SECO"@en,
-        "Secrétariat d'État à l'économie SECO"@fr,
-        "Segreteria di Stato dell'economia SECO"@it .
+    foaf:homepage <https://seco.admin.ch> ;
+    foaf:name "Staatssekretariat für Wirtschaft (SECO)"@de,
+        "State Secretariat for Economic Affairs (SECO)"@en,
+        "Secrétariat d'État à l'économie (SECO)"@fr,
+        "Segreteria di Stato dell'economia (SECO)"@it .
+
+<https://seco.admin.ch> a foaf:Document .
 

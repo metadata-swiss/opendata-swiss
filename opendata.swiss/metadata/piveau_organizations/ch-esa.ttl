@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-esa> a org:Organization,
         foaf:Organization ;
@@ -9,9 +12,19 @@
         "La forme juridique de la fondation ne connaît ni propriétaires ni membres. En instituant la surveillance des fondations, le législateur a créé une instance de contrôle qui pallie l’absence de propriétaires veillant à leurs intérêts et exerçant un contrôle. L’ASF surveille environ 5'500 fondations. Au total, la Suisse compte actuellement environ 14'000 fondations classiques.L’Autorité fédérale de surveillance des fondations ASF a pour tâche de veiller à ce que les fondations qui lui sont assujetties utilisent leur fortune conformément au but défini dans leurs statuts. L’ASF est l’autorité de surveillance des fondations classiques œuvrant à l’échelle nationale et/ou internationale qui ont leur siège en Suisse."@fr,
         "La forma giuridica della fondazione non prevede né proprietari né membri. Con l’Autorità di vigilanza sulle fondazioni AVF, il legislatore ha istituito nel 1912 un organo correttivo e di controllo per ovviare all’assenza di proprietari che vigilano sui propri interessi ed esercitano il controllo. Sono assoggettate all’AVF circa 5500 fondazioni. Attualmente all’incirca 14 000 fondazioni di tipo «classico» hanno sede in Svizzera.L’AVF provvede affinché le fondazioni che le sono assoggettate impieghino i loro beni conformemente agli scopi previsti dai loro statuti. L’AVF esercita la vigilanza sulle fondazioni di tipo «classico» con sede in Svizzera attive a livello nazionale e/o internazionale."@it ;
     dcterms:identifier "CH_ESA" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE172855774" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ESA"@de,
         "SFF"@fr,
         "VFF"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Inselgasse 1, 3011, Bern, BE"@de,
+                "Inselgasse 1, 3011, Bern, BE"@en,
+                "Inselgasse 1, 3011, Bern, BE"@fr,
+                "Inselgasse 1, 3011, Bern, BE"@it ;
+            vcard:hasEmail <mailto:stiftungsaufsicht@gs-edi.admin.ch> ;
+            vcard:hasTelephone "+41 58 469 00 00" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-gs-edi> ;
     foaf:homepage <https://www.esa.admin.ch> ;

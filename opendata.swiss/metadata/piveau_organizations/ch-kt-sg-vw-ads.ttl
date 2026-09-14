@@ -1,14 +1,18 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-sg-vw-ads> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Amt für Daten und Statistik (ehemals Fachstelle für Statistik) ist eine Institution der öffentlichen Statistik. Neben ihrer eigenen statistischen Tätigkeit führt und koordiniert sie die Statistikaktivitäten der kantonalen Verwaltung und der öffentlich-rechtlichen Anstalten des Kantons."@de ;
     dcterms:identifier "CH_KT_SG_VW_ADS" ;
     skos:prefLabel "Amt für Daten und Statistik (SG)"@de ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-sg-vw> ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:statistik@sg.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://statistik.sg.ch> ;
     foaf:name "Amt für Daten und Statistik (SG)"@de .
 

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bit-sap> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "L’OFIT est le plus important fournisseur de prestations informatiques de l’administration fédérale. Il met à disposition plus de 50 000 systèmes de postes de travail, développe des solutions informatiques sur mesure, sûres et conviviales en collaboration avec les unités administratives et exploite plus de 1000 applications spécialisées, principalement dans ses centres de calcul ultramodernes."@fr,
         "L’UFIT è il maggiore fornitore di prestazioni informatiche della Confederazione. Mette a disposizione circa 50 000 postazioni di lavoro, insieme alle unità amministrative sviluppa soluzioni informatiche su misura, sicure e intuitive. Gestisce inoltre la maggior parte delle oltre 1000 applicazioni specialistiche nei propri centri di calcolo moderni."@it ;
     dcterms:identifier "CH_BIT_SAP" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE221032573" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BIT (SAP)"@de,
         "FOITT (SAP)"@en,
         "OFIT (SAP)"@fr,
         "UFIT (SAP)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eichenweg 3, 3052 Zollikofen, BE"@de,
+                "Eichenweg 3, 3052 Zollikofen, BE"@en,
+                "Eichenweg 3, 3052 Zollikofen, BE"@fr,
+                "Eichenweg 3, 3052 Zollikofen, BE"@it ;
+            vcard:hasEmail <mailto:info@bit.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-bit> ;
     foaf:homepage <https://bit.admin.ch> ;

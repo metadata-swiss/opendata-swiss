@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bazg> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "L'Office fédéral de la douane et de la sécurité des frontières (OFDF) assure la sécurité globale à la frontière au profit de la population, de l'économie et de l'État. Il collabore étroitement avec d'autres autorités nationales et internationales. Parmi ses tâches principales figurent le dédouanement adéquat et rapide des marchandises de commerce, la gestion fluide du trafic touristique ainsi que les domaines de la police de sécurité et des migrations. Avec le domaine de direction Poursuites pénales, il dispose de sa propre autorité d'enquête."@fr,
         "L'Ufficio federale della dogana e della sicurezza dei confini (UDSC) garantisce la sicurezza globale al confine a favore di popolazione, economia e Stato ed è ben interconnesso a livello nazionale e internazionale. Tra i suoi compiti principali rientrano la corretta e celere imposizione delle merci commerciabili, la rapida gestione del traffico turistico nonché gli ambiti della migrazione e della polizia di sicurezza. Con il Perseguimento penale l'UDSC dispone di una propria autorità inquirente."@it ;
     dcterms:identifier "CH_BAZG" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE226598037" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAZG"@de,
         "FOCBS"@en,
         "OFDF"@fr,
         "UDSC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Taubenstrasse 16, 3003, Bern, BE"@de,
+                "Taubenstrasse 16, 3003, Bern, BE"@en,
+                "Taubenstrasse 16, 3003, Bern, BE"@fr,
+                "Taubenstrasse 16, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@bazg.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efd> ;
     foaf:homepage <https://www.bazg.admin.ch/> ;

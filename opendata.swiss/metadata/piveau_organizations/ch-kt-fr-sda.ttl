@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-fr-sda> a org:Organization,
         foaf:Organization ;
@@ -10,16 +13,25 @@
         "Le Service de la statistique et de la donnée est le centre de compétence cantonal pour la statistique publique. Il collecte, analyse et diffuse des données statistiques sur la situation et l’évolution du canton, soutient les services de l’État dans la gestion des données et coordonne la diffusion des données administratives en libre accès."@fr,
         "Il Servizio Statistiche e Dati è il centro di competenza cantonale per la statistica pubblica. Raccoglie, analizza e diffonde dati statistici sulla situazione e l'evoluzione del cantone, supporta i servizi statali nella gestione dei dati e coordina la diffusione dei dati amministrativi ad accesso aperto."@it ;
     dcterms:identifier "CH_KT_FR_SDA" ;
-    skos:prefLabel "Amt für Statistik und Daten Freiburg"@de,
-        "Statistics and Data Service Fribourg"@en,
-        "Service de la statistique et de la donnée Fribourg"@fr,
-        "Servizio Statistiche e Dati Friburgo"@it ;
+    dcterms:spatial "FR" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_fr.png> ;
+    skos:prefLabel "Amt für Statistik und Daten (FR)"@de,
+        "Statistics and Data Service (FR)"@en,
+        "Service de la statistique et de la donnée (FR)"@fr,
+        "Servizio Statistiche e Dati (FR)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress " Bd de Pérolles 25 , 1701, Fribourg, FR"@de,
+                " Bd de Pérolles 25 , 1701, Fribourg, FR"@en,
+                " Bd de Pérolles 25 , 1701, Fribourg, FR"@fr,
+                " Bd de Pérolles 25 , 1701, Fribourg, FR"@it ;
+            vcard:hasEmail <mailto:info@fr.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-fr> ;
     foaf:homepage <https://www.fr.ch/de/vwbd/sda> ;
-    foaf:name "Amt für Statistik und Daten Freiburg"@de,
-        "Statistics and Data Service Fribourg"@en,
-        "Service de la statistique et de la donnée Fribourg"@fr,
-        "Servizio Statistiche e Dati Friburgo"@it .
+    foaf:name "Amt für Statistik und Daten (FR)"@de,
+        "Statistics and Data Service (FR)"@en,
+        "Service de la statistique et de la donnée (FR)"@fr,
+        "Servizio Statistiche e Dati (FR)"@it .
 
 <https://www.fr.ch/de/vwbd/sda> a foaf:Document .
 

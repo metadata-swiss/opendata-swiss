@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bak> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,17 @@
         "L’Office fédéral de la culture encourage la création culturelle dans sa diversité et sa qualité et il renforce la participation de la population à la vie culturelle. Il contribue à la préservation et au renforcement de la dimension sociale du patrimoine culturel et s’engage en faveur d’une culture du bâti de qualité et durable. L’Office fédéral de la culture soutient la culture amateur, les traditions vivantes et l’artisanat traditionnel et il promeut le plurilinguisme et la compréhension entre les espaces linguistiques et culturels. Au niveau international, il s’engage en faveur de la protection du patrimoine culturel et de la diversité culturelle. Il est responsable de plusieurs institutions culturelles, dont la Bibliothèque nationale suisse."@fr,
         "L’Ufficio federale della cultura promuove la creazione culturale in tutta la sua diversità e qualità. Si impegna per un’ampia partecipazione della popolazione alla vita culturale. Si adopera per una cultura della costruzione sostenibile e di qualità. Sostiene la cultura amatoriale, le tradizioni viventi e l’artigianato tradizionale. Promuove il plurilinguismo e la comprensione tra le diverse regioni linguistiche e culturali. Si impegna a livello internazionale per la protezione del patrimonio e della diversità culturali. È responsabile per diverse istituzioni culturali, tra cui la Biblioteca nazionale svizzera."@it ;
     dcterms:identifier "CH_BAK" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE133192355" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAK"@de,
         "FOC"@en,
         "OFC"@fr,
         "UFC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@bak.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-nabibl> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.bak.admin.ch/> ;
     foaf:name "Bundesamt für Kultur (BAK)"@de,

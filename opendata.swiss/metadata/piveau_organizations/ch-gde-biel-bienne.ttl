@@ -1,16 +1,30 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-biel-bienne> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_GDE_BIEL-BIENNE" ;
+    dcterms:spatial "BE" ;
+    schema1:identifier "CHE115140886" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_biel-bienne.png> ;
     skos:prefLabel "Stadt Biel"@de,
         "City of Biel"@en,
         "Ville de Bienne"@fr,
         "citta di Bienne"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Mühlebrücke 5, 2502, Biel/Bienne, BE"@de,
+                "Mühlebrücke 5, 2502, Biel/Bienne, BE"@en,
+                "Mühlebrücke 5, 2502, Biel/Bienne, BE"@fr,
+                "Mühlebrücke 5, 2502, Biel/Bienne, BE"@it ;
+            vcard:hasEmail <mailto:info@biel-bienne.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0223> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-gde-biel-bienne-infrastruktur>,
+        <https://opendata.swiss/id/organization/ch-gde-biel-bienne-planung-stadtraum> ;
     foaf:homepage <https://www.biel-bienne.ch> ;
     foaf:name "Stadt Biel/Bienne"@de,
         "City of Biel"@en,

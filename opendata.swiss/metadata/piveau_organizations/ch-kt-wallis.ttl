@@ -1,18 +1,31 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-wallis> a org:Organization,
         foaf:Organization ;
     dcterms:description "Der Kanton Wallis verfolgt seit einigen Jahren eine „Open Data“-Strategie für seine Geodaten. Auf diesem Portal finden Sie die frei herunterladbaren Geodaten der Walliser Kantonsverwaltung."@de,
         "Le canton du Valais s'est engagé dans une démarche d’ouverture des géodonnées publiques depuis plusieurs années. Sur ce portail, vous trouvez certaines géodonnées OpenData provenant de l'administration cantonale valaisanne."@fr ;
     dcterms:identifier "CH_KT_WALLIS" ;
+    dcterms:spatial "VS" ;
+    schema1:identifier "CHE114965335" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logoVS130px.png> ;
     skos:prefLabel "Kanton Wallis"@de,
         "Canton du Valais"@en,
         "Canton du Valais"@fr,
         "Cantone del Vallese"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Place de la Planta 3, 1950, Sion, VS"@de,
+                "Place de la Planta 3, 1950, Sion, VS"@en,
+                "Place de la Planta 3, 1950, Sion, VS"@fr,
+                "Place de la Planta 3, 1950, Sion, VS"@it ;
+            vcard:hasEmail <mailto:info@vs.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-vs-geo> ;
     foaf:homepage <https://www.vs.ch> ;
     foaf:name "Kanton Wallis"@de,
         "Canton du Valais"@en,

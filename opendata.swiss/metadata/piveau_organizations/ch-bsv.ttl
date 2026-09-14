@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bsv> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "L'OFAS veille à ce que le système de sécurité sociale fonctionne bien et qu'il s'adapte aux nouveaux défis et changements de la société. Il coordonne par ailleurs au niveau national les activités dans le domaine de la prévention et de la lutte contre la pauvreté. Il est aussi le centre de compétence de la Confédération pour les questions générales de politique sociale, ainsi que pour les thèmes liés à la famille, à l'enfance, à la jeunesse, à la vieillesse et à la cohabitation entre générations."@fr,
         "L’UFAS provvede al buon funzionamento della rete di sicurezza sociale e al suo costante adeguamento alle nuove sfide e agli sviluppi sociali. Inoltre coordina le attività della Confederazione nei settori della prevenzione e della lotta contro la povertà. È anche il centro di competenza federale per le questioni generali di politica sociale e per i temi concernenti famiglia, infanzia, gioventù, vecchiaia e relazioni intergenerazionali."@it ;
     dcterms:identifier "CH_BSV" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE468593911" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BSV"@de,
         "FSIO"@en,
         "OFAS"@fr,
         "UFAS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Effingerstrasse 20, 3008 Bern, BE"@de,
+                "Effingerstrasse 20, 3008 Bern, BE"@en,
+                "Effingerstrasse 20, 3008 Bern, BE"@fr,
+                "Effingerstrasse 20, 3008 Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@bsv.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 90 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.bsv.admin.ch/> ;

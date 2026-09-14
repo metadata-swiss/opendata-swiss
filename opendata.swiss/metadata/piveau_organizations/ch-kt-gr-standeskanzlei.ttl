@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-gr-standeskanzlei> a org:Organization,
         foaf:Organization ;
@@ -14,6 +16,8 @@
         "State Chancellery of Grisons"@en,
         "Chancellerie d’État des Grisons"@fr,
         "Cancelleria dello Stato dei Grigioni"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@gr.ch> ] ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-gr> ;
     foaf:homepage <https://www.gr.ch/DE/institutionen/verwaltung/staka/Seiten/home.aspx> ;
     foaf:name "Standeskanzlei Graubünden"@de,

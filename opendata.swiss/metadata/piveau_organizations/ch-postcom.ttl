@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-postcom> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Autorité indépendante, la PostCom veille à la qualité du service universel postal et à son financement. Elle observe les développements du marché et s’assure que les dispositions légales applicables sont respectées. Elle exécute les tâches qui lui sont confiées conformément à la législation postale. Lors des procédures, elle examine chaque cas individuellement, conformément à son mandat légal et à la pratique qu’elle a développée.La PostCom informe en outre la population sur ses activités et propose au Conseil fédéral des mesures concrètes en lien avec l’exécution de ses tâches. Sur le plan administratif, elle est rattachée au Département fédéral de l’environnement, des transports, de l’énergie et de la communication (DETEC)."@fr,
         "La PostCom è un’autorità indipendente. Essa sorveglia il mercato postale svizzero e vigila sulla qualità del servizio postale universale. La PostCom adempie ai mandati a essa affidati in conformità a quanto sancito dalla legislazione postale. Nell’ambito delle procedure, verifica ciascun caso individualmente, secondo il proprio mandato legale e sulla base della prassi sviluppata al suo interno.Inoltre, informa la popolazione in merito all’attività svolta e propone al Consiglio federale misure concrete per l’adempimento dei propri mandati. Dal punto di vista amministrativo è subordinata al Dipartimento federale dell’ambiente, dei trasporti, dell’energia e delle comunicazioni (DATEC)."@it ;
     dcterms:identifier "CH_POSTCOM" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "PostCom"@de,
         "PostCom"@en,
         "PostCom"@fr,
         "PostCom"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Monbijoustrasse 51A, 3003, Bern, BE"@de,
+                "Monbijoustrasse 51A, 3003, Bern, BE"@en,
+                "Monbijoustrasse 51A, 3003, Bern, BE"@fr,
+                "Monbijoustrasse 51A, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@postcom.admin.ch> ;
+            vcard:hasTelephone "+41 31 32 25094" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-gs-uvek> ;
     foaf:homepage <https://www.postcom.admin.ch> ;

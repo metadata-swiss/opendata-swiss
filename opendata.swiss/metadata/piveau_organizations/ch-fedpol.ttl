@@ -1,16 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-fedpol> a org:Organization,
         foaf:Organization ;
     dcterms:description "Pagina iniziale fedpol"@it ;
     dcterms:identifier "CH_FEDPOL" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE444796174" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "fedpol"@de,
         "fedpol"@en,
         "fedpol"@fr,
         "fedpol"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Guisanplatz 1A, 3014, Bern, BE"@de,
+                "Guisanplatz 1A, 3014, Bern, BE"@en,
+                "Guisanplatz 1A, 3014, Bern, BE"@fr,
+                "Guisanplatz 1A, 3014, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@fedpol.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-ejpd> ;
     foaf:homepage <https://fedpol.admin.ch> ;

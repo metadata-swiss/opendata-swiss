@@ -1,15 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-agroscope> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_AGROSCOPE" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE116066471" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "Agroscope"@de,
         "Agroscope"@en,
         "Agroscope"@fr,
         "Agroscope"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Reckenholzstrasse 191, 8046, Zürich, ZH"@de,
+                "Reckenholzstrasse 191, 8046, Zürich, ZH"@en,
+                "Reckenholzstrasse 191, 8046, Zürich, ZH"@fr,
+                "Reckenholzstrasse 191, 8046, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@agroscope.admin.ch> ;
+            vcard:hasTelephone "+41 58 463 84 18" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-blw> ;
     foaf:homepage <https://www.agroscope.admin.ch> ;

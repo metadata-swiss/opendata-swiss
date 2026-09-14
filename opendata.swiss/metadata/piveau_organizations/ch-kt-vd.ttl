@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-vd> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_VD" ;
+    dcterms:spatial "VD" ;
+    schema1:identifier "CHE114965329" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_vd.png> ;
     skos:prefLabel "VD"@de,
         "VD"@en,
         "VD"@fr,
         "VD"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Place du Château 4, 1005, Lausanne, VD"@de,
+                "Place du Château 4, 1005, Lausanne, VD"@en,
+                "Place du Château 4, 1005, Lausanne, VD"@fr,
+                "Place du Château 4, 1005, Lausanne, VD"@it ;
+            vcard:hasEmail <mailto:info@vd.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     foaf:homepage <https://vd.ch> ;
     foaf:name "Kanton Waadt"@de,

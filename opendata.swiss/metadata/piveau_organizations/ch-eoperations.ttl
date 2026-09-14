@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-eoperations> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_eOperations" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "eOperations Schweiz"@de,
         "eOperations Switzerland"@en,
         "eOperations Suisse"@fr,

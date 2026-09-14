@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bakom> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "En tant que centre de compétence de la Confédération pour les médias et les télécommunications, l'OFCOM veille à ce que chacun puisse accéder librement, en toute sécurité et de manière diversifiée à la communication en Suisse. Il joue également un rôle important dans le domaine de la numérisation. Nous créons des conditions cadres qui favorisent l'innovation, protègent les droits fondamentaux et accompagnent la transformation numérique de manière responsable. Nous nous engageons en outre en faveur d'un paysage médiatique indépendant, diversifié et de qualité en Suisse."@fr,
         "In qualità di centro di competenza della Confederazione per i media e le telecomunicazioni, l'UFCOM garantisce un accesso libero, sicuro e diversificato alla comunicazione in Svizzera. È inoltre un attore importante nel campo della digitalizzazione. Creiamo le condizioni quadro che promuovono l'innovazione, tutelano i diritti fondamentali e accompagnano in modo responsabile la trasformazione digitale. Ci impegniamo affinché la Svizzera disponga di un panorama mediatico indipendente, vario e di alta qualità."@it ;
     dcterms:identifier "CH_BAKOM" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE199213611" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAKOM"@de,
         "OFCOM"@en,
         "OFCOM"@fr,
         "UFCOM"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Zukunftstrasse 44, 2501, Biel, BE"@de,
+                "Zukunftstrasse 44, 2501, Biel, BE"@en,
+                "Zukunftstrasse 44, 2501, Biel, BE"@fr,
+                "Zukunftstrasse 44, 2501, Biel, BE"@it ;
+            vcard:hasEmail <mailto:info@bakom.admin.ch> ;
+            vcard:hasTelephone "+41 58 460 55 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://www.bakom.admin.ch> ;

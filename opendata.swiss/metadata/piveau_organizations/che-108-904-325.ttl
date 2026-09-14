@@ -1,17 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/che-108-904-325> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das USZ steht jeden Tag allen Menschen offen und bietet medizinische Grundversorgung und Spitzenmedizin an zentraler Lage in Zürich."@de,
         "The USZ is open to everyone every day and provides primary health care and cutting-edge medicine at the heart of Zurich."@en ;
     dcterms:identifier "CHE-108.904.325" ;
+    dcterms:spatial "ZH" ;
+    schema1:identifier "CHE108904325" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_usz.png> ;
     skos:prefLabel "Universitätsspital Zürich"@de,
         "USZ"@en,
         "USZ"@fr,
         "USZ"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rämistrasse 100, 8006, Zürich, ZH"@de,
+                "Rämistrasse 100, 8006, Zürich, ZH"@en,
+                "Rämistrasse 100, 8006, Zürich, ZH"@fr,
+                "Rämistrasse 100, 8006, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@usz.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0234> ;
     foaf:homepage <https://www.usz.ch> ;
     foaf:name "Universitätsspital Zürich"@de,

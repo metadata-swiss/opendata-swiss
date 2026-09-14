@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-uster> a org:Organization,
         foaf:Organization ;
@@ -17,6 +19,8 @@ Das [Geschäftsfeld Gesellschaft Stadt Uster](https://www.uster.ch/aemter/8157) 
         "City of Uster"@en,
         "Ville de Uster"@fr,
         "Cità di Uster"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@uster.ch> ] ;
     foaf:homepage <https://uster.ch> ;
     foaf:name "Stadt Uster"@de,
         "City of Uster"@en,

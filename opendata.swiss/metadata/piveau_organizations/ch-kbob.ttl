@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kbob> a org:Organization,
         foaf:Organization ;
@@ -9,10 +12,18 @@
         "Économiser les ressources tout en améliorant la qualitéTel est l'objectif général de la KBOB.La KBOB défend les intérêts de ses membres en tant que maîtres d'ouvrage, propriétaires, gérants et exploitants d'immeubles.Les membres de la KBOB sont les services de la construction et des immeubles de la Confédération, des cantons ainsi que des villes et des communes.La KBOB assume notamment des tâches de coordination dans les domaines suivants : marchés publics et contrats, prestations de mandataire et travaux de construction, durabilité, numérisation et BIM, exploitation des biens immobiliers, variations de prix ainsi que normes et standards."@fr,
         "Risparmiare le risorse e migliorare la qualitàQuesto è l'obiettivo principale del KBOB.La KBOB tutela gli interessi dei suoi membri in quanto proprietari di edifici e immobili, gestori e operatori.I membri della KBOB comprendono le autorità edilizie e immobiliari della Confederazione, dei Cantoni, delle città e dei Comuni.In particolare, il KBOB svolge compiti di coordinamento nelle seguenti aree: appalti pubblici e contratti, prestazioni del mandatario e prestazioni d’opera, sostenibilità, digitalizzazione e BIM, gestione degli immobili, questioni relative a variazioni di prezzo, nonché norme e standard."@it ;
     dcterms:identifier "CH_KBOB" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "KBOB"@de,
         "KBOB"@en,
         "KBOB"@fr,
         "KBOB"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Fellerstrasse 21, 3003, Bern, BE"@de,
+                "Fellerstrasse 21, 3003, Bern, BE"@en,
+                "Fellerstrasse 21, 3003, Bern, BE"@fr,
+                "Fellerstrasse 21, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:kbob@bbl.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-bbl> ;
     foaf:homepage <https://www.kbob.admin.ch> ;

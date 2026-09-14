@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-bern-geoinformation> a org:Organization,
         foaf:Organization ;
@@ -14,7 +16,8 @@
         "The Land Surveying Office of the City of Bern"@en,
         "L’Office du cadastre de la ville de Berne"@fr,
         "L'ufficio del catasto nella Città di Berna"@it ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-gde-bern> ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@bern.ch> ] ;
     foaf:homepage <https://www.bern.ch/politik-und-verwaltung/stadtverwaltung/tvs/geoinformation> ;
     foaf:name "Geoinformation Stadt Bern"@de,
         "The Land Surveying Office of the City of Bern"@en,

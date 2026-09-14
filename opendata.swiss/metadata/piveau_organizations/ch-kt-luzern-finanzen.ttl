@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-luzern-finanzen> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Le service des Finances est le centre d'expertise de l'administration cantonale en matière financière et de contrôle. Il garantit la gestion rigoureuse des fonds publics. Il organise le système comptable, notamment le fonctionnement du centre de comptabilité, et veille à la solvabilité du canton de Lucerne en toutes circonstances."@fr,
         "Il Dipartimento delle Finanze è il centro di competenza dell'amministrazione cantonale per le questioni finanziarie e di controllo. Assicura la gestione affidabile dei fondi pubblici, organizza il sistema contabile, compreso il funzionamento del centro contabile, e garantisce che il Cantone di Lucerna rimanga solvibile in ogni momento."@it ;
     dcterms:identifier "CH_KT_LUZERN_FINANZEN" ;
+    dcterms:spatial "LU" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/luzern_logo.png> ;
     skos:prefLabel "Finanzen (LU)"@de,
         "Finances (LU)"@en,
         "Finances (LU)"@fr,
         "Finanze (LU)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Bahnhofstrasse 19, 6002, Luzern, LU"@de,
+                "Bahnhofstrasse 19, 6002, Luzern, LU"@en,
+                "Bahnhofstrasse 19, 6002, Luzern, LU"@fr,
+                "Bahnhofstrasse 19, 6002, Luzern, LU"@it ;
+            vcard:hasEmail <mailto:info@lu.ch> ;
+            vcard:hasTelephone "+41 41 228 51 17" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-luzern-fd> ;
     foaf:homepage <https://finanzen.lu.ch> ;

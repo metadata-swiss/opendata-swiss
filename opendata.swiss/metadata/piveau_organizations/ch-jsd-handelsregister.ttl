@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-jsd-handelsregister> a org:Organization,
         foaf:Organization ;
@@ -18,9 +21,17 @@ The Commercial Register is a public source of economic information about compani
 
 Le registre du commerce est une source publique d'informations économiques sur les entreprises. Il sert avant tout à garantir la sécurité juridique dans les relations commerciales et à protéger la confiance légitime (fonction de publicité)."""@fr ;
     dcterms:identifier "CH_JSD_HANDELSREGISTER" ;
+    dcterms:spatial "LU" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/luzern_logo.png> ;
     skos:prefLabel "Dienststelle Handelsregister und Staatsarchiv (LU)"@de,
         "Department of Commercial Register and State Archives (LU)"@en,
         "Office du registre du commerce et des archives d'État (LU)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "LU"@de,
+                "LU"@en,
+                "LU"@fr,
+                "LU"@it ;
+            vcard:hasEmail <mailto:handelsregister@lu.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-luzern-jsd> ;
     foaf:homepage <https://handelsregister.lu.ch> ;

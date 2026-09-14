@@ -1,15 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-blv> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BLV" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE403244345" ;
     skos:prefLabel "BLV"@de,
         "FSVO"@en,
         "OSAV"@fr,
         "USAV"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schwarzenburgstrasse 155, 3097 Liebefeld, BE"@de,
+                "Schwarzenburgstrasse 155, 3097 Liebefeld, BE"@en,
+                "Schwarzenburgstrasse 155, 3097 Liebefeld, BE"@fr,
+                "Schwarzenburgstrasse 155, 3097 Liebefeld, BE"@it,
+                "Schwarzenburgstrasse 155, 3097 Liebefeld, BE"@rm ;
+            vcard:hasEmail <mailto:info@blv.admin.ch> ;
+            vcard:hasTelephone "+41 58 463 30 33" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.blv.admin.ch> ;

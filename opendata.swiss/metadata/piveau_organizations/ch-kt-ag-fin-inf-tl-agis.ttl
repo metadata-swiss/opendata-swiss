@@ -1,13 +1,24 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-ag-fin-inf-tl-agis> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das AGIS Service Center unterstützt als kantonale Koordinationsstelle die Bereitstellung von Geoinformationen und Metadaten der kantonalen Verwaltung. Die zuständigen kantonalen Fachstellen stellen die öffentlichen Geodaten des Kantons Aargau mittels der Infrastruktur des AGIS Service Center in der Informatik Aargau als Webservices und zum Download bereit."@de ;
     dcterms:identifier "CH_KT_AG_FIN_INF_TL_AGIS" ;
+    dcterms:spatial "AG" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_AG.png> ;
     skos:prefLabel "AGIS (AG)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Suhrenmattstrasse 48 , 5035, Unterentfelden, AG"@de,
+                "Suhrenmattstrasse 48 , 5035, Unterentfelden, AG"@en,
+                "Suhrenmattstrasse 48 , 5035, Unterentfelden, AG"@fr,
+                "Suhrenmattstrasse 48 , 5035, Unterentfelden, AG"@it ;
+            vcard:hasEmail <mailto:itg@ag.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-ag-fin-inf-tl> ;
     foaf:name "AGIS Service Center (AG)"@de .

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/abteilung-uebertragbare-krankheiten> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Les maladies transmissibles constituent une menace pour la santé publique. La division les surveille, publie régulièrement des rapports sur la situation épidémiologique, définit des stratégies de prévention et de contrôle, et les met en œuvre."@fr,
         "Le malattie trasmissibili mettono in pericolo la salute pubblica. La divisione Malattie trasmissibili le monitora, pubblica regolarmente rapporti sulla situazione epidemiologica, stabilisce strategie di prevenzione e di controllo e le attua."@it ;
     dcterms:identifier "abteilung-uebertragbare-krankheiten" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/bag_geb%C3%A4ude.jpg> ;
     skos:prefLabel "Abteilung Übertragbare Krankheiten"@de,
         "Communicable Diseases Division"@en,
         "Division Maladies transmissibles"@fr,
         "Divisione Malattie trasmissibili"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schwarzenburgstrasse 157, 3003, Bern, BE"@de,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@en,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@fr,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info-mt@bag.admin.ch> ;
+            vcard:hasTelephone "+41 58 463 87 06" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-bag> ;
     foaf:homepage <https://www.bag.admin.ch/de/abteilung-ubertragbare-krankheiten> ;

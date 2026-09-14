@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-st-gallen> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,14 @@
         "Avec une population de 80 000 habitants, Saint-Gall, huitième ville de Suisse, est la métropole économique, politique, sociale et culturelle de la Suisse orientale. Ses 1400 ans d'histoire se mêlent à la créativité urbaine, à une économie innovante et à un paysage préservé."@fr,
         "Con una popolazione di 80.000 abitanti, San Gallo, l'ottava città più grande della Svizzera, è la metropoli economica, politica, sociale e culturale della Svizzera orientale. I suoi 1400 anni di storia si fondono con la creatività urbana, un'economia innovativa e un paesaggio incontaminato."@it ;
     dcterms:identifier "CH_GDE_ST-GALLEN" ;
+    dcterms:spatial "SG" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_gde_st-gallen.png> ;
     skos:prefLabel "Stadt St.Gallen"@de,
         "City of St.Gallen"@en,
         "Ville de Saint-Gall"@fr,
         "Città di San Gallo"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@stadt.sg.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://www.stadt.sg.ch> ;
     foaf:name "Stadt St.Gallen"@de,

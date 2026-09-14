@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-vbs-gs-vbs-big> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "La Bibliothèque Am Guisanplatz BiG a pour rôle de fournir des informations à l’administration fédérale et à l’armée. Ses collections variées et ses nombreuses prestations sont toutefois également ouvertes au public."@fr,
         "La Biblioteca Am Guisanplatz BiG è competente per la fornitura di informazioni all’Amministrazione federale e all’esercito. Con il suo profilo di collezioni molto diversificato e i suoi numerosi serivzi, la BiG è a disposizione anche del grande pubblico."@it ;
     dcterms:identifier "CH_VBS_GS-VBS_BIG" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/guisanplatz_geb%C3%A4ude.jpg> ;
     skos:prefLabel "BiG"@de,
         "BiG"@en,
         "BiG"@fr,
         "BiG"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Papiermühlestrasse 21 A, 3003, Bern"@de,
+                "Papiermühlestrasse 21 A, 3003, Bern"@en,
+                "Papiermühlestrasse 21 A, 3003, Bern"@fr,
+                "Papiermühlestrasse 21 A, 3003, Bern"@it ;
+            vcard:hasEmail <mailto:bibliothek@gs-vbs.admin.ch> ;
+            vcard:hasTelephone "+41 58 464 50 99" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-gs-vbs> ;
     foaf:homepage <https://www.big.admin.ch> ;

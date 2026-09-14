@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-eth-domain> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Le Domaine des EPF comprend les écoles polytechniques fédérales de Zurich (ETH Zurich) et de Lausanne (EPFL) ainsi que les quatre établissements de recherche que sont le PSI (Institut Paul Scherrer), le WSL (Institut fédéral de recherches sur la forêt, la neige et le paysage), l’Empa (Laboratoire fédéral d’essai des matériaux et de recherche) et l’Eawag (Institut fédéral pour l’aménagement, l’épuration et la protection des eaux). Grâce à ses nombreux sites, le Domaine des EPF est bien ancré dans les différentes régions du pays."@fr,
         "Il Settore dei PF comprende i due politecnici federali di Zurigo (ETH di Zurigo) e Losanna (EPFL), i quattro istituti di ricerca PSI (Istituto Paul Scherrer), WSL (Istituto federale di ricerca per la foresta, la neve e il paesaggio), Empa (Laboratorio federale di prova dei materiali e di ricerca) ed Eawag (Istituto federale per l’approvvigionamento, la depurazione e la protezione delle acque). Con i suoi numerosi siti, il Settore dei PF è ben ancorato nelle differenti regioni svizzere."@it ;
     dcterms:identifier "CH_ETH_DOMAIN" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_eth_bereich2.png> ;
     skos:prefLabel "ETH-Bereich"@de,
         "ETH Domain"@en,
         "Domaine des EPF"@fr,
         "Settore dei PF"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Häldeliweg 15, 8092, Zürich, ZH"@de,
+                "Häldeliweg 15, 8092, Zürich, ZH"@en,
+                "Häldeliweg 15, 8092, Zürich, ZH"@fr,
+                "Häldeliweg 15, 8092, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:kommunikation@ethrat.ch> ] ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-eth>,
+        <https://opendata.swiss/id/organization/ch-wsl> ;
     foaf:homepage <https://ethrat.ch/en/eth-domain/portrait-eth-domain/> ;
     foaf:name "ETH-Bereich"@de,
         "ETH Domain"@en,

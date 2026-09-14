@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-geneve> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Conformément à sa politique des données, la Ville de Genève s’engage résolument dans une démarche d’ouverture de ses données publiques, faisant de celle-ci la norme partout où c’est pertinent (« open data par défaut »). S’inscrivant dans le cadre de la « Stratégie en matière de libre accès aux données publiques en Suisse », elle met à la disposition du public ses données en privilégiant des formats ouverts (open source) et lisibles de manière automatisée en vue d’une réutilisation. La Ville de Genève privilégie une approche basée sur la transparence et l’efficacité de l’action de l’administration, la participation citoyenne et l’innovation."@fr,
         "Conformemente alla sua politica sui dati, la Città di Ginevra si impegna fermamente in un percorso di apertura dei suoi dati pubblici, rendendola la norma ovunque sia pertinente (\"open data by default\"). Nell'ambito della \"Strategia per il libero accesso ai dati pubblici in Svizzera\", la Città di Ginevra mette a disposizione del pubblico i propri dati privilegiando formati aperti (open source) che possono essere letti automaticamente per consentire il riutilizzo. La Città di Ginevra promuove un approccio basato sulla trasparenza e sull'efficienza delle azioni amministrative, sulla partecipazione dei cittadini e sull'innovazione."@it ;
     dcterms:identifier "CH_GDE_GENEVE" ;
+    dcterms:spatial "GE" ;
+    schema1:identifier "CHE114809422" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_gde_geneve.png> ;
     skos:prefLabel "Stadt Genf"@de,
         "City of Geneva"@en,
         "Ville de Genève"@fr,
         "Città di Ginevra"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rue de la Croix-Rouge 4, 1204, Genève, GE"@de,
+                "Rue de la Croix-Rouge 4, 1204, Genève, GE"@en,
+                "Rue de la Croix-Rouge 4, 1204, Genève, GE"@fr,
+                "Rue de la Croix-Rouge 4, 1204, Genève, GE"@it ;
+            vcard:hasEmail <mailto:info@geneve.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0223> ;
     foaf:homepage <https://www.geneve.ch> ;
     foaf:name "Stadt Genf"@de,

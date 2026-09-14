@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-biel-bienne-infrastruktur> a org:Organization,
         foaf:Organization ;
@@ -9,8 +12,16 @@
         "Bienne est la plus grande ville bilingue de Suisse et la métropole mondiale de l’horlogerie. Elle compte environ 56 000 habitantes et habitants. Grâce à son ouverture sur le monde et à sa situation centrale entre la Suisse alémanique et la Suisse romande, elle ne cesse de se développer de manière dynamique. Située au bord du lac de Bienne et au pied du Jura, elle jouit d’une qualité de vie remarquable."@fr,
         "Bienne è la più grande città bilingue della Svizzera e la capitale mondiale dell’orologeria. Conta circa 56 000 abitanti. Grazie al suo cosmopolitismo e alla sua posizione centrale tra la Svizzera tedesca e quella francese, è in costante sviluppo dinamico. Situata sul lago di Bienne e ai piedi delle montagne del Giura, vanta un'elevata qualità di vita."@it ;
     dcterms:identifier "CH_GDE_BIEL-BIENNE_INFRASTRUKTUR" ;
+    dcterms:spatial "BE" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_biel-bienne.png> ;
     skos:prefLabel "Infrastruktur und Mobilität Stadt Biel"@de,
         "Infrastructures et mobilité Ville de Bienne"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "BE, BE"@de,
+                "BE, BE"@en,
+                "BE, BE"@fr,
+                "BE, BE"@it ;
+            vcard:hasEmail <mailto:info@biel-bienne.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-gde-biel-bienne> ;
     foaf:homepage <https://www.biel-bienne.ch/de/infrastruktur.html> ;

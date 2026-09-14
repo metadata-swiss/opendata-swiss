@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-sg-staatskanzlei> a org:Organization,
         foaf:Organization ;
@@ -11,7 +14,16 @@
 
 """@de ;
     dcterms:identifier "CH_KT_SG_STAATSKANZLEI" ;
+    dcterms:spatial "SG" ;
+    schema1:identifier "CHE108961665" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sg.jpg> ;
     skos:prefLabel "Staatskanzlei (SG)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "9000, 9000, St. Gallen, SG"@de,
+                "9000, 9000, St. Gallen, SG"@en,
+                "9000, 9000, St. Gallen, SG"@fr,
+                "9000, 9000, St. Gallen, SG"@it ;
+            vcard:hasEmail <mailto:info.sk@sg.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-sg> ;
     foaf:homepage <https://www.sg.ch/politik-verwaltung/departemente-und-staatskanzlei/staatskanzlei.html> ;

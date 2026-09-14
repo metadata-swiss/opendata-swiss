@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zug> a org:Organization,
         foaf:Organization ;
@@ -14,6 +16,9 @@ Weitere Informationen unter https://zg.ch/opendata
         "Canton of Zug"@en,
         "Canton de Zoug"@fr,
         "Cantone di Zugo"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@zg.ch> ] ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-zg-staatskanzlei> ;
     foaf:homepage <https://zg.ch> ;
     foaf:name "Kanton Zug"@de,
         "Canton of Zug"@en,

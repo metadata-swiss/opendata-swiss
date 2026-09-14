@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-gr> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,22 @@
         "Le canton des Grisons publie progressivement des données publiques en libre accès (Open Government Data) d’offices et de services cantonaux."@fr,
         "Il Cantone dei Grigioni pubblica su base continua serie di dati di uffici e servizi cantonali come Open Government Data."@it ;
     dcterms:identifier "CH_KT_GR" ;
+    dcterms:spatial "GR" ;
+    schema1:identifier "CHE114809356" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_gr.jpg> ;
     skos:prefLabel "Kanton Graubünden"@de,
         "Canton of Graubünden"@en,
         "Canton des Grisons"@fr,
         "Cantone dei Grigioni"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Reichsgasse 35, 7000, Chur, GR"@de,
+                "Reichsgasse 35, 7000, Chur, GR"@en,
+                "Reichsgasse 35, 7000, Chur, GR"@fr,
+                "Reichsgasse 35, 7000, Chur, GR"@it ;
+            vcard:hasEmail <mailto:info@gr.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-gr-alg-geo>,
+        <https://opendata.swiss/id/organization/ch-kt-gr-standeskanzlei> ;
     foaf:homepage <https://gr.ch> ;
     foaf:name "Kanton Graubünden"@de,
         "Canton of Graubünden"@en,

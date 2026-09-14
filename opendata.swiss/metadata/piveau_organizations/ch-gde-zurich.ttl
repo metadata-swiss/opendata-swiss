@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-zurich> a org:Organization,
         foaf:Organization ;
@@ -16,6 +18,8 @@ A parte poche eccezioni tutte le datasets della città di Zurigo hanno una licen
         "City of Zurich"@en,
         "Ville de Zurich"@fr,
         "Cità di Zurigo"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@zuerich.ch> ] ;
     foaf:homepage <https://www.zuerich.ch> ;
     foaf:name "Stadt Zürich"@de,
         "City of Zurich"@en,

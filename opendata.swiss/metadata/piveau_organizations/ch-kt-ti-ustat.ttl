@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-ti-ustat> a org:Organization,
         foaf:Organization ;
@@ -12,8 +15,11 @@ Alla base di questi risultati vi è un'attività che copre tutte le fasi del pro
 
 Nella veste di coordinatore della statistica cantonale l'Ustat opera in prima misura attraverso la preparazione, l'aggiornamento annuale e la rendicontazione del [Programma pluriennale](https://www4.ti.ch/dfe/dr/ustat/chi-siamo/programma-dattivita/programma-pluriennale), in collaborazione con la [Commissione scientifica](https://www4.ti.ch/dfe/dr/ustat/chi-siamo/la-commissione-scientifica) e gli altri attori della [statistica cantonale](https://www4.ti.ch/dfe/dr/ustat/chi-siamo/statistica-cantonale). L'Ustat assicura pure il coordinamento con l'esterno, in primis con il programma e l'attività della [statistica nazionale](https://www4.ti.ch/dfe/dr/ustat/chi-siamo/il-sistema-statistico), ma pure con gli altri servizi statistici e di ricerca regionali, nazionali e transfrontalieri."""@it ;
     dcterms:identifier "CH_KT_TI_USTAT" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ti.png> ;
     skos:prefLabel "Amt für Statistik (TI)"@de,
         "Ufficio di statistica (TI)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@ti.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-ti> ;
     foaf:homepage <https://www.ti.ch/ustat> ;

@@ -1,15 +1,25 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-cnai> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_CNAI" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "CNAI"@de,
         "CNAI"@en,
         "CNAI"@fr,
         "CNAI"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Espace de l’Europe 10, 2010 Neuchâtel, NE"@de,
+                "Espace de l’Europe 10, 2010 Neuchâtel, NE"@en,
+                "Espace de l’Europe 10, 2010 Neuchâtel, NE"@fr,
+                "Espace de l’Europe 10, 2010 Neuchâtel, NE"@it,
+                "Espace de l’Europe 10, 2010 Neuchâtel, NE"@rm ;
+            vcard:hasEmail <mailto:cnai@bfs.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:name "Kompetenznetzwerk für künstliche Intelligenz (CNAI)"@de,
         "Competence Network for Artificial Intelligence (CNAI)"@en,

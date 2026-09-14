@@ -1,16 +1,30 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bbl> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BBL" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE402703876" ;
     skos:prefLabel "BBL"@de,
         "BBL"@en,
         "OFCL"@fr,
         "UFCL"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Fellerstrasse 21, 3027 Bern, BE"@de,
+                "Fellerstrasse 21, 3027 Bern, BE"@en,
+                "Fellerstrasse 21, 3027 Bern, BE"@fr,
+                "Fellerstrasse 21, 3027 Bern, BE"@it,
+                "Fellerstrasse 21, 3027 Bern, BE"@rm ;
+            vcard:hasEmail <mailto:info@bbl.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-bkb>,
+        <https://opendata.swiss/id/organization/ch-kbob> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efd> ;
     foaf:homepage <https://www.bbl.admin.ch> ;
     foaf:name "Bundesamt für Bauten und Logistik (BBL)"@de,

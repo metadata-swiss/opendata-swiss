@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-estv> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_ESTV" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE211403691" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_biel-bienne.png> ;
     skos:prefLabel "ESTV"@de,
         "AFC"@en,
         "AFC"@fr,
         "FTA"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eigerstrasse 65, 3007 Bern, BE"@de,
+                "Eigerstrasse 65, 3007 Bern, BE"@en,
+                "Eigerstrasse 65, 3007 Bern, BE"@fr,
+                "Eigerstrasse 65, 3007 Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@estv.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0223> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efd> ;
     foaf:name "Eidgenössische Steuerverwaltung (ESTV)"@de,

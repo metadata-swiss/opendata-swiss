@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-sfti> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_SFTI" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "Swiss Fintech Innovations"@de,
         "Swiss Fintech Innovations"@en,
         "Swiss Fintech Innovations"@fr,

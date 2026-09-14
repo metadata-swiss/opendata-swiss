@@ -1,15 +1,25 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-ehra> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_EHRA" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "EHRA"@de,
         "EHRA"@en,
         "OFRC"@fr,
         "UFRC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Bundesrain 20, 3003 Bern, BE"@de,
+                "Bundesrain 20, 3003 Bern, BE"@en,
+                "Bundesrain 20, 3003 Bern, BE"@fr,
+                "Bundesrain 20, 3003 Bern, BE"@it ;
+            vcard:hasEmail <mailto:ehra@bj.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 41 96" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-bj> ;
     foaf:homepage <https://www.bj.admin.ch/bj/de/home/wirtschaft/handelsregister.html> ;

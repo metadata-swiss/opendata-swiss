@@ -1,14 +1,22 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bfh-ipst> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Institut Public Sector Transformation der Berner Fachhochschule begleitet den öffentlichen Sektor bei der digitalen Transformation, öffentlichen Beschaffungen und organisationalem Wandel. Mit praxisrelevanter Lehre und Weiterbildung sowie mit anwendungsorientierter Forschung."@de ;
     dcterms:identifier "CH_BFH_IPST" ;
+    dcterms:spatial "BE" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_bfh.png> ;
     skos:prefLabel "Institut Public Sector Transformation der Berner Fachhochschule"@de,
         "Institut Public Sector Transformation of the Bern University of Applied Sciences"@en ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@bfh.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0224> ;
     foaf:homepage <https://www.bfh.ch/de/forschung/forschungsbereiche/public-sector-transformation> ;
     foaf:name "Institut Public Sector Transformation der Berner Fachhochschule"@de,
         "Institut Public Sector Transformation of the Bern University of Applied Sciences"@en .

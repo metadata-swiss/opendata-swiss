@@ -1,16 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-jus-stat> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Amt für Statistik und Daten umfasst das Kompetenzzentrum Daten des Kantons Zürich, organisiert, koordiniert und steuert die politische Teilhabe inkl. der Wahlen und Abstimmungen im Kanton und beobachtet die Entwicklung des Kantons mit statistischen Methoden. Wir versorgen Bevölkerung, Verwaltung, Politik, Gemeinden, Medien, Firmen und sonstige Organisationen mit qualitativ hochstehenden Daten, Information und Fakten zum Kanton Zürich. Inhaltlich arbeiten wir unabhängig und objektiv."@de ;
     dcterms:identifier "CH_KT_ZH_JUS_STAT" ;
-    skos:prefLabel "Amt für Statistik und Daten Kanton Zürich"@de ;
+    dcterms:spatial "ZH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
+    skos:prefLabel "Amt für Statistik und Daten (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schöntalstrasse 5, 8090, Zürich, ZH"@de,
+                "Schöntalstrasse 5, 8090, Zürich, ZH"@en,
+                "Schöntalstrasse 5, 8090, Zürich, ZH"@fr,
+                "Schöntalstrasse 5, 8090, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:datashop@statistik.ji.zh.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-zh-jus-stat-ogd> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh-dji> ;
     foaf:homepage <https://www.zh.ch/amt-fuer-statistik-und-daten> ;
-    foaf:name "Amt für Statistik und Daten Kanton Zürich"@de .
+    foaf:name "Amt für Statistik und Daten (ZH)"@de .
 
 <https://www.zh.ch/amt-fuer-statistik-und-daten> a foaf:Document .
 

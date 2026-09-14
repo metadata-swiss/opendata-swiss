@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-astra> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Depuis sa création en 1998, l'Office fédéral des routes (OFROU) est l'autorité suisse compétente pour l'infrastructure routière et le trafic individuel. Chapeauté par le Département fédéral de l'environnement, des transports, de l'énergie et de la communication (DETEC), il oeuvre en faveur d'une mobilité routière durable et sûre."@fr,
         "Dalla sua creazione nel 1998, l'Ufficio federale delle strade (USTRA) è l'autorità svizzera competente in materia di infrastruttura stradale e traffico stradale privato. Parte integrante del Dipartimento federale dell'ambiente, dei trasporti, dell'energia e delle  comunicazioni (DATEC), l'Ufficio è impegnato nella realizzazione di una mobilità sostenibile e sicura sulla strada."@it ;
     dcterms:identifier "CH_ASTRA" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE304459014" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ASTRA"@de,
         "FEDRO"@en,
         "OFROU"@fr,
         "USTRA"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Pulverstrasse 13, 3063, Ittigen, BE"@de,
+                "Pulverstrasse 13, 3063, Ittigen, BE"@en,
+                "Pulverstrasse 13, 3063, Ittigen, BE"@fr,
+                "Pulverstrasse 13, 3063, Ittigen, BE"@it ;
+            vcard:hasEmail <mailto:info@astra.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://astra.admin.ch> ;

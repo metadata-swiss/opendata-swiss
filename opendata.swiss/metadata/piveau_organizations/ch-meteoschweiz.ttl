@@ -1,11 +1,14 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://opendata.swiss/id/organization/ch-meteoschweiz> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_METEOSCHWEIZ" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE316510171" ;
     skos:prefLabel "MeteoSchweiz"@de,
         "MeteoSwiss"@en,
         "MétéoSuisse"@fr,

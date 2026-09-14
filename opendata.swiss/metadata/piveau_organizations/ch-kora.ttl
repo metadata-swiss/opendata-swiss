@@ -1,15 +1,25 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kora> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KORA" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "KORA"@de,
         "KORA"@en,
         "KORA"@fr,
         "KORA"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Talgut-Zentrum 5, 3063 Ittigen, BE"@de,
+                "Talgut-Zentrum 5, 3063 Ittigen, BE"@en,
+                "Talgut-Zentrum 5, 3063 Ittigen, BE"@fr,
+                "Talgut-Zentrum 5, 3063 Ittigen, BE"@it ;
+            vcard:hasEmail <mailto:info@kora.ch> ;
+            vcard:hasTelephone " +41 31 951 70 40" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0109> ;
     foaf:name "KORA"@de,
         "KORA"@en,
