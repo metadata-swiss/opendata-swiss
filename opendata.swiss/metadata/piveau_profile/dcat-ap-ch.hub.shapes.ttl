@@ -1019,6 +1019,19 @@ dcatap:QualifiedAttribution_MappingShape
           pv:mappingLink dcatap:QualifiedAttributionAgent_MappingShape
       ] .
 
+dcatap:SchemaImage_MappingShape
+    a sh:NodeShape ;
+    sh:name "schema:image mapping"@en ;
+    sh:property [
+          sh:maxCount 1 ;
+          pv:mappingClass "StandardResourceKeyword" ;
+          pv:mappingName "resource"
+      ], [
+          sh:path schema:url ;
+          pv:mappingClass "StandardResourceKeyword" ;
+          pv:mappingName "url"
+      ] .
+
 dcatap:Relationship_Shape
     a sh:NodeShape ;
     sh:name "Relationship"@en ;

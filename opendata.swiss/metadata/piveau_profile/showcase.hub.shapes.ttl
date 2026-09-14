@@ -1,3 +1,4 @@
+PREFIX dcatap: <http://data.europa.eu/r5r/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -99,10 +100,11 @@ ex:Showcase_Shape a sh:NodeShape ;
           pv:mappingName "website"
       ], [
           sh:path schema:image ;
-          sh:nodeKind sh:IRI ;
+          sh:nodeKind sh:BlankNode ;
           sh:severity sh:Violation ;
-          pv:mappingClass "StandardDisabled" ;
-          pv:mappingName "image"
+          pv:mappingClass "Nested" ;
+          pv:mappingName "image" ;
+          pv:mappingLink dcatap:SchemaImage_MappingShape ;
       ], [
           sh:path dct:references ;
           sh:nodeKind sh:IRI ;
