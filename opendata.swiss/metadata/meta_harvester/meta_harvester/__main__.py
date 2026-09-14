@@ -23,10 +23,8 @@ ORGANIZATION_BASE_IRI = "https://opendata.swiss/id/organization/"
 LEGAL_FORM_BASE_IRI = "https://register.ld.admin.ch/i14y/concept/legalForm/"
 ODSN_ORGA = Namespace(ORGANIZATION_BASE_IRI)
 LEGAL_FORM = Namespace(LEGAL_FORM_BASE_IRI)
-LEGAL_FORM_VOCAB_PATH = (
-    Path(__file__).resolve().parents[2] / "piveau_vocabularies" / "i14y-legalForm.nt"
-)
-_LEGAL_FORM_LOOKUP = None
+SCHEMA = Namespace("http://schema.org/")
+VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -77,85 +75,6 @@ def get_parent_orgs(value) -> list[dict]:
     if isinstance(value, list):
         return [item for item in value if isinstance(item, dict)]
     return []
-
-
-def clean_output_payload(value):
-    """
-    Recursively removes nulls and empty objects from JSON payloads.
-    Empty lists are intentionally preserved.
-    """
-    if isinstance(value, dict):
-        cleaned = {}
-        for key, item in value.items():
-            cleaned_item = clean_output_payload(item)
-            if cleaned_item is None:
-                continue
-            if isinstance(cleaned_item, dict) and not cleaned_item:
-                continue
-            cleaned[key] = cleaned_item
-        return cleaned
-
-    if isinstance(value, list):
-        cleaned_list = []
-        for item in value:
-            cleaned_item = clean_output_payload(item)
-            if cleaned_item is None:
-                continue
-            if isinstance(cleaned_item, dict) and not cleaned_item:
-                continue
-            cleaned_list.append(cleaned_item)
-        return cleaned_list
-
-    return value
-
-
-def load_legal_form_lookup() -> dict:
-    """
-    Loads legal-form labels from the vocabulary file once and caches them.
-
-    Returns:
-        dict: Mapping by legal-form code, e.g. {"0220": {"id": ..., "label": ..., "resource": ...}}
-    """
-    global _LEGAL_FORM_LOOKUP
-
-    if _LEGAL_FORM_LOOKUP is not None:
-        return _LEGAL_FORM_LOOKUP
-
-    schema = Namespace("http://schema.org/")
-    lookup = {}
-    graph = Graph()
-
-    try:
-        graph.parse(str(LEGAL_FORM_VOCAB_PATH), format="nt")
-    except Exception as e:
-        logger.error(f"Failed to load legal form vocabulary from '{LEGAL_FORM_VOCAB_PATH}': {e}")
-        _LEGAL_FORM_LOOKUP = {}
-        return _LEGAL_FORM_LOOKUP
-
-    for subject, _, identifier in graph.triples((None, schema.identifier, None)):
-        code = str(identifier)
-        labels = {}
-
-        for _, _, pref_label in graph.triples((subject, SKOS.prefLabel, None)):
-            if isinstance(pref_label, Literal) and pref_label.language:
-                labels[pref_label.language] = str(pref_label)
-
-        # Fall back to schema:name if no SKOS labels are present.
-        if not labels:
-            for _, _, name in graph.triples((subject, schema.name, None)):
-                if isinstance(name, Literal) and name.language:
-                    labels[name.language] = str(name)
-
-        lookup[code] = {
-            "id": code,
-            "label": labels,
-            "resource": str(subject),
-        }
-
-    _LEGAL_FORM_LOOKUP = lookup
-    return _LEGAL_FORM_LOOKUP
-
-
 
 
 def generate_pipe(
@@ -310,12 +229,17 @@ def generate_bulk_triggers(pipe_names: list) -> None:
 def generate_organization_metadata(
         slug: str,
         identifier: str,
+        uid: str | None,
         subAgentOf_slug: str,
+        subAgent_slugs: list[str],
         classification_code: str,
         names: dict,
         prefLabels: dict,
         descriptions: dict,
         homepage: str,
+        spatial: list[str],
+        images: list[dict],
+        contact_point: dict,
 ) -> None:
     """
     Generates an RDF metadata file for an organization in Turtle format.
@@ -323,12 +247,17 @@ def generate_organization_metadata(
     Args:
         slug (str):                The slug of the organization.
         identifier (str):          The identifier of the organization.
+        uid (str | None):          Additional organization identifier, if provided.
         subAgentOf_slug (str):     The slug of the parent organization, if any.
+        subAgent_slugs (list[str]): Slugs of child organizations, if any.
         classification_code (str): The classification code of the organization.
         names (dict):              A dictionary of names for the organization, with language codes as keys.
         prefLabels (dict):         A dictionary of preferred labels for the organization, with language codes as keys.
         descriptions (dict):       A dictionary of descriptions for the organization, with language codes as keys.
         homepage (str):            The URL to the organization's homepage.
+        spatial (list[str]):       Spatial coverage identifiers.
+        images (list[dict]):       Image objects with URI values.
+        contact_point (dict):      Contact point data for the organization.
 
     Returns:
         None
@@ -337,6 +266,11 @@ def generate_organization_metadata(
 
     g.bind("dcterms", DCTERMS)
     g.bind("foaf", FOAF)
+    g.bind("org", ORG)
+    g.bind("schema", SCHEMA)
+    g.bind("skos", SKOS)
+    g.bind("vcard", VCARD)
+    g.bind("dcat", DCAT)
 
     orga_uri = ODSN_ORGA[slug]
 
@@ -344,12 +278,26 @@ def generate_organization_metadata(
     g.add((orga_uri, RDF.type, FOAF.Organization))
     g.add((orga_uri, RDF.type, ORG.Organization))
     g.add((orga_uri, DCTERMS.identifier, Literal(identifier)))
+    if uid:
+        g.add((orga_uri, SCHEMA.identifier, Literal(uid)))
 
     if subAgentOf_slug:
         g.add((orga_uri, ORG.subOrganizationOf, ODSN_ORGA[subAgentOf_slug]))
+
+    for subAgent_slug in subAgent_slugs:
+        g.add((orga_uri, ORG.hasSubOrganization, ODSN_ORGA[subAgent_slug]))
     
     if classification_code:
         g.add((orga_uri, ORG.classification, LEGAL_FORM[classification_code])) 
+
+    for spatial_value in spatial:
+        if spatial_value:
+            g.add((orga_uri, DCTERMS.spatial, Literal(spatial_value)))
+
+    for image in images:
+        image_uri = image.get("uri")
+        if image_uri:
+            g.add((orga_uri, SCHEMA.image, URIRef(image_uri)))
 
     for lang, name in names.items():
         if name:
@@ -367,88 +315,27 @@ def generate_organization_metadata(
         g.add((orga_uri, FOAF.homepage, URIRef(homepage)))
         g.add((URIRef(homepage), RDF.type, FOAF.Document))
 
+    if contact_point:
+        contact_node = BNode()
+        g.add((orga_uri, DCAT.contactPoint, contact_node))
+        g.add((contact_node, RDF.type, VCARD.Organization))
+
+        addresses = to_dict(contact_point.get("hasAddress", {}))
+        for lang, address in addresses.items():
+            if address:
+                g.add((contact_node, VCARD.hasAddress, Literal(address, lang=lang)))
+
+        email = contact_point.get("hasEmail")
+        if email:
+            g.add((contact_node, VCARD.hasEmail, URIRef("mailto:" + email)))
+
+        telephone = contact_point.get("hasTelephone")
+        if telephone:
+            g.add((contact_node, VCARD.hasTelephone, Literal(telephone)))
+
     output_file = Path(ORGANIZATIONS_PATH) / f"{slug}.ttl"
     g.serialize(destination=output_file, format="turtle")
     logger.info(f"Successfully generated RDF triples and saved to '{output_file}'")
-
-
-def generate_organization_json(
-        slug: str,
-        identifier: str,
-        subAgentOf_slug: str,
-        ancestors: list,
-        hierarchy_level: int,
-        classification_code: str,
-        names: dict,
-        prefLabels: dict,
-        descriptions: dict,
-        homepage: str,
-) -> None:
-    """
-    Generates a JSON document for an organization, for indexing in hub-search/elasticsearch.
-
-    Args:
-        slug (str):                The slug of the organization.
-        identifier (str):          The identifier of the organization.
-        subAgentOf_slug (str):     The slug of the parent organization, if any.
-        ancestors (list):          Ancestors from immediate parent to root.
-        hierarchy_level (int):     Tree depth of the organization (root = 0).
-        classification_code (str): The classification code of the organization.
-        names (dict):              A dictionary of names for the organization, with language codes as keys.
-        prefLabels (dict):         A dictionary of preferred labels for the organization, with language codes as keys.
-        descriptions (dict):       A dictionary of descriptions for the organization, with language codes as keys.
-        homepage (str):            The URL to the organization's homepage.
-
-    Returns:
-        None
-    """
-    orga_uri = str(ODSN_ORGA[slug])
-
-    filtered_descriptions = {
-        lang: desc for lang, desc in descriptions.items() if desc is not None
-    }
-    filtered_names = {
-        lang: name for lang, name in names.items() if name is not None
-    }
-    filtered_prefLabels = {
-        lang: prefLabel for lang, prefLabel in prefLabels.items() if prefLabel is not None
-    }
-
-    classification = None
-    if classification_code:
-        legal_form_lookup = load_legal_form_lookup()
-        classification = legal_form_lookup.get(classification_code)
-
-        if classification is None:
-            logger.warning(
-                f"No legal form found in vocabulary for classification code '{classification_code}'."
-            )
-            
-            classification = {
-                "id": classification_code,
-                "label": {},
-                "resource": str(LEGAL_FORM[classification_code]),
-            }
-
-    payload = clean_output_payload({
-        "id": slug,
-        "identifier": identifier,
-        "resource": orga_uri,
-        "classification": classification,
-        "description": filtered_descriptions,
-        "name": filtered_names,
-        "pref_label": filtered_prefLabels,
-        "homepage": homepage,
-        "hierarchy_level": hierarchy_level,
-        "sub_organization_of": subAgentOf_slug,
-        "ancestors": ancestors,
-    })
-
-    output_file = Path(ORGANIZATIONS_PATH) / "es" / f"{slug}.json"
-    with open(output_file, "w") as orga_file:
-        json.dump(payload, orga_file, indent=2, ensure_ascii=False)
-
-    logger.info(f"Successfully generated JSON and saved to '{output_file}'")
 
 
 # run this locally and push the generated files to repo
@@ -473,6 +360,7 @@ def generate_pipe_and_catalogue_files(pipes: bool = True, catalogues: bool = Tru
 
 
     pipe_names = []
+    catalogues_without_publisher_iri = []
 
     for i, harverster in enumerate(harversters):
         id = harverster["id"]
@@ -520,6 +408,8 @@ def generate_pipe_and_catalogue_files(pipes: bool = True, catalogues: bool = Tru
         org_titles = to_dict(organization.get("title", "{}"))
         publisher_slug = resolve_i14y_publisher_slug(ckan_org_id=org_id)
         publisher_iri = organization_uri(publisher_slug) if publisher_slug else None
+        if publisher_iri is None:
+            catalogues_without_publisher_iri.append(catalogue_name)
 
         if catalogues:
             generate_catalogue_metadata(
@@ -547,6 +437,15 @@ def generate_pipe_and_catalogue_files(pipes: bool = True, catalogues: bool = Tru
     
     if pipes:
         generate_bulk_triggers(pipe_names)
+
+    if catalogues_without_publisher_iri:
+        logging.warning(
+            "orga mappings missing? there are catalogues without publisher_iri (%d):\n%s",
+            len(catalogues_without_publisher_iri),
+            "\n".join(catalogues_without_publisher_iri),
+        )
+    else:
+        logging.info("All catalogues resolved to a publisher_iri.")
 
 
 # run this locally and push the generated files to repo
@@ -636,6 +535,11 @@ def generate_organizations() -> None:
             parent_org_id = parent_orgs[0].get("id")
             subAgentOf_slug = id_to_slug.get(parent_org_id)
 
+        subAgent_slugs = [
+            id_to_slug[subAgent["id"]]
+            for subAgent in organization.get("subAgents", [])
+            if subAgent.get("id") in id_to_slug
+        ]
         ancestors = build_ancestors(subAgentOf_slug) if subAgentOf_slug else []
         hierarchy_level = len(ancestors)
         classification_code = (organization.get("classification") or {}).get("code", "")
@@ -647,25 +551,17 @@ def generate_organizations() -> None:
         generate_organization_metadata(
             slug=slug,
             identifier=organization["identifier"],
+            uid=organization.get("uid"),
             subAgentOf_slug=subAgentOf_slug,
+            subAgent_slugs=subAgent_slugs,
             classification_code=classification_code,
             names=names,
             prefLabels=pref_labels,
             descriptions=descriptions,
             homepage=homepage,
-        )
-
-        generate_organization_json(
-            slug=slug,
-            identifier=organization["identifier"],
-            subAgentOf_slug=subAgentOf_slug,
-            ancestors=ancestors,
-            hierarchy_level=hierarchy_level,
-            classification_code=classification_code,
-            names=names,
-            prefLabels=pref_labels,
-            descriptions=descriptions,
-            homepage=homepage,
+            spatial=organization.get("spatial", []),
+            images=organization.get("images", []),
+            contact_point=organization.get("contactPoint", {}),
         )
 
 def main()-> None:

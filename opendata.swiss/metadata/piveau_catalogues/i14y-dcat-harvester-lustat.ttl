@@ -13,7 +13,7 @@ LUSTAT statistique Lucerne publie ici progressivement des jeux de données appro
         """LUSTAT statistica Lucerna è il centro di competenza e servizi per la statistica pubblica nel cantone di Lucerna. Con le sue informazioni statistiche oggettive, LUSTAT accompagna i processi di formazione delle opinioni e decisionali in politica, amministrazione, società e affari.  \r
 LUSTAT statistica Lucerna sta gradualmente pubblicando qui oportuni set di dati della statistica cantonale come dati OGD."""@it ;
     dcterms:modified "2026-08-18T09:24:49.109692"^^xsd:dateTime ;
-    dcterms:publisher <https://opendata.swiss/id/organization/ch-lustat> ;
+    dcterms:publisher <https://opendata.swiss/id/organization/ch-kt-luzern-lustat> ;
     dcterms:spatial <http://publications.europa.eu/resource/authority/country/CHE> ;
     dcterms:title "LUSTAT Statistik Luzern"@de,
         "LUSTAT Statistics Lucerne"@en,

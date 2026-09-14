@@ -78,13 +78,20 @@ public class OrganizationTest extends BaseSystemTest {
         String organizationName = context.get(Goal.ODSN_ORGANIZATION_CREATED, "name", String.class);
 
         System.out.println("Checking Organization Document after creation: /organizations/" + organizationId);
-        org.awaitility.Awaitility.await().atMost(Duration.ofSeconds(30)).pollInterval(Duration.ofSeconds(2)).untilAsserted(() -> {
-            io.restassured.RestAssured.given().baseUri("http://" + getServiceHost(SEARCH_SERVICE_NAME, 8080)).port(getServicePort(SEARCH_SERVICE_NAME, 8080)).when().get("/organizations/" + organizationId).then().statusCode(200).body("result.id", equalTo(organizationId)).body("result.name", hasEntry(is(oneOf("en", "de", "fr", "it", "rm")), equalTo(organizationName)));
+        org.awaitility.Awaitility.await().atMost(PT5S).pollInterval(PT2S).untilAsserted(() -> {
+            String json = io.restassured.RestAssured.given()
+                .baseUri("http://" + getServiceHost(SEARCH_SERVICE_NAME, 8080)).port(getServicePort(SEARCH_SERVICE_NAME, 8080))
+                .when().get("/organizations/" + organizationId)
+                .then().statusCode(200)
+                
+                .body("result.id", equalTo(organizationId))
+                .body("result.name", hasEntry(is(oneOf("en", "de", "fr", "it", "rm")), equalTo(organizationName)))
+                
+                .log().body()
+                .extract().body().asString();
+            
+            context.store(Goal.ODSN_ORGANIZATION_INDEXED, "json", json);
         });
-
-        // the response is logged, so it's available for example in target/surefire-reports/TEST-swiss.opendata.piveau.testbench.GlobalTestRunner.xml - then search for "indexOrganizationAfterCreation" in the logfile
-        String json = io.restassured.RestAssured.given().baseUri("http://" + getServiceHost(SEARCH_SERVICE_NAME, 8080)).port(getServicePort(SEARCH_SERVICE_NAME, 8080)).when().get("/organizations/" + organizationId).then().log().body().statusCode(200).extract().body().asString();
-        context.store(Goal.ODSN_ORGANIZATION_INDEXED, "json", json);
     }
 
     @Test
@@ -96,6 +103,24 @@ public class OrganizationTest extends BaseSystemTest {
         io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
         org.hamcrest.MatcherAssert.assertThat(jp.get("result.resource"), equalTo(organizationIRI));
     }
+
+    @Test
+    @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
+    public void indexOrganization_identifier(TestContext context) {
+        String json = context.get(Goal.ODSN_ORGANIZATION_INDEXED, "json", String.class);
+
+        io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.identifier"), equalTo("CH_KT_ZH"));
+    }
+
+    @Test
+    @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
+    public void indexOrganization_uid(TestContext context) {
+        String json = context.get(Goal.ODSN_ORGANIZATION_INDEXED, "json", String.class);
+
+        io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.uid"), equalTo("CHE114809327"));
+    }
     
     @Test
     @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
@@ -105,6 +130,15 @@ public class OrganizationTest extends BaseSystemTest {
         
         io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
         org.hamcrest.MatcherAssert.assertThat(jp.get("result.name.en"), equalTo(organizationName));
+    }
+
+    @Test
+    @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
+    public void indexOrganization_pref_label(TestContext context) {
+        String json = context.get(Goal.ODSN_ORGANIZATION_INDEXED, "json", String.class);
+        
+        io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.pref_label.en"), equalTo("ZH"));
     }
     
     @Test
@@ -135,6 +169,37 @@ public class OrganizationTest extends BaseSystemTest {
         org.hamcrest.MatcherAssert.assertThat(jp.get("result.classification[0].resource"), equalTo("https://register.ld.admin.ch/i14y/concept/legalForm/0221"));
     }
 
+    @Test
+    @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
+    public void indexOrganization_image(TestContext context) {
+        String json = context.get(Goal.ODSN_ORGANIZATION_INDEXED, "json", String.class);
+
+        io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.image"), hasSize(1));
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.image[0]"), equalTo("https://storage.googleapis.com/dx-liip/production/storage/uploads/group/kt_zh.png"));
+    }
+
+    @Test
+    @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
+    public void indexOrganization_spatial(TestContext context) {
+        String json = context.get(Goal.ODSN_ORGANIZATION_INDEXED, "json", String.class);
+
+        io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.spatial"), hasSize(1));
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.spatial[0]"), equalTo("ZH"));
+    }
+
+    @Test
+    @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
+    public void indexOrganization_contactPoint(TestContext context) {
+        String json = context.get(Goal.ODSN_ORGANIZATION_INDEXED, "json", String.class);
+
+        io.restassured.path.json.JsonPath jp = new io.restassured.path.json.JsonPath(json);
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.contact_point.address"), equalTo("Neumuehlequai 10, 8001, Zurich, ZH"));
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.contact_point.email"), equalTo("mailto:info@zh.ch"));
+        org.hamcrest.MatcherAssert.assertThat(jp.get("result.contact_point.telephone"), equalTo("+41 99 888 77 66"));
+    }
+    
     @Test
     @DependsOn(Goal.ODSN_ORGANIZATION_INDEXED)
     @Provides(Goal.ODSN_ORGANIZATION_UPDATED)
