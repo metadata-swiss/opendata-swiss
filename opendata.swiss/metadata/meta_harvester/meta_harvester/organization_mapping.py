@@ -150,7 +150,7 @@ CKAN_TO_I14Y_ORG_MAPPING: dict[str, str] = {
     "basisdaten-biel-bienne": "ch-gde-biel-bienne",
     "leben-in-biel-bienne": "ch-gde-biel-bienne",
     "planung-umwelt-biel-bienne": "ch-gde-biel-bienne",
-    "finanzverwaltung-kanton-zuerich": "ch-kt-zh-f",
+    "finanzverwaltung-kanton-zuerich": "ch-kt-zh-fin-fin",
     "amt-geoinformation-sz": "ch-kt-sz-umwelt-geo",
     "geoinformation-kanton-uri": "ch-kt-uri",
     "are-kanton-zuerich": "ch-kt-zh-are-geo",
