@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
+import { computed, onMounted, reactive, ref, toRefs, useTemplateRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '#imports'
 import { useSeoMeta } from 'nuxt/app'
@@ -17,6 +17,7 @@ import OdsSortSelect from '../../app/components/dataset/OdsSortSelect.vue'
 import { useSorting } from '../../app/composables/sort'
 import OdsShowcaseCard from '../../app/components/showcases/OdsShowcaseCard.vue'
 import OdsButton from '../../app/components/OdsButton.vue'
+import OdsPagination from '../../app/components/OdsPagination.vue'
 
 const { locale, t } = useI18n()
 
@@ -68,15 +69,9 @@ function goToPage(newPage: number | string, query = route.query) {
     name: route.name,
     query: { ...query, ...facetsQuery, page },
   })
-  scrollToResults()
 }
 
-function scrollToResults() {
-  const el = document.getElementById('search-results')
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
+const searchResultsElement = useTemplateRef<HTMLElement>('search-results')
 
 const initialSort = 'modified+desc'
 const piveauQueryParams: SearchParamsBase = reactive({
@@ -92,7 +87,7 @@ const {
   getSearchResultsEnhanced,
   getAvailableFacetsLocalized,
   getSearchResultsCount,
-
+  getSearchResultsPagesCount,
 } = useSearch({
   queryParams: toRefs(piveauQueryParams),
   additionalParams: {
@@ -217,7 +212,10 @@ const sortOptions = computed(() => {
       @update:search-input="value => searchInput = value"
     />
     <!-- results -->
-    <OdsSearchResults :results-count="getSearchResultsCount">
+    <OdsSearchResults
+      ref="search-results"
+      :results-count="getSearchResultsCount"
+    >
       <template #header-right>
         <OdsSortSelect
           v-model="selectedSort"
@@ -233,6 +231,26 @@ const sortOptions = computed(() => {
             <OdsShowcaseCard :showcase="showcase" />
           </li>
         </ul>
+      </div>
+      <div class="pagination pagination--right">
+        <OdsPagination
+          :current-page="(Number(route.query.page ?? 1))"
+          :total-pages="getSearchResultsPagesCount"
+          :pagination-items="[
+            {
+              icon: 'ChevronLeft',
+              label: t('message.ods-pagination.previous'),
+              page: Number(route.query.page ?? 1) - 1,
+            },
+            {
+              icon: 'ChevronRight',
+              label: t('message.ods-pagination.next'),
+              page: Number(route.query.page ?? 1) + 1,
+            },
+          ]"
+          :search-results-element="searchResultsElement"
+          @page-change="goToPage"
+        />
       </div>
     </OdsSearchResults>
   </OdsPage>

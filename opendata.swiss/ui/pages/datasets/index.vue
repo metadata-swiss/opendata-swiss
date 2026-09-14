@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
+import { computed, onMounted, reactive, ref, toRefs, useTemplateRef, watch } from 'vue'
 
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '#imports'
@@ -146,22 +146,9 @@ function goToPage(newPage: number | string, query = route.query) {
     name: route.name,
     query: { ...query, ...facetsQuery, page },
   })
-  scrollToResults()
 }
 
-function scrollToResults() {
-  const el = document.getElementById('search-results')
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
-
-function scrollOnPaging(event: PointerEvent) {
-  const element = event.target as Element
-  if (element && (element.localName === 'svg' || element.localName === 'path' || element.localName === 'a')) {
-    scrollToResults()
-  }
-}
+const searchResultsElement = useTemplateRef<HTMLElement>('search-results')
 
 const searchInput = ref(route.query.q ?? '')
 const onSearch = () => goToPage(1, { q: searchInput.value })
@@ -271,7 +258,10 @@ await suspense()
       />
       <!-- results -->
 
-      <OdsSearchResults :results-count="getSearchResultsCount">
+      <OdsSearchResults
+        ref="search-results"
+        :results-count="getSearchResultsCount"
+      >
         <template #header-right>
           <OdsSortSelect
             v-model="selectedSort"
@@ -293,22 +283,20 @@ await suspense()
           <OdsPagination
             :current-page="(Number(route.query.page ?? 1))"
             :total-pages="getSearchResultsPagesCount"
-            :page-label="t('message.ods-pagination.page')"
-            :total-pages-label="t('message.ods-pagination.of') + getSearchResultsPagesCount"
             :pagination-items="[
               {
                 icon: 'ChevronLeft',
                 label: t('message.ods-pagination.previous'),
-                link: { name: route.name, query: { ...route.query, page: (Number(route.query.page ?? 1) - 1) } /*, hash: '#search-results'*/ },
+                page: Number(route.query.page ?? 1) - 1,
               },
               {
                 icon: 'ChevronRight',
                 label: t('message.ods-pagination.next'),
-                link: { name: route.name, query: { ...route.query, page: (Number(route.query.page ?? 1) + 1) } /* hash: '#search-results' */ },
+                page: Number(route.query.page ?? 1) + 1,
               },
             ]"
-            @page-change="(page) => goToPage(page)"
-            @click="scrollOnPaging($event)"
+            :search-results-element="searchResultsElement"
+            @page-change="goToPage"
           />
         </div>
 
