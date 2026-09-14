@@ -97,7 +97,7 @@ CKAN_TO_I14Y_ORG_MAPPING: dict[str, str] = {
     "handelsregisteramt-kanton-zuerich": "ch-kt-zh-jus-handelsregister",
     "hes-so-geneve": "ch-edu-ge-hes",
     "ima-kanton-zuerich": "ch-kt-zh-bd-ima",
-    "imad-ge": "ch-kt-ge-imad",
+    "imad-ge": "ch-imad",
     "immobilien-stadt-bern": "ch-gde-bern-immobilien",
     "infrastruktur-mobilitaet-biel-bienne": "ch-gde-biel-bienne-infrastruktur",
     "kanton-wallis": "ch-kt-wallis",
