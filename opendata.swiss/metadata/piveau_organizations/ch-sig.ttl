@@ -1,0 +1,30 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://opendata.swiss/id/organization/ch-sig> a org:Organization,
+        foaf:Organization ;
+    dcterms:description "SIG est une entreprise suisse au service de plus de 500 000 personnes sur le canton de Genève. Chaque jour, elle leur assure des services essentiels : elle fournit l’eau, le gaz, l’électricité, l’énergie thermique et soutient le développement des quartiers intelligents pour Genève. Elle traite les eaux usées, valorise les déchets et met en œuvre des programmes d’efficience énergétique et environnementale. "@fr ;
+    dcterms:identifier "CH_SIG" ;
+    dcterms:spatial "GE" ;
+    schema1:identifier "CHE108955185" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sig.png> ;
+    skos:prefLabel "Services industriels Genève (SIG)"@de,
+        "Services industriels Genève (SIG)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "chemin du Château-Bloch 2, 1219, Le Lignon, GE"@de,
+                "chemin du Château-Bloch 2, 1219, Le Lignon, GE"@en,
+                "chemin du Château-Bloch 2, 1219, Le Lignon, GE"@fr,
+                "chemin du Château-Bloch 2, 1219, Le Lignon, GE"@it ;
+            vcard:hasEmail <mailto:info@sig-ge.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0117> ;
+    foaf:homepage <https://ww2.sig-ge.ch> ;
+    foaf:name "Services industriels de Genève (SIG)"@de,
+        "Services industriels Genève (SIG)"@fr .
+
+<https://ww2.sig-ge.ch> a foaf:Document .
+

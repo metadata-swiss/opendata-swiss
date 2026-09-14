@@ -1,0 +1,22 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://opendata.swiss/id/organization/ch-cern> a org:Organization,
+        foaf:Organization ;
+    dcterms:identifier "CH_CERN" ;
+    skos:prefLabel "CERN"@de,
+        "European Organization for Nuclear Research (CERN)"@en,
+        "Organisation européenne pour la recherche nucléaire (CERN)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@home.cern> ] ;
+    foaf:homepage <https://home.cern> ;
+    foaf:name "CERN"@de,
+        "European Organization for Nuclear Research (CERN)"@en,
+        "Organisation européenne pour la recherche nucléaire (CERN)"@fr .
+
+<https://home.cern> a foaf:Document .
+

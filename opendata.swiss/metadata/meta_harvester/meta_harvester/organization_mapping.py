@@ -155,15 +155,15 @@ CKAN_TO_I14Y_ORG_MAPPING: dict[str, str] = {
     "geoinformation-kanton-uri": "ch-kt-uri",
     "are-kanton-zuerich": "ch-kt-zh-are-geo",
     "gesundheitsdirektion-kanton-zuerich": "ch-kt-zh-g",
+    "cern": "ch-cern",
+    "fti-ge": "ch-fti",
+    "services-industriels-geneve": "ch-sig",
+    "tpg": "ch-mob-tpg",
+    "kof-konjunkturforschungsstelle": "ch-eth-kof",
 
     ###  missing mappings
     # "materialscloud": "",  # https://opendata.swiss/id/catalogue/dcat-harvester-materials-cloud
-    # "cern": "",  # https://opendata.swiss/id/catalogue/geocat-cern
-    # "fti-ge": "",  # https://opendata.swiss/id/catalogue/geocat-fti-geneve
     # "geneve-aeroport": "",  # https://opendata.swiss/id/catalogue/geocat-geneve-aeroport
-    # "services-industriels-geneve": "",  # https://opendata.swiss/id/catalogue/geocat-sig-geneve
-    # "tpg": "",  # https://opendata.swiss/id/catalogue/geocat-tpg-geneve
-    # "kof-konjunkturforschungsstelle": "",  # https://opendata.swiss/id/catalogue/kof-harvester
 }
 
 
