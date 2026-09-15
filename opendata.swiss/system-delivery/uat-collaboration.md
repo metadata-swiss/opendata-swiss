@@ -44,10 +44,20 @@ The original feature stays in "Ready for Review" while the defect is fixed. If a
     4.  When all defects on a feature are resolved, the original feature is Un-**`BLOCKED`**.
 
 
+
+## Rework Reporting & Retest Loop
+
+When a feature behaves as expected from a technical perspective yet still requires adjustments before customer sign-off. Distinguishing enhancement requests from defects.
+
+Rework reporting and retesting are handled the same as a Defect, but with a `Rework` label instead.
+
+Same as for defects, a new ticket is created for the Rework and the original feature would remain in "Ready for Review" (with a BLOCKED label) while the rework is implemented.
+
 ---
 
 
 ### Label Glossary
 
 * **`Defect`**: Applied by the customer to any new issues created to report defects found during testing.
+* **`Rework`**: Applied by the customer to any new issues created to report rework (adjustements, enhancements) found during testing.
 * **`BLOCKED`**: Applied by the customer to the original feature ticket to signal that a defect is preventing a features acceptance.
