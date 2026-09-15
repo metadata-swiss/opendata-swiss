@@ -38,9 +38,7 @@ export default defineEventHandler(async (event) => {
   const t = await useTranslation(event)
   const runtimeConfig = useRuntimeConfig()
 
-  let storage: ShowcaseStorage
-
-  const uploads: Array<() => Promise<void>> = []
+  const uploads: Array<(storage: ShowcaseStorage) => Promise<void>> = []
   const reqBody = await readMultipartFormData(event) as PayloadData
   let language = getRequestHeader(event, 'accept-language') as AppLanguage | undefined
   if (!language) {
@@ -60,23 +58,6 @@ export default defineEventHandler(async (event) => {
     de: empty(),
     fr: empty(),
     en: empty(),
-  }
-
-  if (process.env.GITHUB_TOKEN || process.env.GITHUB_APP_ID) {
-    storage = image.storage(git(showcase.slug), runtimeConfig.showcases)
-    const branchCreated = await storage.prepare?.()
-    if (!branchCreated) {
-      event.node.res.statusCode = 409
-      return {
-        error: t('message.server.api.showcases.post.error.submission_exists'),
-      }
-    }
-    logger.info('Initialized git storage backend')
-  }
-  else {
-    const { public: { rootDir } } = useRuntimeConfig()
-    storage = image.storage(fs(rootDir), runtimeConfig.showcases)
-    logger.info('Initialized filesystem storage backend')
   }
 
   const images: Array<{ image: string }> = []
@@ -116,7 +97,7 @@ export default defineEventHandler(async (event) => {
       })
       .with('images', () => {
         const imagePath = `assets/showcase-${showcase.slug}-${filename}`
-        uploads.push(storage!.writeImage.bind(storage, imagePath, data))
+        uploads.push(storage => storage.writeImage(imagePath, data))
         images.push({ image: `/cms/${imagePath}` })
       })
       .with('createdBy', () => {
@@ -174,6 +155,25 @@ export default defineEventHandler(async (event) => {
       }
     })
 
+  let storage: ShowcaseStorage
+
+  if (process.env.GITHUB_TOKEN || process.env.GITHUB_APP_ID) {
+    storage = image.storage(git(showcase.slug), runtimeConfig.showcases)
+    const branchCreated = await storage.prepare?.()
+    if (!branchCreated) {
+      event.node.res.statusCode = 409
+      return {
+        error: t('message.server.api.showcases.post.error.submission_exists'),
+      }
+    }
+    logger.info('Initialized git storage backend')
+  }
+  else {
+    const { public: { rootDir } } = useRuntimeConfig()
+    storage = image.storage(fs(rootDir), runtimeConfig.showcases)
+    logger.info('Initialized filesystem storage backend')
+  }
+
   if (errors?.length) {
     logger.info('Validation failed. Reverting showcase submission.')
     await storage.rollback?.()
@@ -193,7 +193,7 @@ export default defineEventHandler(async (event) => {
   return showcase
 })
 
-async function save(showcase: Showcase, uploads: Array<() => Promise<void>>, storage: ShowcaseStorage) {
+async function save(showcase: Showcase, uploads: Array<(storage: ShowcaseStorage) => Promise<void>>, storage: ShowcaseStorage) {
   const { slug } = showcase
 
   const writeContent = languages.map((language) => {
@@ -205,7 +205,7 @@ async function save(showcase: Showcase, uploads: Array<() => Promise<void>>, sto
     return storage.writeFile(path, `---\n${frontMatter}---\n${body}`)
   })
 
-  await Promise.all([...writeContent, ...uploads.map(upload => upload())])
+  await Promise.all([...writeContent, ...uploads.map(upload => upload(storage))])
   return storage.finalize?.()
 }
 
