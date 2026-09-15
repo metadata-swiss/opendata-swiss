@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
+import { computed, onMounted, reactive, ref, toRefs, useTemplateRef, watch } from 'vue'
 
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '#imports'
@@ -18,7 +18,7 @@ import SvgIcon from '../../app/components/SvgIcon.vue'
 import { useSeoMeta } from 'nuxt/app'
 import { clearDatasetBreadcrumbFromSessionStorage } from './[datasetId]/breadcrumb-session-stoage'
 import { DcatApChV2DatasetAdapter } from '../../app/components/dataset-detail/model/dcat-ap-ch-v2-dataset-adapter'
-import { syncFacetsFromRoute, useFacetSync } from '../../app/composables/useFacetSync'
+import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
 
 import OdsSearchPanel from '../../app/components/OdsSearchPanel.vue'
 import OdsSearchResults from '../../app/components/OdsSearchResults.vue'
@@ -28,33 +28,7 @@ const { t, locale } = useI18n()
 
 const router = useRouter()
 const route = useRoute()
-
-// 1. Main reactive object for your logic/UI
-const selectedFacets = reactive(
-  Object.fromEntries(facets.map(facet => [facet, [] as string[]])),
-)
-
-// 2. facetRefs for useSearch API (syncs with selectedFacets)
-const facetRefs = Object.fromEntries(
-  facets.map(facet => [facet, computed({
-    get: () => selectedFacets[facet],
-    set: (val: string[]) => { selectedFacets[facet] = val },
-  })]),
-)
-
-// 3. Use selectedFacets everywhere in your code and UI
-function resetAllFacets() {
-  for (const key in selectedFacets) {
-    selectedFacets[key] = []
-  }
-  // Reset the 'facets' query parameter
-  const query = { ...route.query }
-  if (query.page && query.page !== '1') {
-    query.page = '1' // Reset page to 1 if facets are restored from route
-  }
-  query['facets'] = encodeURIComponent(JSON.stringify({}))
-  router.push({ query })
-}
+const { facetRefs, resetAllFacets } = useFacets(facets)
 
 if (import.meta.client) {
   clearDatasetBreadcrumbFromSessionStorage()
@@ -146,22 +120,9 @@ function goToPage(newPage: number | string, query = route.query) {
     name: route.name,
     query: { ...query, ...facetsQuery, page },
   })
-  scrollToResults()
 }
 
-function scrollToResults() {
-  const el = document.getElementById('search-results')
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
-
-function scrollOnPaging(event: PointerEvent) {
-  const element = event.target as Element
-  if (element && (element.localName === 'svg' || element.localName === 'path' || element.localName === 'a')) {
-    scrollToResults()
-  }
-}
+const searchResultsElement = useTemplateRef<HTMLElement>('search-results')
 
 const searchInput = ref(route.query.q ?? '')
 const onSearch = () => goToPage(1, { q: searchInput.value })
@@ -232,16 +193,11 @@ watch(() => route.query.q, (searchTerm) => {
 
 onMounted(() => {
   syncFacetsFromRoute({
-    facets,
     facetRefs,
-    route,
   })
 
   useFacetSync({
-    facets,
     facetRefs,
-    route,
-    router,
   })
 })
 
@@ -271,7 +227,10 @@ await suspense()
       />
       <!-- results -->
 
-      <OdsSearchResults :results-count="getSearchResultsCount">
+      <OdsSearchResults
+        ref="search-results"
+        :results-count="getSearchResultsCount"
+      >
         <template #header-right>
           <OdsSortSelect
             v-model="selectedSort"
@@ -293,22 +252,20 @@ await suspense()
           <OdsPagination
             :current-page="(Number(route.query.page ?? 1))"
             :total-pages="getSearchResultsPagesCount"
-            :page-label="t('message.ods-pagination.page')"
-            :total-pages-label="t('message.ods-pagination.of') + getSearchResultsPagesCount"
             :pagination-items="[
               {
                 icon: 'ChevronLeft',
                 label: t('message.ods-pagination.previous'),
-                link: { name: route.name, query: { ...route.query, page: (Number(route.query.page ?? 1) - 1) } /*, hash: '#search-results'*/ },
+                page: Number(route.query.page ?? 1) - 1,
               },
               {
                 icon: 'ChevronRight',
                 label: t('message.ods-pagination.next'),
-                link: { name: route.name, query: { ...route.query, page: (Number(route.query.page ?? 1) + 1) } /* hash: '#search-results' */ },
+                page: Number(route.query.page ?? 1) + 1,
               },
             ]"
-            @page-change="(page) => goToPage(page)"
-            @click="scrollOnPaging($event)"
+            :search-results-element="searchResultsElement"
+            @page-change="goToPage"
           />
         </div>
 

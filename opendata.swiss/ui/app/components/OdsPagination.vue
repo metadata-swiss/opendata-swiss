@@ -7,7 +7,7 @@
       v-if="field"
       class="pagination__text"
     >
-      {{ pageLabel }}
+      {{ pageLabel || t('message.ods-pagination.page') }}
     </div>
     <input
       v-if="field"
@@ -24,7 +24,7 @@
       v-if="field"
       class="pagination__text"
     >
-      {{ totalPagesLabel }}
+      {{ totalPagesLabel || t('message.ods-pagination.of', { pageCount: totalPages }) }}
     </div>
     <ul class="pagination_items">
       <li
@@ -34,9 +34,10 @@
         <PaginationItem
           :icon="item.icon"
           :label="item.label"
-          :link="item.link"
+          :link="'link' in item ? item.link : getPageLink(item.page)"
           :type="type"
           :disabled="(index === 0 && currentPage === 1) || (index === paginationItems.length - 1 && currentPage === totalPages)"
+          @click="scrollToResults"
         />
       </li>
     </ul>
@@ -45,49 +46,57 @@
 
 <script setup lang="ts">
 import PaginationItem from './OdsPaginationItem.vue'
-import { computed } from 'vue'
+import { computed, type ComponentPublicInstance } from 'vue'
 import type { RouteLocationNamedI18n } from 'vue-router'
 
 import { useI18n } from '#imports'
 
 const { t } = useI18n()
+const route = useRoute()
 
 const currentPage = defineModel('currentPage', {
   type: Number,
   required: true,
 })
 
+function getPageLink(page: number) {
+  return { name: route.name, query: { ...route.query, page } } as unknown as RouteLocationNamedI18n
+}
+
 const emit = defineEmits({
   pageChange: (_page: number) => true,
 })
 
-const props = defineProps({
-  type: {
-    type: String,
-    default: () => 'outline',
-    validator: prop =>
-      ['outline', 'outline-negative'].includes(prop as string),
-  },
-  field: {
-    type: Boolean,
-    default: () => true,
-  },
-  totalPagesLabel: {
-    type: String,
-    default: () => '',
-  },
-  totalPages: {
-    type: Number,
-    default: () => Infinity,
-  },
-  pageLabel: {
-    type: String,
-    default: () => '',
-  },
-  paginationItems: {
-    type: Array<{ icon?: string, label?: string, link: RouteLocationNamedI18n<string | symbol> }>,
-    default: () => [],
-  },
+interface PaginationLinkItem {
+  icon?: string
+  label?: string
+  link: string
+}
+
+interface PaginationNumberItem {
+  icon?: string
+  label?: string
+  page: number
+}
+
+interface Props {
+  type?: 'outline' | 'outline-negative'
+  field?: boolean
+  totalPagesLabel?: string
+  totalPages?: number
+  pageLabel?: string
+  paginationItems?: Array<PaginationLinkItem | PaginationNumberItem>
+  searchResultsElement?: HTMLElement | ComponentPublicInstance
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  type: 'outline',
+  field: true,
+  totalPagesLabel: '',
+  totalPages: Infinity,
+  pageLabel: '',
+  paginationItems: () => [],
+  searchResultsElement: undefined,
 })
 
 const computedClasses = computed(() => {
@@ -109,5 +118,22 @@ function checkBoundariesAndEmit(event: Event) {
 
   currentPage.value = page
   emit('pageChange', page)
+  scrollToResults()
+}
+
+function scrollToResults() {
+  if (!props.searchResultsElement) {
+    return
+  }
+
+  let element: HTMLElement
+  if ('$el' in props.searchResultsElement) {
+    element = props.searchResultsElement?.$el
+  }
+  else {
+    element = props.searchResultsElement
+  }
+
+  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 </script>

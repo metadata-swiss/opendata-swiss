@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
+import { computed, onMounted, reactive, ref, toRefs, useTemplateRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '#imports'
 import { useSeoMeta } from 'nuxt/app'
@@ -12,11 +12,12 @@ import { useShowcaseSearch, facets } from '../../app/piveau/showcases'
 import type { SearchResultFacetGroupLocalized } from '@piveau/sdk-vue'
 import OdsSearchPanel from '../../app/components/OdsSearchPanel.vue'
 import OdsSearchResults from '../../app/components/OdsSearchResults.vue'
-import { syncFacetsFromRoute, useFacetSync } from '../../app/composables/useFacetSync'
+import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
 import OdsSortSelect from '../../app/components/dataset/OdsSortSelect.vue'
 import { useSorting } from '../../app/composables/sort'
 import OdsShowcaseCard from '../../app/components/showcases/OdsShowcaseCard.vue'
 import OdsButton from '../../app/components/OdsButton.vue'
+import OdsPagination from '../../app/components/OdsPagination.vue'
 
 const { locale, t } = useI18n()
 
@@ -26,32 +27,7 @@ const router = useRouter()
 
 const searchInput = ref(route.query.q)
 
-// 1. Main reactive object for your logic/UI
-const selectedFacets = reactive(
-  Object.fromEntries(facets.map(facet => [facet, [] as string[]])),
-)
-
-// 2. facetRefs for useSearch API (syncs with selectedFacets)
-const facetRefs = Object.fromEntries(
-  facets.map(facet => [facet, computed({
-    get: () => selectedFacets[facet],
-    set: (val: string[]) => { selectedFacets[facet] = val },
-  })]),
-)
-
-// 3. Use selectedFacets everywhere in your code and UI
-function resetAllFacets() {
-  for (const key in selectedFacets) {
-    selectedFacets[key] = []
-  }
-  // Reset the 'facets' query parameter
-  const query = { ...route.query }
-  if (query.page && query.page !== '1') {
-    query.page = '1' // Reset page to 1 if facets are restored from route
-  }
-  query['facets'] = encodeURIComponent(JSON.stringify({}))
-  router.push({ query })
-}
+const { facetRefs, resetAllFacets } = useFacets(facets)
 
 const onSearch = () => goToPage(1, { q: searchInput.value })
 
@@ -68,15 +44,9 @@ function goToPage(newPage: number | string, query = route.query) {
     name: route.name,
     query: { ...query, ...facetsQuery, page },
   })
-  scrollToResults()
 }
 
-function scrollToResults() {
-  const el = document.getElementById('search-results')
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
+const searchResultsElement = useTemplateRef<HTMLElement>('search-results')
 
 const initialSort = 'modified+desc'
 const piveauQueryParams: SearchParamsBase = reactive({
@@ -92,7 +62,7 @@ const {
   getSearchResultsEnhanced,
   getAvailableFacetsLocalized,
   getSearchResultsCount,
-
+  getSearchResultsPagesCount,
 } = useSearch({
   queryParams: toRefs(piveauQueryParams),
   additionalParams: {
@@ -152,16 +122,11 @@ watch(() => route.query.q, (searchTerm) => {
 
 onMounted(() => {
   syncFacetsFromRoute({
-    facets,
     facetRefs,
-    route,
   })
 
   useFacetSync({
-    facets,
     facetRefs,
-    route,
-    router,
   })
 })
 
@@ -217,7 +182,10 @@ const sortOptions = computed(() => {
       @update:search-input="value => searchInput = value"
     />
     <!-- results -->
-    <OdsSearchResults :results-count="getSearchResultsCount">
+    <OdsSearchResults
+      ref="search-results"
+      :results-count="getSearchResultsCount"
+    >
       <template #header-right>
         <OdsSortSelect
           v-model="selectedSort"
@@ -233,6 +201,26 @@ const sortOptions = computed(() => {
             <OdsShowcaseCard :showcase="showcase" />
           </li>
         </ul>
+      </div>
+      <div class="pagination pagination--right">
+        <OdsPagination
+          :current-page="(Number(route.query.page ?? 1))"
+          :total-pages="getSearchResultsPagesCount"
+          :pagination-items="[
+            {
+              icon: 'ChevronLeft',
+              label: t('message.ods-pagination.previous'),
+              page: Number(route.query.page ?? 1) - 1,
+            },
+            {
+              icon: 'ChevronRight',
+              label: t('message.ods-pagination.next'),
+              page: Number(route.query.page ?? 1) + 1,
+            },
+          ]"
+          :search-results-element="searchResultsElement"
+          @page-change="goToPage"
+        />
       </div>
     </OdsSearchResults>
   </OdsPage>

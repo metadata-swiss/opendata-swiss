@@ -84,7 +84,6 @@ const onSearch = (value) => {
           :current-page="page"
           :page-label="t('message.ods-pagination.page')"
           :total-pages="parseInt(pageCount)"
-          :total-pages-label="t('message.ods-pagination.of', { pageCount })"
           :pagination-items="[
             {
               icon: 'ChevronLeft',
