@@ -70,7 +70,7 @@
                   :key="category.id"
                   name="category"
                   :value="category.id"
-                  :label="category.pref_label"
+                  :label="getCurrentTranslation(category.pref_label, locale)"
                   checked
                 />
               </OdsFormField>
@@ -107,6 +107,7 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDatasetsSearch } from '../../app/piveau/datasets.js'
 import OdsButton from '../../app/components/OdsButton.vue'
+import { getCurrentTranslation } from '../../app/lib/getCurrentTranslation'
 import { useVocabularySearch } from '../../app/piveau/vocabularies'
 import { APP_LANGUAGES, type AppLanguage } from '../../app/constants/langages'
 
@@ -118,7 +119,7 @@ const datasets = ref([])
 const categories = ref([])
 const frequency = ref()
 const language = ref<AppLanguage>()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const query = {
   id: route.query.id,

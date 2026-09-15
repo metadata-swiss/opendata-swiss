@@ -6,6 +6,7 @@ import OdsTagItem from '../../app/components/OdsTagItem.vue'
 import OdsBreadcrumbs from '../../app/components/OdsBreadcrumbs.vue'
 import OdsCard from '../../app/components/content/OdsCard.vue'
 import OdsButton from '../../app/components/OdsButton.vue'
+import { getCurrentTranslation } from '../../app/lib/getCurrentTranslation.js'
 import { useVocabularySearch } from '../../app/piveau/vocabularies.js'
 import { useDatasetsSearch } from '../../app/piveau/datasets.js'
 
@@ -103,7 +104,7 @@ useSeoMeta({
 
       <OdsCard :title="t('message.dataset_detail.additional_information')">
         <OdsInfoBlock :title="t('message.showcase.type.header')">
-          {{ showcaseType.pref_label }}
+          {{ showcaseType?.pref_label && getCurrentTranslation(showcaseType.pref_label, locale) }}
         </OdsInfoBlock>
         <OdsInfoBlock
           v-if="showcaseCategories.length > 0"
@@ -114,7 +115,7 @@ useSeoMeta({
               v-for="category in showcaseCategories"
               :key="category.id"
             >
-              {{ category.pref_label }}
+              {{ category.pref_label && getCurrentTranslation(category.pref_label, locale) }}
             </li>
           </ul>
         </OdsInfoBlock>

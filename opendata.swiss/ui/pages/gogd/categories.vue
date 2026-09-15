@@ -23,7 +23,7 @@
                 >
                   <OdsCard
                     style="height: 100%;"
-                    :title="category.pref_label"
+                    :title="getCurrentTranslation(category.pref_label, locale)"
                     clickable
                   >
                     <template #footer-action>
@@ -48,6 +48,7 @@ import OdsPage from '../../app/components/OdsPage.vue'
 import OdsBreadcrumbs from '../../app/components/OdsBreadcrumbs.vue'
 import { homePageBreadcrumb } from '../../app/composables/breadcrumbs'
 import { useVocabularySearch } from '../../app/piveau/vocabularies'
+import { getCurrentTranslation } from '../../app/lib/getCurrentTranslation'
 import OdsCard from '../../app/components/content/OdsCard.vue'
 import SvgIcon from '../../app/components/SvgIcon.vue'
 
