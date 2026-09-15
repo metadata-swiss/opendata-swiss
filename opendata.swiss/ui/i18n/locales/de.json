@@ -170,7 +170,6 @@
           "showcase_information": "Informationen zum Showcase"
         },
         "top_section": "Wir freuen uns, dass Sie Ihr Open-Data-Projekt vorstellen möchten. Bitte füllen Sie das Formular aus, um den Showcase zu erstellen. Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder. Wir werden Ihre Anfrage anschliessend prüfen und uns so schnell wie möglich bei Ihnen melden.",
-        "success_message": "Der Showcase wurde eingereicht.",
         "failure_message": "Einreichung des Showcases fehlgeschlagen.",
         "field": {
           "title": "Titel des Showcases",
@@ -322,17 +321,17 @@
       "block_3": {
         "title": "Weitere Informationen"
       }
-    }
-  },
-  "server": {
-    "api": {
-      "showcases": {
-        "post": {
-          "error": {
-            "submission_exists": "Eine Einreichung mit exakt demselben Titel existiert bereits.",
-            "unspecified_error": "Ein nicht näher bezeichneter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
-          },
-          "success": "Ihre Einreichung ist eingegangen und wird überprüft."
+    },
+    "server": {
+      "api": {
+        "showcases": {
+          "post": {
+            "error": {
+              "submission_exists": "Eine Einreichung mit exakt demselben Titel existiert bereits.",
+              "unspecified_error": "Ein nicht näher bezeichneter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
+            },
+            "success": "Ihre Einreichung ist eingegangen und wird überprüft."
+          }
         }
       }
     }

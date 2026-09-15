@@ -68,7 +68,7 @@ export default defineEventHandler(async (event) => {
     if (!branchCreated) {
       event.node.res.statusCode = 409
       return {
-        error: t('server.api.showcases.post.error.submission_exists'),
+        error: t('message.server.api.showcases.post.error.submission_exists'),
       }
     }
     logger.info('Initialized git storage backend')
@@ -184,7 +184,7 @@ export default defineEventHandler(async (event) => {
     await storage.rollback?.()
     event.node.res.statusCode = 500
     return {
-      error: t('server.api.showcases.post.error.unspecified_error'),
+      error: t('message.server.api.showcases.post.error.unspecified_error'),
     }
   }
 
