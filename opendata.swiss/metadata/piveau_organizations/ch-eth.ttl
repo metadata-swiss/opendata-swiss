@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-eth> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,22 @@
         "L'École polytechnique fédérale de Zurich (EPFZ) est une haute école spécialisée dans les sciences techniques et naturelles située à Zurich."@fr,
         "Il Politecnico federale di Zurigo (ETH Zurigo) è un'università a indirizzo tecnico-scientifico con sede a Zurigo."@it ;
     dcterms:identifier "CH_ETH" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE115203630" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_eth.png> ;
     skos:prefLabel "ETH Zürich"@de,
         "ETH Zürich"@en,
         "ETH Zürich"@fr,
         "ETH Zürich"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rämistrasse 101, 8006, Zürich, ZH"@de,
+                "Rämistrasse 101, 8006, Zürich, ZH"@en,
+                "Rämistrasse 101, 8006, Zürich, ZH"@fr,
+                "Rämistrasse 101, 8006, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@ethz.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0224> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-eth-kof>,
+        <https://opendata.swiss/id/organization/ch-eth-lib> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-eth-domain> ;
     foaf:homepage <https://www.ethz.ch> ;
     foaf:name "ETH Zürich"@de,

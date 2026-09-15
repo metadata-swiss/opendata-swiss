@@ -1,13 +1,23 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/che-105-834-378> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Universitäts-Kinderspital Zürich gehört zu den weltweit führenden Kinderspitälern. Das Wohl der Kinder und Jugendlichen ist unsere höchste Priorität."@de ;
     dcterms:identifier "CHE-105.834.378" ;
+    schema1:identifier "CHE105834378" ;
     skos:prefLabel "Unispital Zürich"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Lenggstrasse 30, 8008, Zürich, ZH"@de,
+                "Lenggstrasse 30, 8008, Zürich, ZH"@en,
+                "Lenggstrasse 30, 8008, Zürich, ZH"@fr,
+                "Lenggstrasse 30, 8008, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@kispi.uzh.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0110> ;
     foaf:homepage <https://www.kispi.uzh.ch> ;
     foaf:name "Universitäts-Kinderspital Zürich - Eleonorenstiftung"@de,

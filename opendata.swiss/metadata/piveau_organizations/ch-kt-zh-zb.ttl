@@ -1,14 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-zb> a org:Organization,
         foaf:Organization ;
     dcterms:description "Die Zentralbibliothek Zürich (ZB) ist als öffentliche Stiftung seit über 100 Jahren die Kantons-, Stadt- und Universitätsbibliothek von Zürich. Mit 6,6 Millionen Objekten (Büchern, Zeitschriften, Handschriften, Bildern, Fotografien, Karten, Mikroformen, Musikalien, Tonträgern, DVDs usw.) und über 200 Mitarbeitenden gehört sie zu den grössten Bibliotheken der Schweiz. Dazu kommt ein breites Angebot an Datenbanken und über 200’000 elektronische Volltexte. Eine halbe Million Menschen pro Jahr besucht die ZB und nutzt ihre vielfältigen Angebote."@de ;
     dcterms:identifier "CH_KT_ZH_ZB" ;
-    skos:prefLabel "Zentralbibliothek Zürich"@de ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh> ;
+    dcterms:spatial "ZH" ;
+    schema1:identifier "CHE100708080" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_zb.png> ;
+    skos:prefLabel "Zentralbibliothek (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Zähringerplatz 6, 8001, Zürich, ZH"@de,
+                "Zähringerplatz 6, 8001, Zürich, ZH"@en,
+                "Zähringerplatz 6, 8001, Zürich, ZH"@fr,
+                "Zähringerplatz 6, 8001, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:zb@zb.uzh.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     foaf:homepage <https://www.zb.uzh.ch> ;
     foaf:name "Zentralbibliothek Zürich"@de .
 

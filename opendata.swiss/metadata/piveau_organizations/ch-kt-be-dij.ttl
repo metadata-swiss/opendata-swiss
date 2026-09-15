@@ -1,14 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-be-dij> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_BE_DIJ" ;
+    dcterms:spatial "BE" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/Kanton_Bern_RGB.jpg> ;
     skos:prefLabel "DIJ (BE)"@de,
         "DIJ (BE)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Münstergasse 2, 3000, Bern 8, BE"@de,
+                "Münstergasse 2, 3000, Bern 8, BE"@en,
+                "Münstergasse 2, 3000, Bern 8, BE"@fr,
+                "Münstergasse 2, 3000, Bern 8, BE"@it ;
+            vcard:hasEmail <mailto:info.dij@be.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-be-dij-geo> ;
     foaf:name "Direktion für Inneres und Justiz (BE)"@de,
         "Direction de l'intérieur et de la justice (BE)"@fr .
 

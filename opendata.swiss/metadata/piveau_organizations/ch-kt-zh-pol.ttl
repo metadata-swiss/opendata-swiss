@@ -8,7 +8,6 @@
     dcterms:description "Im Auftrag der Regierung und damit der Bevölkerung übernimmt die Kantonspolizei Zürich Verantwortung für die Sicherheit im Kanton Zürich, indem sie vorausschauend handelt, entschlossen Hilfe leistet und Straftaten konsequent aufklärt. Dabei folgt sie den Grundsätzen der Verhältnismässigkeit und der Gesetzmässigkeit."@de ;
     dcterms:identifier "CH_KT_ZH_POL" ;
     skos:prefLabel "Kantonspolizei Zürich"@de ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh> ;
     foaf:homepage <https://www.zh.ch/de/sicherheitsdirektion/kantonspolizei-zuerich.html> ;
     foaf:name "Kantonspolizei Zürich"@de .
 

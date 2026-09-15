@@ -1,3 +1,5 @@
+import logging
+
 # Manual mapping between CKAN organization ids and I14Y slugs.
 # This manually curated mapping becomes obsolete, when I14Y itself provides the mapping back to CKAN organization id.
 # In the meantime, this mapping can be manually extended when necessary.
@@ -97,7 +99,7 @@ CKAN_TO_I14Y_ORG_MAPPING: dict[str, str] = {
     "handelsregisteramt-kanton-zuerich": "ch-kt-zh-jus-handelsregister",
     "hes-so-geneve": "ch-edu-ge-hes",
     "ima-kanton-zuerich": "ch-kt-zh-bd-ima",
-    "imad-ge": "ch-kt-ge-imad",
+    "imad-ge": "ch-imad",
     "immobilien-stadt-bern": "ch-gde-bern-immobilien",
     "infrastruktur-mobilitaet-biel-bienne": "ch-gde-biel-bienne-infrastruktur",
     "kanton-wallis": "ch-kt-wallis",
@@ -150,20 +152,20 @@ CKAN_TO_I14Y_ORG_MAPPING: dict[str, str] = {
     "basisdaten-biel-bienne": "ch-gde-biel-bienne",
     "leben-in-biel-bienne": "ch-gde-biel-bienne",
     "planung-umwelt-biel-bienne": "ch-gde-biel-bienne",
-    "finanzverwaltung-kanton-zuerich": "ch-kt-zh-f",
+    "finanzverwaltung-kanton-zuerich": "ch-kt-zh-fin-fin",
     "amt-geoinformation-sz": "ch-kt-sz-umwelt-geo",
     "geoinformation-kanton-uri": "ch-kt-uri",
     "are-kanton-zuerich": "ch-kt-zh-are-geo",
     "gesundheitsdirektion-kanton-zuerich": "ch-kt-zh-g",
+    "cern": "ch-cern",
+    "fti-ge": "ch-fti",
+    "services-industriels-geneve": "ch-sig",
+    "tpg": "ch-mob-tpg",
+    "kof-konjunkturforschungsstelle": "ch-eth-kof",
 
     ###  missing mappings
     # "materialscloud": "",  # https://opendata.swiss/id/catalogue/dcat-harvester-materials-cloud
-    # "cern": "",  # https://opendata.swiss/id/catalogue/geocat-cern
-    # "fti-ge": "",  # https://opendata.swiss/id/catalogue/geocat-fti-geneve
     # "geneve-aeroport": "",  # https://opendata.swiss/id/catalogue/geocat-geneve-aeroport
-    # "services-industriels-geneve": "",  # https://opendata.swiss/id/catalogue/geocat-sig-geneve
-    # "tpg": "",  # https://opendata.swiss/id/catalogue/geocat-tpg-geneve
-    # "kof-konjunkturforschungsstelle": "",  # https://opendata.swiss/id/catalogue/kof-harvester
 }
 
 
@@ -177,6 +179,10 @@ def resolve_i14y_publisher_slug(
     1) Manual mapping table (CKAN_TO_I14Y_ORG_MAPPING)
     """
     if ckan_org_id and ckan_org_id in CKAN_TO_I14Y_ORG_MAPPING:
+        i14y_org_id = CKAN_TO_I14Y_ORG_MAPPING[ckan_org_id]
+        logging.info(f"ckan_org_id: '{ckan_org_id}'  ->  i14y_org_id: '{i14y_org_id}'")
+
         return CKAN_TO_I14Y_ORG_MAPPING[ckan_org_id]
 
+    logging.warning(f"no mapping found for ckan_org_id: '{ckan_org_id}'")
     return None

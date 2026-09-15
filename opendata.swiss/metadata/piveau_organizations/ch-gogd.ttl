@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gogd> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_GOGD" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE131608474" ;
     skos:prefLabel "OGD"@de,
         "OGD"@en,
         "OGD"@fr,
         "OGD"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Espace de l'Europe 10, 2010 Neuchâtel, NE"@de,
+                "Espace de l'Europe 10, 2010 Neuchâtel, NE"@en,
+                "Espace de l'Europe 10, 2010 Neuchâtel, NE"@fr,
+                "Espace de l'Europe 10, 2010 Neuchâtel, NE"@it,
+                "Espace de l'Europe 10, 2010 Neuchâtel, NE"@rm ;
+            vcard:hasEmail <mailto:opendata@bfs.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch1> ;
     foaf:homepage <https://www.bfs.admin.ch/bfs/de/home/dienstleistungen/ogd/geschaeftsstelle.html> ;

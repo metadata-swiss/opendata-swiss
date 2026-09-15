@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/i14y-test-organisation> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "i14y-test-organisation" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "I14Y Test Organisation_de"@de,
         "I14Y Test Organisation_en"@en,
         "I14Y Test Organisation_fr"@fr,

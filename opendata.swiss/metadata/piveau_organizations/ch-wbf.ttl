@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-wbf> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,26 @@
         "Le DEFR est le centre de compétence du gouvernement suisse pour toutes les questions d'économie et de politique commerciale. Prenez connaissance de notre stratégie en matière d'emploi, de croissance et de prospérité en Suisse, et découvrez notre politique de développement durable. Le département chapeaute également la formation, la recherche et l'innovation, trois domaines fondamentaux pour notre société et l'économie de la Suisse."@fr,
         "Il DEFR riunisce le competenze del governo svizzero per tutte le principali questioni in materia economica e di politica commerciale. Seguite la nostra strategia in materia di lavoro, crescita, benessere e sviluppo sostenibile in Svizzera. In seno al Dipartimento sono inoltre raggruppati i settori della formazione, della ricerca e dell'innovazione, fondamentali per la nostra società e per la produttività del nostro Paese."@it ;
     dcterms:identifier "CH_WBF" ;
+    schema1:identifier "CHE279426498" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "WBF"@de,
         "EAR"@en,
         "DEFR"@fr,
         "DEFR"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Kochergasse 9, 3011, Bern, BE"@de,
+                "Kochergasse 9, 3011, Bern, BE"@en,
+                "Kochergasse 9, 3011, Bern, BE"@fr,
+                "Kochergasse 9, 3011, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@wbf.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-blw>,
+        <https://opendata.swiss/id/organization/ch-bwl>,
+        <https://opendata.swiss/id/organization/ch-innosuisse>,
+        <https://opendata.swiss/id/organization/ch-sbfi>,
+        <https://opendata.swiss/id/organization/ch-seco>,
+        <https://opendata.swiss/id/organization/ch-wbf-gs-wbf>,
+        <https://opendata.swiss/id/organization/ch-zivi> ;
     foaf:homepage <https://www.wbf.admin.ch> ;
     foaf:name "Eidgenössisches Departement für Wirtschaft, Bildung und Forschung (WBF)"@de,
         "Federal Department of Economic Affairs, Education and Research (EAER)"@en,

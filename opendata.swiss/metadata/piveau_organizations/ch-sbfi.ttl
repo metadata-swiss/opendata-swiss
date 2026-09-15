@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-sbfi> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,18 @@
         "Le Secrétariat d'État à la formation, à la recherche et à l'innovation est le centre de compétences de la Confédération pour les questions de portée nationale ou internationale relevant de la politique FRI."@fr,
         "La Segreteria di Stato per la formazione, la ricerca e l'innovazione è il centro di competenza della Confederazione per le questioni nazionali e internazionali connesse alla politica in materia di FRI."@it ;
     dcterms:identifier "CH_SBFI" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE201091609" ;
     skos:prefLabel "SBFI"@de,
         "SERI"@en,
         "SEFRI"@fr,
         "SEFRI"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Einsteinstrasse 2, 3005, Bern, BE"@de,
+                "Einsteinstrasse 2, 3005, Bern, BE"@en,
+                "Einsteinstrasse 2, 3005, Bern, BE"@fr,
+                "Einsteinstrasse 2, 3005, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@sbfi.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-wbf> ;
     foaf:homepage <https://www.sbfi.admin.ch> ;

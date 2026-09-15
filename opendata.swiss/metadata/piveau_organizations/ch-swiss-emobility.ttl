@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-swiss-emobility> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Swiss eMobility soutient la création des bases politiques et institutionnelles pour le développement de la mobilité électrique en Suisse. Nous défendons les intérêts de nos membres en rapport avec l'électromobilité."@fr,
         "Swiss eMobility sostiene la creazione delle basi politiche e istituzionali per lo sviluppo della mobilità elettrica in Svizzera. Difendiamo gli interessi dei nostri membri in relazione alla mobilità elettrica."@it ;
     dcterms:identifier "CH_SWISS_EMOBILITY" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE487002813" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_swissemobility.png> ;
     skos:prefLabel "Swiss eMobility"@de,
         "Swiss eMobility"@en,
         "Swiss eMobility"@fr,
         "Swiss eMobility"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Konsumstrasse 22a, 3007, Bern, BE"@de,
+                "Konsumstrasse 22a, 3007, Bern, BE"@en,
+                "Konsumstrasse 22a, 3007, Bern, BE"@fr,
+                "Konsumstrasse 22a, 3007, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@swiss-emobility.ch> ;
+            vcard:hasTelephone "Tel. +41 58 510 57 90" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0109> ;
     foaf:homepage <https://www.swiss-emobility.ch> ;
     foaf:name "Swiss eMobility"@de,

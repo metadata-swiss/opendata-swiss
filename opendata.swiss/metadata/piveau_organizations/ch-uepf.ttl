@@ -1,15 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-uepf> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_UEPF" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ÜPF"@de,
         "PTSS"@en,
         "SCPT"@fr,
         "SCPT"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eichenweg 5, 3052, Zollikofen, BE"@de,
+                "Eichenweg 5, 3052, Zollikofen, BE"@en,
+                "Eichenweg 5, 3052, Zollikofen, BE"@fr,
+                "Eichenweg 5, 3052, Zollikofen, BE"@it ;
+            vcard:hasEmail <mailto:info@isc-ejpd.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-ejpd-isc> ;
     foaf:homepage <https://www.li.admin.ch> ;

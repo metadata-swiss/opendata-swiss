@@ -1,13 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/che-107-148-124> a org:Organization,
         foaf:Organization ;
     dcterms:description "Medizinische Versorgung vom Neugeborenen bis ins Jugendalter. Behandlung bei akuter und chronischer Krankheit sowie bei Unfällen von Kindern und Jugendlichen. Psychotherapeutische Behandlung von Kindern- und Jugendlichen, jungen Erwachsenen."@de ;
     dcterms:identifier "CHE-107.148.124" ;
+    dcterms:spatial "BE" ;
+    schema1:identifier "CHE107148124" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kjmk.jpg> ;
     skos:prefLabel "Kinder- & Jugendmedizin Köniz"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Waldeggstrasse 30, 3097, Liebefeld, BE"@de,
+                "Waldeggstrasse 30, 3097, Liebefeld, BE"@en,
+                "Waldeggstrasse 30, 3097, Liebefeld, BE"@fr,
+                "Waldeggstrasse 30, 3097, Liebefeld, BE"@it ;
+            vcard:hasEmail <mailto:info@kjmk.ch> ;
+            vcard:hasTelephone "+41 31 971 44 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0302> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-gde-koeniz> ;
     foaf:homepage <https://www.kjmk.ch> ;

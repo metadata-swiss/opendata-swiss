@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bar> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Les Archives fédérales suisses garantissent la conservation des documents en lien avec les activités de l’Etat et permettent l'accès à ces derniers. L’administration peut ainsi assurer la traçabilité de ses activités et travailler de manière plus efficace. Pour les chercheurs, comme pour l’ensemble de la population, l’archivage est indispensable afin de se faire sa propre opinion et conserver un esprit critique dans un Etat de droit démocratique. Les recherches dans les fonds des Archives fédérales peuvent être effectuées en ligne ou sur place."@fr,
         "L’Archivio federale svizzero assicura la conservazione dei documenti sull’operato dello Stato e li rende accessibili. In questo modo l’Amministrazione federale può rendere conto delle proprie attività e lavorare in maniera più efficiente. In uno Stato di diritto democratico l’archiviazione riveste un’importanza fondamentale perché consente alla popolazione e alla comunità scientifica di formarsi una propria opinione. È possibile effettuare ricerche nell’Archivio federale sia on-line che in loco."@it ;
     dcterms:identifier "CH_BAR" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE445737990" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAR"@de,
         "SFA"@en,
         "AFS"@fr,
         "AFS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Archivstrasse 24, 3005 Bern, BE, BE"@de,
+                "Archivstrasse 24, 3005 Bern, BE, BE"@en,
+                "Archivstrasse 24, 3005 Bern, BE, BE"@fr,
+                "Archivstrasse 24, 3005 Bern, BE, BE"@it ;
+            vcard:hasEmail <mailto:info@bar.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.bar.admin.ch> ;

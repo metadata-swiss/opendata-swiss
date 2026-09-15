@@ -1,15 +1,24 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-babs> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BABS" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE276015555" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BABS"@de,
         "FOCP"@en,
         "OFPP"@fr,
         "UFPP"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@babs.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 50 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-vbs> ;
     foaf:homepage <https://www.babs.admin.ch> ;

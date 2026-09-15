@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-eth-lib> a org:Organization,
         foaf:Organization ;
@@ -18,17 +21,26 @@ Source: Wikipédia (https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_de_l%27%C3%8
 
 Fonte: Wikipedia (https://it.wikipedia.org/wiki/Biblioteca_del_Politecnico_federale_di_Zurigo)"""@it ;
     dcterms:identifier "CH_ETH_LIB" ;
+    dcterms:spatial "ZH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_eth.png> ;
     skos:prefLabel "ETH"@de,
         "ETH"@en,
         "ETH"@fr,
         "ETH"@it ;
-    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rämistrasse 101, 8092, Zürich, ZH"@de,
+                "Rämistrasse 101, 8092, Zürich, ZH"@en,
+                "Rämistrasse 101, 8092, Zürich, ZH"@fr,
+                "Rämistrasse 101, 8092, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@library.ethz.ch> ;
+            vcard:hasTelephone "+41 44 632 21 35" ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0224> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-eth> ;
-    foaf:homepage <https://library.ethz.ch/> ;
+    foaf:homepage <https://library.ethz.ch> ;
     foaf:name "ETH-Bibliothek"@de,
         "ETH-Bibliothek"@en,
         "ETH-Bibliothek"@fr,
         "ETH-Bibliothek"@it .
 
-<https://library.ethz.ch/> a foaf:Document .
+<https://library.ethz.ch> a foaf:Document .
 

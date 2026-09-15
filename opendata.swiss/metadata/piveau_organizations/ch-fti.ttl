@@ -1,0 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://opendata.swiss/id/organization/ch-fti> a org:Organization,
+        foaf:Organization ;
+    dcterms:description "Institution de droit public, la Fondation pour les terrains industriels de Genève (FTI) gère les périmètres industriels et artisanaux du canton. Elle accompagne les entreprises en recherche de terrains ou de locaux et facilite leur implantation ainsi que leur développement, en proposant des solutions adaptées à chacune d’elle."@fr ;
+    dcterms:identifier "CH_FTI" ;
+    dcterms:spatial "GE" ;
+    schema1:identifier "CHE103718063" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_fti.png> ;
+    skos:prefLabel "FTI"@en ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Avenue de la Praille 50, 1227, Carouge, GE"@de,
+                "Avenue de la Praille 50, 1227, Carouge, GE"@en,
+                "Avenue de la Praille 50, 1227, Carouge, GE"@fr,
+                "Avenue de la Praille 50, 1227, Carouge, GE"@it ;
+            vcard:hasEmail <mailto:info@ftige.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0117> ;
+    foaf:homepage <https://ftige.ch> ;
+    foaf:name "Fondation pour les terrains industriels de Genève (FTI)"@de,
+        "Fondation pour les terrains industriels de Genève (FTI)"@fr .
+
+<https://ftige.ch> a foaf:Document .
+

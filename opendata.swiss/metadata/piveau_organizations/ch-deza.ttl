@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-deza> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Weltweit Not und Armut lindern, Frieden und Sicherheit fördern und die Umwelt schonen. Das sind die Wirkungsziele der internationalen Zusammenarbeit als fester Bestandteil der Aussenpolitik der Schweiz. Die DEZA übernimmt die Gesamtkoordination und verantwortet die humanitäre Hilfe."@fr,
         "Weltweit Not und Armut lindern, Frieden und Sicherheit fördern und die Umwelt schonen. Das sind die Wirkungsziele der internationalen Zusammenarbeit als fester Bestandteil der Aussenpolitik der Schweiz. Die DEZA übernimmt die Gesamtkoordination und verantwortet die humanitäre Hilfe."@it ;
     dcterms:identifier "CH_DEZA" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "DEZA"@de,
         "SDC"@en,
         "DDC"@fr,
         "DSC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eichenweg 5, 3052, Zollikofen, BE"@de,
+                "Eichenweg 5, 3052, Zollikofen, BE"@en,
+                "Eichenweg 5, 3052, Zollikofen, BE"@fr,
+                "Eichenweg 5, 3052, Zollikofen, BE"@it ;
+            vcard:hasEmail <mailto:info.deza@eda.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 67 66" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-eda> ;
     foaf:homepage <https://www.deza.admin.ch> ;

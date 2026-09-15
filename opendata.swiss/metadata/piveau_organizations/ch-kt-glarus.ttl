@@ -1,16 +1,30 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-glarus> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_GLARUS" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE114808865" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_gl.png> ;
     skos:prefLabel "GL"@de,
         "GL"@en,
         "GL"@fr,
         "GL"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rathausplatz 7, 8750, Glarus, GL"@de,
+                "Rathausplatz 7, 8750, Glarus, GL"@en,
+                "Rathausplatz 7, 8750, Glarus, GL"@fr,
+                "Rathausplatz 7, 8750, Glarus, GL"@it ;
+            vcard:hasEmail <mailto:info@gl.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-gl-bau-geo>,
+        <https://opendata.swiss/id/organization/ch-kt-gl-staatskanzlei> ;
     foaf:homepage <https://www.gl.ch> ;
     foaf:name "Kanton Glarus"@de,
         "Canton Glarus"@en,

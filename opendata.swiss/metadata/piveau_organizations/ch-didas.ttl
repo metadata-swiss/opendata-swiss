@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-didas> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_DIDAS" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "DIDAS"@de,
         "DIDAS"@en,
         "DIDAS"@fr,

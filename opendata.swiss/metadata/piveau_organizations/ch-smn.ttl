@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-smn> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Le Musée national suisse (MNS) est l'organisme de la Confédération regroupant les quatre établissements suivants : le Musée national de Zurich, le château de Prangins, le Forum de l'histoire suisse à Schwyz et le Centre des collections à Affoltern am Albis."@fr,
         "Il Museo Nazionale Svizzero (SNM) è l'organizzazione della Confederazione che riunisce le quattro sedi: il Museo Nazionale di Zurigo, il Castello di Prangins, il Forum della Storia Svizzera di Svitto e il Centro delle collezioni di Affoltern am Albis."@it ;
     dcterms:identifier "CH_SMN" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE115401147" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "SNM"@de,
         "SNM"@en,
         "MNS"@fr,
         "MNS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Museumstrasse 2, 8021, Zürich, ZH"@de,
+                "Museumstrasse 2, 8021, Zürich, ZH"@en,
+                "Museumstrasse 2, 8021, Zürich, ZH"@fr,
+                "Museumstrasse 2, 8021, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@nationalmuseum.ch> ;
+            vcard:hasTelephone "+41 44 21 86511" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-edi> ;
     foaf:homepage <https://www.nationalmuseum.ch> ;

@@ -1,16 +1,31 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-sg> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_KT_SG" ;
+    dcterms:spatial "SG" ;
+    schema1:identifier "CHE114965275" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sg.jpg> ;
     skos:prefLabel "SG"@de,
         "SG"@en,
         "SG"@fr,
         "SG"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Klosterhof 3, 9000, St. Gallen, SG"@de,
+                "Klosterhof 3, 9000, St. Gallen, SG"@en,
+                "Klosterhof 3, 9000, St. Gallen, SG"@fr,
+                "Klosterhof 3, 9000, St. Gallen, SG"@it ;
+            vcard:hasEmail <mailto:info@sg.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-sg-bau>,
+        <https://opendata.swiss/id/organization/ch-kt-sg-staatskanzlei>,
+        <https://opendata.swiss/id/organization/ch-kt-sg-vw> ;
     foaf:homepage <https://sg.ch> ;
     foaf:name "Kanton St.Gallen"@de,
         "Kanton St. Gallen (SG)"@en,

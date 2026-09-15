@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-mob-sbb-ski> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,14 @@
         "Le Secrétariat des tâches du système d’information à la clientèle (SKI) publie pour le compte de l’OFT les données de l’ensemble des transports publics de Suisse."@fr,
         "Il servizio commerciale Attività di sistema Informazione alla clientela (SKI) pubblica, per conto dell’UFT, i dati di tutto il trasporto pubblico in Svizzera."@it ;
     dcterms:identifier "CH_MOB_SBB_SKI" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sbb.png> ;
     skos:prefLabel "Geschäftsstelle Systemaufgaben Kundeninformation (SBB)"@de,
         "Business office of Customer Information System Tasks (SFR)"@en,
         "Secrétariat des tâches du système d’information à la clientèle (CFF)"@fr,
         "Servizio commerciale Attività di sistema Informazione alla clientela (FFS)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:opendata@sbb.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0117> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-mob-sbb> ;
     foaf:homepage <https://www.oev-info.ch/de/datenmanagement/ski/mobilitaetsdaten-und-dienste-von-ski> ;

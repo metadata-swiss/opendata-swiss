@@ -1,15 +1,26 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-fin-pers> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Personalamt erarbeitet in Zusammenarbeit mit den Direktionen und der Staatskanzlei die kantonale Personalstrategie zu Handen des Regierungsrates und führt die direktionsübergreifenden Projekte zu deren Umsetzung. Es stellt die Lohnverarbeitung und -auszahlung sowie Abrechnung mit den Sozialversicherungen sicher und sorgt für attraktive Weiterbildungs- und Beratungsangebote für Mitarbeitende und Führungskräfte sowie für die Betreuung der Lernenden und Berufsbildenden in den beruflichen Grundbildungen KV, Informatik und Mediamatik."@de ;
     dcterms:identifier "CH_KT_ZH_FIN_PERS" ;
+    dcterms:spatial "ZH" ;
+    schema1:identifier "CHE472228308" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
     skos:prefLabel "Personalamt (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Walcheplatz 1, 8001, Zürich, ZH"@de,
+                "Walcheplatz 1, 8001, Zürich, ZH"@en,
+                "Walcheplatz 1, 8001, Zürich, ZH"@fr,
+                "Walcheplatz 1, 8001, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:personalamt@pa.zh.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
-    org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh> ;
     foaf:homepage <https://www.zh.ch/de/finanzdirektion/personalamt.html> ;
     foaf:name "Personalamt (ZH)"@de .
 

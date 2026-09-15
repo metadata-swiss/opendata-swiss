@@ -1,15 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-sem> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_SEM" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE193052812" ;
     skos:prefLabel "SEM"@de,
         "SEM"@en,
         "SEM"@fr,
         "SEM"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Quellenweg 6, 3084 Wabern, BE"@de,
+                "Quellenweg 6, 3084 Wabern, BE"@en,
+                "Quellenweg 6, 3084 Wabern, BE"@fr,
+                "Quellenweg 6, 3084 Wabern, BE"@it,
+                "Quellenweg 6, 3084 Wabern, BE"@rm ;
+            vcard:hasEmail <mailto:info@sem.admin.ch> ;
+            vcard:hasTelephone "+41 58 465 11 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-ejpd> ;
     foaf:name "Staatssekretariat für Migration (SEM)"@de,

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-are-geo> a org:Organization,
         foaf:Organization ;
@@ -13,16 +16,25 @@ Nous coordinons l'aquisition des géodonnées d'intérêt commun sur le territoi
 secteurs public et privé et des particuliers."""@fr,
         "La divisione della geoinformazione è il centro d'eccellenza del Cantone di Zurigo per dati georeferenziati. Mettiamo a disposizione dati geografici e informazioni di alta qualità per l'economia, la società e la pubblica amministrazione su tutto il cantone."@it ;
     dcterms:identifier "CH_KT_ZH_ARE_GEO" ;
-    skos:prefLabel "Geoinformation Kanton Zürich"@de,
-        "Department of Geoinformation of the Canton of Zurich"@en,
-        "Département de Géoinformation du Canton de Zurich"@fr,
-        "Dipartimento della geoinformazione del Cantone di Zurigo"@it ;
+    dcterms:spatial "ZH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
+    skos:prefLabel "Geoinformation (ZH)"@de,
+        "Geoinformation (ZH)"@en,
+        "Geoinformation (ZH)"@fr,
+        "Geoinformazione (ZH)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Stampfenbachstrasse 12, 8090, Zürich, ZH"@de,
+                "Stampfenbachstrasse 12, 8090, Zürich, ZH"@en,
+                "Stampfenbachstrasse 12, 8090, Zürich, ZH"@fr,
+                "Stampfenbachstrasse 12, 8090, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:are@bd.zh.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh-bd-are> ;
     foaf:homepage <https://www.zh.ch/gis> ;
-    foaf:name "Geoinformation Kanton Zürich"@de,
-        "Department of Geoinformation of the Canton of Zurich"@en,
-        "Département de Géoinformation du Canton de Zurich"@fr,
-        "Dipartimento della geoinformazione del Cantone di Zurigo"@it .
+    foaf:name "Amt für Geoinformation (ZH)"@de,
+        "Department of Geoinformation (ZH)"@en,
+        "Département de Géoinformation (ZH)"@fr,
+        "Dipartimento della geoinformazione (ZH)"@it .
 
 <https://www.zh.ch/gis> a foaf:Document .
 

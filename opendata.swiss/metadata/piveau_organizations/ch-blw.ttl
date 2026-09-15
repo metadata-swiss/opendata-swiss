@@ -1,16 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-blw> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BLW" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE146680598" ;
     skos:prefLabel "BLW"@de,
         "FOAG"@en,
         "OFAG"@fr,
         "UFAG"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schwarzenburgstrasse 165, 3003 Bern, BE"@de,
+                "Schwarzenburgstrasse 165, 3003 Bern, BE"@en,
+                "Schwarzenburgstrasse 165, 3003 Bern, BE"@fr,
+                "Schwarzenburgstrasse 165, 3003 Bern, BE"@it,
+                "Schwarzenburgstrasse 165, 3003 Bern, BE"@rm ;
+            vcard:hasEmail <mailto:info@blw.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-agroscope> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-wbf> ;
     foaf:homepage <https://blw.admin.ch> ;
     foaf:name "Bundesamt für Landwirtschaft (BLW)"@de,

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gs-efd> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Finances fédérales, stabilité des marchés financiers, fiscalité – la plupart des sujets traités au DFF concernent les finances de l’État et la politique budgétaire. Mais le DFF perçoit aussi les droits de douane et contrôle la circulation des personnes et des marchandises à la frontière. Il fournit aussi des prestations à l’ensemble de l’administration fédérale dans les domaines de l’informatique, des constructions et de la logistique ainsi que du personnel de la Confédération."@fr,
         "Finanze federali, stabilità della piazza finanziaria, imposte: al DFF molto ruota attorno ai conti pubblici e alla politica finanziaria. Il Dipartimento riscuote imposte e dazi, controlla persone e merci alla frontiera, ma fornisce anche prestazioni di servizi a tutta l’Amministrazione federale, spaziando dall’informatica alle questioni relative al personale fino alla costruzione e alla logistica."@it ;
     dcterms:identifier "CH_GS_EFD" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE319639393" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "GS-EFD"@de,
         "GS-FDF"@en,
         "SG-DFF"@fr,
         "SG-DFF"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Bundesgasse 3, 3003, Bern, BE"@de,
+                "Bundesgasse 3, 3003, Bern, BE"@en,
+                "Bundesgasse 3, 3003, Bern, BE"@fr,
+                "Bundesgasse 3, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@gs-efd.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efd> ;
     foaf:homepage <https://www.efd.admin.ch> ;

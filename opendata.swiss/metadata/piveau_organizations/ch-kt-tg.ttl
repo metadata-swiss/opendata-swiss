@@ -1,16 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-tg> a org:Organization,
         foaf:Organization ;
     dcterms:description "Der Kanton Thurgau veröffentlicht hier schrittweise OGD-Datensätze der kantonalen Verwaltung."@de ;
     dcterms:identifier "CH_KT_TG" ;
-    skos:prefLabel "Kanton Thurgau"@de,
-        "Canton of Thurgau"@en,
-        "Canton de Thurgovie"@fr,
-        "Cantone di Turgovia"@it ;
+    dcterms:spatial "TG" ;
+    schema1:identifier "CHE114809244" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_tg.png> ;
+    skos:prefLabel "TG"@de,
+        "TG"@en,
+        "TG"@fr,
+        "TG"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Zürcherstrasse 188, 8500, Frauenfeld, TG"@de,
+                "Zürcherstrasse 188, 8500, Frauenfeld, TG"@en,
+                "Zürcherstrasse 188, 8500, Frauenfeld, TG"@fr,
+                "Zürcherstrasse 188, 8500, Frauenfeld, TG"@it ;
+            vcard:hasEmail <mailto:info@tg.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     foaf:homepage <https://tg.ch> ;
     foaf:name "Kanton Thurgau"@de,
         "Canton of Thurgau"@en,

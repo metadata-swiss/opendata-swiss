@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-efk> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Le Contrôle fédéral des finances (CDF) est l'organe de surveillance financière de la Confédération suisse."@fr,
         "Il Controllo federale delle finanze (CDF) è l'organo di vigilanza finanziaria della Confederazione svizzera."@it ;
     dcterms:identifier "CH_EFK" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE108902220" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/efk_logo.png> ;
     skos:prefLabel "EFK"@de,
         "SFAO"@en,
         "CDF"@fr,
         "CDF"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Monbijoustrasse 45, 3003, Bern, BE"@de,
+                "Monbijoustrasse 45, 3003, Bern, BE"@en,
+                "Monbijoustrasse 45, 3003, Bern, BE"@fr,
+                "Monbijoustrasse 45, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@efk.admin.ch> ;
+            vcard:hasTelephone "+41 58 463 11 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efd> ;
     foaf:homepage <https://www.efk.admin.ch> ;

@@ -1,14 +1,21 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-ge-chancellerie> a org:Organization,
         foaf:Organization ;
     dcterms:description "La chancellerie d'Etat assume les fonctions d'état-major du gouvernement cantonal."@fr ;
     dcterms:identifier "CH_KT_GE_CHANCELLERIE" ;
+    dcterms:spatial "GE" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_GE.png> ;
     skos:prefLabel "Staatskanzlei (GE)"@de,
         "Chancellerie d’État (GE)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:chancellerie@etat.ge.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-ge> ;
     foaf:homepage <https://www.ge.ch/organisation/chancellerie-etat> ;

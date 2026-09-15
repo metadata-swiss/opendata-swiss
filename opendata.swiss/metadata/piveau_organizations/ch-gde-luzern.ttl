@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-luzern> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
 Die Geometadaten zu den einzelnen OGD-Daten sind unter "Zusätzliche Informationen" als Link aufgeführt.
 Zu beachten sind weitere Bestimmungen zum Datenschutz und Nutzungsbestimmungen gemäss OGD-Internetauftritt der Stadt Luzern."""@de ;
     dcterms:identifier "CH_GDE_LUZERN" ;
+    dcterms:spatial "LU" ;
+    schema1:identifier "CHE482810846" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_gde_luzern.gif> ;
     skos:prefLabel "Stadt Luzern"@de,
         "Stadt Luzern"@en,
         "Stadt Luzern"@fr,
         "Stadt Luzern"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Hirschengraben 17, 6003, Luzern, LU"@de,
+                "Hirschengraben 17, 6003, Luzern, LU"@en,
+                "Hirschengraben 17, 6003, Luzern, LU"@fr,
+                "Hirschengraben 17, 6003, Luzern, LU"@it ;
+            vcard:hasEmail <mailto:info@luzern.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://luzern.ch> ;
     foaf:name "Stadt Luzern"@de,

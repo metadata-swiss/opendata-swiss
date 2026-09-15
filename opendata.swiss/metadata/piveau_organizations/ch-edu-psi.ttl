@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-edu-psi> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Le PSI effectue de la recherche de pointe reconnue au niveau international dans les sciences naturelles et les sciences de l’ingénierie."@fr,
         "Il PSI conduce ricerche all'avanguardia, riconosciute a livello internazionale, nel campo delle scienze naturali e dell'ingegneria. Scienziati provenienti da tutto il mondo conducono ricerche presso le nostre strutture di ricerca su larga scala."@it ;
     dcterms:identifier "CH_EDU_PSI" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE116133392" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_psi.png> ;
     skos:prefLabel "PSI"@de,
         "PSI"@en,
         "PSI"@fr,
         "PSI"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Forschungsstrasse 111, 5303, Würenlingen, AG"@de,
+                "Forschungsstrasse 111, 5303, Würenlingen, AG"@en,
+                "Forschungsstrasse 111, 5303, Würenlingen, AG"@fr,
+                "Forschungsstrasse 111, 5303, Würenlingen, AG"@it ;
+            vcard:hasEmail <mailto:info@psi.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0224> ;
     foaf:homepage <https://www.psi.ch> ;
     foaf:name "Paul Scherrer Institut (PSI)"@de,

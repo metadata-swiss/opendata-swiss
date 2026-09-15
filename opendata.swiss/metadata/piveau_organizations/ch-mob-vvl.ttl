@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-mob-vvl> a org:Organization,
         foaf:Organization ;
@@ -9,10 +12,19 @@
         "The Lucerne Public Transportation Association (VVL) has existed since January 1, 2010, as a public-law institution with its own legal personality. The VVL plans and finances public transportation in the canton of Lucerne. It strives to provide efficient and attractive public transportation. The administrative office of the Passepartout fare network is also affiliated with the VVL."@en,
         "L'association de transport de Lucerne (VVL) existe depuis le 1er janvier 2010 en tant qu'établissement de droit public doté d'une personnalité juridique propre. La VVL planifie et finance les transports publics dans le canton de Lucerne. Elle a pour objectif de mettre en place un réseau de transports publics performant et attractif. Le secrétariat de la communauté tarifaire Passepartout est également rattaché administrativement à la VVL."@fr ;
     dcterms:identifier "CH_MOB_VVL" ;
+    dcterms:spatial "LU" ;
+    schema1:identifier "CHE116242555" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_vvl.png> ;
     skos:prefLabel "Verkehrsverbund Luzern"@de,
         "Public Transportation Association"@en,
         "Association de transport de Lucerne"@fr,
         "Verkehrsverbund Luzern"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Seidenhofstrasse 2, 6003, Luzern, LU"@de,
+                "Seidenhofstrasse 2, 6003, Luzern, LU"@en,
+                "Seidenhofstrasse 2, 6003, Luzern, LU"@fr,
+                "Seidenhofstrasse 2, 6003, Luzern, LU"@it ;
+            vcard:hasEmail <mailto:info@vvl.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://www.vvl.ch/> ;
     foaf:name "Verkehrsverbund Luzern"@de,

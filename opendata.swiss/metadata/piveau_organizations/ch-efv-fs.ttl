@@ -1,0 +1,67 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://opendata.swiss/id/organization/ch-efv-fs> a org:Organization,
+        foaf:Organization ;
+    dcterms:description """Die Eidgenössische Finanzverwaltung (EFV) erstellt die Statistik der öffentlichen Haushalte und Sozialversicherungen (Finanzstatistik). Damit gehört das Amt zusammen mit dem Bundesamt für Statistik (Hauptlieferant für schweizerische Statistiken), der Schweizerischen Nationalbank (Banken-, Finanzmarkt- und Zahlungsbilanzstatistik) sowie anderen Bundesämtern (Spezialstatistiken) und den Statistikämtern der Kantone und verschiedener Städte zu den wichtigen öffentlichen Statistikproduzenten der Schweiz. Aufgabe der Finanzstatistik ist eine transparente Darstellung der Ertrags-, Finanz- und Vermögenslage des staatlichen Sektors der Schweiz. Mit der Richtlinie zur Qualitätssicherung der EFV garantiert die Finanzstatistik für eine hohe Qualität der von ihr produzierten Statistiken.
+
+Die Finanzstatistik erbringt folgende Dienstleistungen:
+
+* Konsolidierte und harmonisierte Finanzberichterstattung von Bund, Kantonen, Gemeinden und öffentlichen Sozialversicherungen auf der Basis der Rechnungslegungsmodelle des Bundes und der Kantone (NRM, HRM2 etc.) mit dem Ziel der nationalen Vergleichbarkeit.
+* Produktion und Berichterstattung einer international vergleichbaren Statistik der öffentlichen Finanzen der Schweiz nach den Standards des Internationalen Währungsfonds (GFSM2014).
+* Bereitstellung von Daten zu den öffentlichen Finanzen als Basis für die Erstellung der Volkswirtschaftlichen Gesamtrechnung der Schweiz, insbesondere auch im Rahmen des Statistikabkommens der Bilateralen II (ESVG2010).
+* Spezifische Auswertungen und Analysen zu den öffentlichen Finanzen der Schweiz."""@de,
+        """The Federal Finance Administration (FFA) prepares statistics on the government units and social security funds (financial statistics). The FFA is thus one of Switzerland's main public producers of statistics, together with the Federal Statistical Office (main supplier of Swiss statistics), the Swiss National Bank (bank, financial market and balance of payments statistics) as well as other federal agencies (special statistics) and the statistics offices of the cantons and various cities and towns. The aim of financial statistics is to present a transparent picture of the revenue, finance and asset situation of Switzerland's general government sector. With the directive on quality assurance of the FFA, Financial Statistics Section guarantees the high quality of the statistics it produces.
+
+The Financial Statistics Section provides the following services:
+
+* Consolidated and harmonized financial reporting of the Confederation, cantons, communes and social security funds on the basis of the accounting models of the Confederation and of the cantons (NAM, HAM2, etc.) with the objective of national comparability.
+* Production and reporting of internationally comparable statistics on Switzerland's public finances in accordance with the International Monetary Fund standards (GFSM 2014).
+* Preparation of data on public finances as a basis for drawing up Switzerland's system of national accounts, particularly within the scope of the Statistics Agreement of the second series of bilateral agreements (ESA 2010).
+* Specific evaluations and analyses of Swiss public finances.
+
+"""@en,
+        """L’Administration fédérale des finances (AFF) élabore la statistique des finances publiques et des assurances sociales en Suisse (statistique financière). Avec l’Office fédéral des statistiques (fournisseur principal de statistiques sur la Suisse), la Banque nationale suisse (pour les banques, les marchés financiers et la statistique de la balance des paiements), d’autres offices fédéraux (statistiques sectorielles) et les offices de la statistique des cantons et de diverses villes, l’AFF est l’un des plus importants producteurs officiels de statistiques en Suisse. Le service de la Statistique financière a pour tâche de présenter de manière transparente la situation du secteur public suisse en matière de recettes, de finances et de patrimoine. Grâce aux directives de l’AFF sur l’assurance-qualité, la Statistique financière est en mesure de garantir la production de statistiques de haut niveau qualitatif.
+
+La Statistique financière fournit les services suivants :
+
+* Rapports financiers consolidés et harmonisés relatifs à la Confédération, aux cantons, aux communes et aux assurances sociales publiques, sur la base des modèles comptables de la Confédération et des cantons (NMC, MCH2, etc.) et à des fins de comparaison au plan national ;
+* Production et commentaire d’une statistique des finances publiques suisses, permettant des comparaisons internationales et respectant les normes du Fonds monétaire international (MSFP 2014) ;
+* Préparation de données sur les finances publiques en vue de l’élaboration des comptes nationaux de la Suisse, notamment dans le cadre de l’accord sur les statistiques conclus à la faveur des Bilatérales II (SEC 2010) ;
+* Évaluation et analyses spécifiques des données relatives aux finances publiques de la Suisse."""@fr,
+        """L'Amministrazione federale delle finanze (AFF) allestisce la statistica degli enti pubblici e delle assicurazioni sociali (statistica finanziaria). Unitamente all'Ufficio federale di statistica (principale produttore di statistiche svizzere), alla Banca nazionale svizzera (statistica delle banche, dei mercati finanziari e della bilancia dei pagamenti), ad altri Uffici federali (statistiche speciali) e agli Uffici di statistica cantonali e municipali, l’AFF è uno dei più importanti produttori di statistiche pubbliche della Svizzera. È compito della statistica finanziaria illustrare in modo trasparente la situazione inerente ai ricavi, alle finanze e al patrimonio degli enti pubblici della Svizzera. Con la direttiva per la garanzia della qualità dell’AFF, la sezione Statistica finanziaria garantisce l’alta qualità delle statistiche da essa condotte.
+
+La statistica finanziaria effettua le seguenti prestazioni:
+
+* Rendiconto finanziario consolidato e armonizzato di Confederazione, Cantoni, Comuni e assicurazioni sociali pubbliche sulla base dei modelli di presentazione dei conti della Confederazione e dei Cantoni (NMC, MPCA2 ecc.) al fine di consentire il confronto a livello nazionale.
+* Allestimento e rendiconto di una statistica delle finanze pubbliche della Svizzera confrontabile a livello internazionale secondo gli standard del Fondo monetario internazionale (GFSM2014).
+* Approntamento di dati sulle finanze pubbliche come base per l'allestimento dei conti economici generali della Svizzera, in particolare anche nel quadro dell'Accordo sulla statistica degli Accordi bilaterali II (SEC2010).
+* Analisi specifiche e analisi delle finanze pubbliche della Svizzera."""@it ;
+    dcterms:identifier "CH_EFV_FS" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE252766317" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
+    skos:prefLabel "Finanzstatistik"@de,
+        "Financial Statistic"@en,
+        "Statistique Financière"@fr,
+        "Statistica Finanziaria"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Monbijoustrasse 118, 3007, Bern, BE"@de,
+                "Monbijoustrasse 118, 3007, Bern, BE"@en,
+                "Monbijoustrasse 118, 3007, Bern, BE"@fr,
+                "Monbijoustrasse 118, 3007, Bern, BE"@it ;
+            vcard:hasEmail <mailto:finstat@efv.admin.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    foaf:homepage <https://www.efv.admin.ch/de/was-ist-die-finanzstatistik> ;
+    foaf:name "Finanzstatistik"@de,
+        "Financial Statistic"@en,
+        "Statistique Financière"@fr,
+        "Statistica Finanziaria"@it .
+
+<https://www.efv.admin.ch/de/was-ist-die-finanzstatistik> a foaf:Document .
+

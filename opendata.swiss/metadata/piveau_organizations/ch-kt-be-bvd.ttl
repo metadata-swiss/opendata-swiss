@@ -1,14 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-be-bvd> a org:Organization,
         foaf:Organization ;
     dcterms:description "Öffentlicher Verkehr, Strassenbau, Verkehrsplanung, Wasserregulierung, Abfall, Hochbauprojekte."@de ;
     dcterms:identifier "CH_KT_BE_BVD" ;
+    dcterms:spatial "BE" ;
+    schema1:identifier "CHE115874592" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/Kanton_Bern_RGB.jpg> ;
     skos:prefLabel "BVD (BE)"@de,
         "DTT (BE)"@fr ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Reiterstrasse 11, 3013, Bern, BE"@de,
+                "Reiterstrasse 11, 3013, Bern, BE"@en,
+                "Reiterstrasse 11, 3013, Bern, BE"@fr,
+                "Reiterstrasse 11, 3013, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info.bvd@be.ch> ;
+            vcard:hasTelephone "+41 31 633 31 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     foaf:homepage <https://www.bvd.be.ch> ;
     foaf:name "Bau- und Verkehrsdirektion (BE)"@de,

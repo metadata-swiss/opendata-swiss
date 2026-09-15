@@ -1,17 +1,40 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-edi> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das EDI ist verantwortlich für die sozialen, kulturellen und gesundheitlichen Belange der Schweiz. Zudem ist das EDI zuständig für die Gleichstellung von Frau und Mann und von Menschen mit Behinderungen, die Rassismusbekämpfung, die Statistiken des Bundes und die Meteorologie."@de ;
     dcterms:identifier "CH_EDI" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE255108719" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "EDI"@de,
         "EDI"@en,
         "DFI"@fr,
         "DFI"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Inselgasse 1, 3011, Bern, BE"@de,
+                "Inselgasse 1, 3011, Bern, BE"@en,
+                "Inselgasse 1, 3011, Bern, BE"@fr,
+                "Inselgasse 1, 3011, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@gs-edi.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-bag>,
+        <https://opendata.swiss/id/organization/ch-bak>,
+        <https://opendata.swiss/id/organization/ch-bar>,
+        <https://opendata.swiss/id/organization/ch-blv>,
+        <https://opendata.swiss/id/organization/ch-bsv>,
+        <https://opendata.swiss/id/organization/ch-gs-edi>,
+        <https://opendata.swiss/id/organization/ch-meteoschweiz>,
+        <https://opendata.swiss/id/organization/ch-smn>,
+        <https://opendata.swiss/id/organization/ch-snm>,
+        <https://opendata.swiss/id/organization/ch-swissmedic>,
+        <https://opendata.swiss/id/organization/ch1> ;
     foaf:homepage <https://www.edi.admin.ch> ;
     foaf:name "Eidgenössisches Departement des Innern (EDI)"@de,
         "Federals Departement des Innern (EDI)"@en,

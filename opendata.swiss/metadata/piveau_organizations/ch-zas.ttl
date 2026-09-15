@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-zas> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "La CdC est active dans le domaine des assurances sociales du 1er pilier : l’assurance-vieillesse et survivants AVS, l’assurance-invalidité AI et les allocations pour perte de gain APG."@fr,
         "L’UCC è attivo nell’ambito del 1° pilastro: assicurazione vecchiaia e superstiti AVS, invalidità AI e assicurazione perdita di guadagno APG."@it ;
     dcterms:identifier "CH_ZAS" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE200474557" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ZAS"@de,
         "CdC"@en,
         "CdC"@fr,
         "UCC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Avenue Edmond-VAUCHER 18, 1203, Genève, GE"@de,
+                "Avenue Edmond-VAUCHER 18, 1203, Genève, GE"@en,
+                "Avenue Edmond-VAUCHER 18, 1203, Genève, GE"@fr,
+                "Avenue Edmond-VAUCHER 18, 1203, Genève, GE"@it ;
+            vcard:hasEmail <mailto:info@zas.admin.ch> ;
+            vcard:hasTelephone " +41 58 461 91 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-efv> ;
     foaf:homepage <https://www.zas.admin.ch> ;

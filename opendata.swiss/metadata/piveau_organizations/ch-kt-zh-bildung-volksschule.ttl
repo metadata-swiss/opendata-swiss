@@ -1,16 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zh-bildung-volksschule> a org:Organization,
         foaf:Organization ;
     dcterms:description "Das Volksschulamt ist zuständig für schulorganisatorische Aufgaben und die Verwaltung des Lehrpersonals. Die Abteilungen unterstützen die Schulen in der Personaladministration, in Fragen zu Unterricht, Lehrplan und Lehrmitteln. Sie übernehmen Koordinations-, Aufsichts- und Beratungsaufgaben für den Sonderschulbereich. Sie beraten Behörden, Schulleitungen und Schulverwaltungen."@de ;
     dcterms:identifier "CH_KT_ZH_BILDUNG_VOLKSSCHULE" ;
-    skos:prefLabel "Volksschulamt Kanton Zürich"@de ;
+    dcterms:spatial "ZH" ;
+    schema1:identifier "CHE472429858" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_kt_zh.png> ;
+    skos:prefLabel "Volksschulamt (ZH)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Walchestrasse 21, 8006, Zürich, ZH"@de,
+                "Walchestrasse 21, 8006, Zürich, ZH"@en,
+                "Walchestrasse 21, 8006, Zürich, ZH"@fr,
+                "Walchestrasse 21, 8006, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@vsa.zh.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zh-edu> ;
     foaf:homepage <https://zh.ch/vsa> ;
-    foaf:name "Volksschulamt Kanton Zürich"@de .
+    foaf:name "Volksschulamt (ZH)"@de .
 
 <https://zh.ch/vsa> a foaf:Document .
 

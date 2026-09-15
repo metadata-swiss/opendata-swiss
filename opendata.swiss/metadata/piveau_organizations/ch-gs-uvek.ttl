@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gs-uvek> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,20 @@
         "Le DETEC s’occupe de différents thèmes : l’électricité, les transports, la communication, l’aménagement du territoire et l’environnement."@fr,
         "Il DATEC si occupa di approvvigionamento elettrico, infrastrutture dei trasporti e della comunicazione, sviluppo territoriale e protezione dell’ambiente."@it ;
     dcterms:identifier "CH_GS_UVEK" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "GS-UVEK"@de,
         "GS-DETEC"@en,
         "SG-DETEC"@fr,
         "SG-DATEC"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Bundeshaus Nord, 3003, Bern, BE"@de,
+                "Bundeshaus Nord, 3003, Bern, BE"@en,
+                "Bundeshaus Nord, 3003, Bern, BE"@fr,
+                "Bundeshaus Nord, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@gs-uvek.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-postcom> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://www.uvek.admin.ch> ;
     foaf:name "Generalsekretariat des UVEK (GS-UVEK)"@de,

@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-nkrs> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_NKRS" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_nkrs.png> ;
     skos:prefLabel "Nationale Krebsregistrierungsstelle (NKRS)"@de,
         "National Agency for Cancer Registration (NACR)"@en,
         "Organe national d'enregistrement du cancer (ONEC)"@fr,
         "Servizio nazionale di registrazione dei tumori (SNRT)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Hirschengraben 82, 8001, Zürich, ZH"@de,
+                "Hirschengraben 82, 8001, Zürich, ZH"@en,
+                "Hirschengraben 82, 8001, Zürich, ZH"@fr,
+                "Hirschengraben 82, 8001, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@nkrs.ch> ;
+            vcard:hasTelephone "+41 44 634 53 74" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:name "Nationale Krebsregistrierungsstelle (NKRS)"@de,
         "National Agency for Cancer Registration (NACR)"@en,

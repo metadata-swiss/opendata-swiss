@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-sh-v-geo> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,14 @@
         "L'Office de la géoinformation gère et publie les géodonnées du canton de Schaffhouse sous forme de géoservices OGC et de fichiers à télécharger. Toutes les géodonnées actuellement disponibles et soumises à l'OGD sont listées ici."@fr,
         "L'Ufficio di geoinformazione gestisce e pubblica i geodati del Cantone di Sciaffusa come geoservizi OGC e come file da scaricare. Tutti i geodati attualmente disponibili soggetti all'OGD sono elencati qui."@it ;
     dcterms:identifier "CH_KT_SH_V_GEO" ;
+    dcterms:spatial "SH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_SH.jpg> ;
     skos:prefLabel "Amt für Geoinformation Kanton Schaffhausen"@de,
         "Office for Geoinformation Canton Schaffhausen"@en,
         "Office de la géoinformation du canton de Schaffhouse"@fr,
         "Ufficio di geoinformazione del Cantone di Sciaffusa"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:agi@sh.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-sh-v> ;
     foaf:homepage <https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Volkswirtschaftsdepartement/Amt-f-r-Geoinformation-3854-DE.html> ;

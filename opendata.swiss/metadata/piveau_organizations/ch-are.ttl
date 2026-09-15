@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-are> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "L'ARE est le centre de compétences de la Confédération pour les questions liées au développement territorial, à la politique des transports, au développement durable ainsi qu'à la coopération transnationale en matière de territoire."@fr,
         "L'ARE è l'autorità federale responsabile per le questioni di sviluppo territoriale, politica dei trasporti, sviluppo sostenibile e collaborazione transnazionale in ambito territoriale."@it ;
     dcterms:identifier "CH_ARE" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE404107716" ;
     skos:prefLabel "ARE"@de,
         "ARE"@en,
         "ARE"@fr,
         "ARE"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Worblentalstrasse 66, 3063 Ittigen, BE"@de,
+                "Worblentalstrasse 66, 3063 Ittigen, BE"@en,
+                "Worblentalstrasse 66, 3063 Ittigen, BE"@fr,
+                "Worblentalstrasse 66, 3063 Ittigen, BE"@it,
+                "Worblentalstrasse 66, 3063 Ittigen, BE"@rm ;
+            vcard:hasEmail <mailto:info@are.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 40 60" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://www.are.admin.ch> ;

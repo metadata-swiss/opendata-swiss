@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-open-banking-project> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_OPEN_BANKING_PROJECT" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "OpenBankingProject.ch"@de,
         "OpenBankingProject.ch"@en,
         "OpenBankingProject.ch"@fr,

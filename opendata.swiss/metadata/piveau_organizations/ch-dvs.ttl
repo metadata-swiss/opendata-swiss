@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-dvs> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "L'Administration numérique suisse (ANS) vise à assurer l'efficacité du pilotage et de la coordination stratégiques des activités menées par la Confédération, les cantons et les communes en lien avec la transformation numérique."@fr,
         "L’Amministrazione digitale Svizzera (ADS) intende definire in modo efficace la gestione e il coordinamento strategici delle attività relative alla digitalizzazione della Confederazione, dei Cantoni e dei Comuni."@it ;
     dcterms:identifier "CH_DVS" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_dvs.png> ;
     skos:prefLabel "DVS"@de,
         "DPS"@en,
         "ANS"@fr,
         "ADS"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Speichergasse 6, 3003, Bern, BE"@de,
+                "Speichergasse 6, 3003, Bern, BE"@en,
+                "Speichergasse 6, 3003, Bern, BE"@fr,
+                "Speichergasse 6, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@digitale-verwaltung-schweiz.ch> ;
+            vcard:hasTelephone "+41 58 464 79 21" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0224> ;
     foaf:homepage <https://www.digitale-verwaltung-schweiz.ch> ;
     foaf:name "Digitale Verwaltung Schweiz (DVS)"@de,

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-fr> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,22 @@
         "Informations officielles, thèmes et prestations de l'administration cantonale. Organisation de l'Etat de Fribourg."@fr,
         "Informations officielles, thèmes et prestations de l'administration cantonale. Organisation de l'Etat de Fribourg."@it ;
     dcterms:identifier "CH_KT_FR" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE114965163" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_fr.png> ;
     skos:prefLabel "FR"@de,
         "FR"@en,
         "FR"@fr,
         "FR"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Route des Arsenaux 41, 1700, Fribourg, FR"@de,
+                "Route des Arsenaux 41, 1700, Fribourg, FR"@en,
+                "Route des Arsenaux 41, 1700, Fribourg, FR"@fr,
+                "Route des Arsenaux 41, 1700, Fribourg, FR"@it ;
+            vcard:hasEmail <mailto:info@fr.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-kt-fr-geo>,
+        <https://opendata.swiss/id/organization/ch-kt-fr-sda> ;
     foaf:homepage <https://fr.ch> ;
     foaf:name "Kanton Freiburg"@de,
         "Canton de Fribourg"@fr,

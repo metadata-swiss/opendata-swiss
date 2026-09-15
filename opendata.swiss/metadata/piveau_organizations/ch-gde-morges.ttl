@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-morges> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Les jeux de données ouvertes produits par la Ville de Morges sont accessibles via le présent site Internet."@fr,
         "I set di dati aperti prodotti dalla Città di Morges sono accessibili tramite questo sito web."@it ;
     dcterms:identifier "CH_GDE_MORGES" ;
+    dcterms:spatial "Morges" ;
+    schema1:identifier "CHE115146788" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_morges_2.png> ;
     skos:prefLabel "Morges"@de,
         "Morges"@en,
         "Morges"@fr,
         "Morges"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Place de l'Hôtel-de-Ville 1, 1110, Morges, VD"@de,
+                "Place de l'Hôtel-de-Ville 1, 1110, Morges, VD"@en,
+                "Place de l'Hôtel-de-Ville 1, 1110, Morges, VD"@fr,
+                "Place de l'Hôtel-de-Ville 1, 1110, Morges, VD"@it ;
+            vcard:hasEmail <mailto:info@morges.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://www.morges.ch> ;
     foaf:name "Stadt Morges"@de,

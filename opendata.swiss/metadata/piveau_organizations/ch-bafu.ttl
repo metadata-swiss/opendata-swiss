@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bafu> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "L’OFEV est chargé d’assurer l’exploitation durable des ressources naturelles telles que l'air, l’eau, le sol et la forêt, la politique climatique, la protection contre les dangers naturels et le maintien de la biodiversité."@fr,
         "L'UFAM è responsabile dell'uso sostenibile delle risorse naturali quali aria, acqua, suolo e foreste, della politica climatica, della protezione dai pericoli naturali e della conservazione della biodiversità."@it ;
     dcterms:identifier "CH_BAFU" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE449312098" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BAFU"@de,
         "FOEN"@en,
         "OFEV"@fr,
         "UFAM"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Mühlestrasse 2, 3063, Ittigen, BE"@de,
+                "Mühlestrasse 2, 3063, Ittigen, BE"@en,
+                "Mühlestrasse 2, 3063, Ittigen, BE"@fr,
+                "Mühlestrasse 2, 3063, Ittigen, BE"@it ;
+            vcard:hasEmail <mailto:info@bafu.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 93 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://bafu.admin.ch> ;

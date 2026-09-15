@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bj> a org:Organization,
         foaf:Organization ;
@@ -10,11 +13,21 @@
         "L'Office fédéral de la justice est souvent décrit comme la conscience juridique de l'administration fédérale. Nous traitons un large éventail de sujets de société. "@fr,
         "L’Ufficio federale di giustizia è definito la coscienza giuridica dell’Amministrazione federale. Affrontiamo molteplici temi importanti per la società."@it ;
     dcterms:identifier "CH_BJ" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE378338277" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BJ"@de,
         "FOI"@en,
         "OFJ"@fr,
         "UFG"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Bundesrain 20, 3005 Bern, BE"@de,
+                "Bundesrain 20, 3005 Bern, BE"@en,
+                "Bundesrain 20, 3005 Bern, BE"@fr,
+                "Bundesrain 20, 3005 Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@bj.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-ehra> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-ejpd> ;
     foaf:homepage <https://bj.admin.ch> ;
     foaf:name "Bundesamt für Justiz (BJ)"@de,

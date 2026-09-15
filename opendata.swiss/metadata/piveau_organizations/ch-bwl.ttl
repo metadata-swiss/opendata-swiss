@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bwl> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BWL" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE254168819" ;
     skos:prefLabel "BWL"@de,
         "BWL"@en,
         "BWL"@fr,
         "BWL"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Belpstrasse 53, 3007 Bern, BE"@de,
+                "Belpstrasse 53, 3007 Bern, BE"@en,
+                "Belpstrasse 53, 3007 Bern, BE"@fr,
+                "Belpstrasse 53, 3007 Bern, BE"@it,
+                "Belpstrasse 53, 3007 Bern, BE"@rm ;
+            vcard:hasEmail <mailto:info@bwl.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-wbf> ;
     foaf:name "Bundesamt für wirtschaftliche Landesversorgung (BWL)"@de,

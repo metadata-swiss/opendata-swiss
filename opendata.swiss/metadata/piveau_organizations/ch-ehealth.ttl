@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-ehealth> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Le secrétariat d’eHealth Suisse s’assure que les différents projets pour la numérisation du système de santé sont bien axés sur les objectifs et conformes à la loi, et qu’ils profitent de synergies, aussi au niveau international."@fr,
         "La segreteria di eHealth Suisse assicura che i singoli progetti per la digitalizzazione della sanità siano orientati agli obiettivi e siano conformi alla legge e che le sinergie esistenti vengano sfruttate anche a livello internazionale."@it ;
     dcterms:identifier "CH_eHealth" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ehealth_suisse.jpg> ;
     skos:prefLabel "eHealth Suisse"@de,
         "eHealth Suisse"@en,
         "eHealth Suisse"@fr,
         "eHealth Suisse"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schwarzenburgstrasse 157, 3003, Bern, BE"@de,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@en,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@fr,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@e-health-suisse.ch> ;
+            vcard:hasTelephone "+41 58 462 93 59" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://www.e-health-suisse.ch> ;
     foaf:name "eHealth Suisse"@de,

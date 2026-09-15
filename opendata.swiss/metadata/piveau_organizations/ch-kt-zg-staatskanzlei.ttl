@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-zg-staatskanzlei> a org:Organization,
         foaf:Organization ;
@@ -11,6 +13,8 @@ Weitere Informationen unter https://zg.ch/opendata
 """@de ;
     dcterms:identifier "CH_KT_ZG_STAATSKANZLEI" ;
     skos:prefLabel "Staatskanzlei Zug"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@zg.ch> ] ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-zug> ;
     foaf:homepage <https://zg.ch/de/staatskanzlei> ;
     foaf:name "Staatskanzlei Zug"@de .

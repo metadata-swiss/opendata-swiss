@@ -1,7 +1,9 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-gde-zug> a org:Organization,
         foaf:Organization ;
@@ -10,6 +12,8 @@
 Weitere Informationen unter https://zg.ch/opendata"""@de ;
     dcterms:identifier "CH_GDE_ZUG" ;
     skos:prefLabel "Stadt Zug"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:info@zug.ch> ] ;
     foaf:homepage <https://zug.ch> ;
     foaf:name "Stadt Zug"@de .
 

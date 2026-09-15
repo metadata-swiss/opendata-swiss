@@ -1,0 +1,37 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://opendata.swiss/id/organization/ch-edu-sik-isea> a org:Organization,
+        foaf:Organization ;
+    dcterms:description "Das 1951 gegründete Schweizerische Institut für Kunstwissenschaft (SIK-ISEA) ist ein kunstwissenschaftliches und kunsttechnologisches Kompetenzzentrum. Schwerpunkte seiner Aktivitäten sind Forschung, Dokumentation, Wissensvermittlung und Dienstleistung im Bereich der bildenden Kunst."@de,
+        "The Swiss Institute for Art Research (SIK-ISEA), founded in 1951, is a competence centre for art scholarship and art technology. Its primary activities are research, documentation, dissemination of knowledge and services in the field of fine art."@en,
+        "Fondé en 1951, l’Institut suisse pour l’étude de l’art (SIK-ISEA) est un centre de compétences en histoire de l’art et en technologie de l’art. Ses activités sont axées sur la recherche, la documentation, la transmission des connaissances et les prestations de services dans le domaine des beaux-arts."@fr,
+        "Fondato nel 1951, l’Istituto svizzero di studi d’arte (SIK-ISEA) è un centro di competenze di livello internazionale per la storia dell’arte e la tecnologia dell’arte. Il suo operato si concentra sulla ricerca, la documentazione, l’informazione e la trasmissione delle conoscenze nel settore delle arti visive."@it ;
+    dcterms:identifier "CH_EDU_SIK-ISEA" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE106103828" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_sik-isea.png> ;
+    skos:prefLabel "Schweizerisches Institut für Kunstwissenschaft (SIK-ISEA)"@de,
+        "Swiss Institute for Art Research (SIK-ISEA)"@en,
+        "Institut suisse pour l’étude de l’art (SIK-ISEA)"@fr,
+        "Istituto svizzero di studi d’arte (SIK-ISEA)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Zollikerstrasse 32, 8008, Zürich, ZH"@de,
+                "Zollikerstrasse 32, 8008, Zürich, ZH"@en,
+                "Zollikerstrasse 32, 8008, Zürich, ZH"@fr,
+                "Zollikerstrasse 32, 8008, Zürich, ZH"@it ;
+            vcard:hasEmail <mailto:info@sik-isea.ch> ] ;
+    org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0110> ;
+    foaf:homepage <https://sik-isea.ch> ;
+    foaf:name "Stiftung Schweizerisches Institut für Kunstwissenschaft (SIK-ISEA)"@de,
+        "Swiss Institute for Art Research (SIK-ISEA)"@en,
+        "Institut suisse pour l’étude de l’art (SIK-ISEA)"@fr,
+        "Istituto svizzero di studi d’arte (SIK-ISEA)"@it .
+
+<https://sik-isea.ch> a foaf:Document .
+

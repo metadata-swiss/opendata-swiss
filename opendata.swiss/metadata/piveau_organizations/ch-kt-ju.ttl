@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-ju> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "Le canton du Jura publie sur Open Data Swiss différents types de données de l'administration cantonale qui répondent au principe de l'Open Government Data."@fr,
         "Il Cantone del Giura pubblica su Open Data Swiss vari tipi di dati dell'amministrazione cantonale che soddisfano il principio degli Open Government Data."@it ;
     dcterms:identifier "CH_KT_JU" ;
+    dcterms:spatial "JU" ;
+    schema1:identifier "CHE114965358" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ju.png> ;
     skos:prefLabel "Kanton Jura"@de,
         "Canton of Jura"@en,
         "Canton du Jura"@fr,
         "Canton Giura"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Rue de l'Hôpital 2, 2800, Delémont, JU"@de,
+                "Rue de l'Hôpital 2, 2800, Delémont, JU"@en,
+                "Rue de l'Hôpital 2, 2800, Delémont, JU"@fr,
+                "Rue de l'Hôpital 2, 2800, Delémont, JU"@it ;
+            vcard:hasEmail <mailto:info@ju.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     foaf:homepage <https://ju.ch> ;
     foaf:name "République et Canton du Jura"@de,

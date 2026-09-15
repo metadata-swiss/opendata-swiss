@@ -17,7 +17,7 @@ Plus d'information: https://www.bag.admin.ch/fr/unite-de-direction-assurance-mal
         """L'Unità di direzione assicurazione malattia e infortunio predispone le basi per la definizione e lo sviluppo dell'assicurazione malattie, dell'assicurazione infortuni e dell'assicurazione militare, e la loro applicazione.\r
 \r
 Maggiori informazioni: https://www.bag.admin.ch/it/unita-di-direzione-assicurazione-malattia-e-infortuni"""@it ;
-    dcterms:modified "2026-08-13T13:29:02.359197"^^xsd:dateTime ;
+    dcterms:modified "2026-08-28T10:53:19.387237"^^xsd:dateTime ;
     dcterms:publisher <https://opendata.swiss/id/organization/ch-bag-dku> ;
     dcterms:spatial <http://publications.europa.eu/resource/authority/country/CHE> ;
     dcterms:title "Direktionsbereich Kranken- und Unfallversicherung"@de,

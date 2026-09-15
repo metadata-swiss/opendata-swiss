@@ -1,14 +1,31 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-kt-luzern-buwd> a org:Organization,
         foaf:Organization ;
     dcterms:description "Bau-, Umwelt- und Wirtschaftsdepartement - Kanton Luzern"@de ;
     dcterms:identifier "CH_KT_LUZERN_BUWD" ;
+    dcterms:spatial "LU" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/luzern_logo.png> ;
     skos:prefLabel "BUWD (LU)"@de ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Bahnhofstrasse 15, 6002, Luzern, LU"@de,
+                "Bahnhofstrasse 15, 6002, Luzern, LU"@en,
+                "Bahnhofstrasse 15, 6002, Luzern, LU"@fr,
+                "Bahnhofstrasse 15, 6002, Luzern, LU"@it ;
+            vcard:hasEmail <mailto:buwd@lu.ch> ;
+            vcard:hasTelephone "+41 41 228 51 55" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0221> ;
+    org:hasSubOrganization <https://opendata.swiss/id/organization/ch-buwd-buwd-sek>,
+        <https://opendata.swiss/id/organization/ch-buwd-lawa>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-buwd-rawi>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-buwd-uwe>,
+        <https://opendata.swiss/id/organization/ch-kt-luzern-buwd-vif> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-kt-luzern> ;
     foaf:name "Bau-, Umwelt- und Wirtschaftsdepartement (LU)"@de .
 

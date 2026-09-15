@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-innosuisse> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_INNOSUISSE" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "Schweizerische Agentur für Innovationsföderung Innosuisse"@de,
         "Swiss Innovation Agency Innosuisse"@en,
         "Agence suisse pour l’encouragement de l’innovation Innosuisse"@fr,

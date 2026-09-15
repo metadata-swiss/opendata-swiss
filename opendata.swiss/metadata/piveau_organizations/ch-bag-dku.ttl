@@ -1,15 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bag-dku> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_BAG_DKU" ;
+    dcterms:spatial "CH" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "CH_BAG_DKU (ZH)"@de,
         "CH_BAG_DKU (ZH)"@en,
         "CH_BAG_DKU (ZH)"@fr,
         "CH_BAG_DKU (ZH)"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Schwarzenburgstrasse 157, 3003, Bern, BE"@de,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@en,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@fr,
+                "Schwarzenburgstrasse 157, 3003, Bern, BE"@it ;
+            vcard:hasEmail <mailto:info@bag.admin.ch> ;
+            vcard:hasTelephone "+41 58 466 54 61" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-bag> ;
     foaf:name "Direktionsbereich Kranken- und Unfallversicherung"@de,

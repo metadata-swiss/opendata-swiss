@@ -1,19 +1,38 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-baspo> a org:Organization,
         foaf:Organization ;
+    dcterms:description "Das Bundesamt für Sport BASPO in Magglingen fördert den Sport und die Bewegung in der Schweiz und deren positive, nützliche und notwendige Rolle in der Gesellschaft. Es ist Dienstleistungs-, Ausbildungs- und Trainingszentrum für den Schweizer Sport und sportwissenschaftliches Kompetenzzentrum. Ausserdem schafft es die optimalen Voraussetzungen für die Sportanlagen von nationaler Bedeutung."@de,
+        "Das Bundesamt für Sport BASPO in Magglingen fördert den Sport und die Bewegung in der Schweiz und deren positive, nützliche und notwendige Rolle in der Gesellschaft. Es ist Dienstleistungs-, Ausbildungs- und Trainingszentrum für den Schweizer Sport und sportwissenschaftliches Kompetenzzentrum. Ausserdem schafft es die optimalen Voraussetzungen für die Sportanlagen von nationaler Bedeutung."@en,
+        "L’Office fédéral du sport à Macolin encourage le sport et l’activité physique dans toute la Suisse. Il valorise leur nécessité et leur rôle positif pour la société. L’OFSPO est un centre de prestations, de formation et d’entraînement au service du sport. C’est aussi un centre de compétences en sciences du sport. De plus, il met en place les conditions optimales requises pour les installations sportives d’importance nationale."@fr,
+        "L'Ufficio federale dello sport UFSPO a Macolin promuove lo sport e il movimento in Svizzera nonché il ruolo positivo, utile e necessario per la società di quest'ultimi. L'UFSPO è un centro di servizi, formazione ed allenamento per lo sport elvetico ed un centro di competenze per le scienze dello sport.  Inoltre crea i presupposti ottimali per gli impianti sportivi d'importanza nazionale."@it ;
     dcterms:identifier "CH_BASPO" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE320640339" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BASPO"@de,
         "BASPO"@en,
         "BASPO"@fr,
         "BASPO"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Hauptstrasse 247, 2532, Magglingen/Macolin, BE"@de,
+                "Hauptstrasse 247, 2532, Magglingen/Macolin, BE"@en,
+                "Hauptstrasse 247, 2532, Magglingen/Macolin, BE"@fr,
+                "Hauptstrasse 247, 2532, Magglingen/Macolin, BE"@it ;
+            vcard:hasEmail <mailto:info@baspo.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-vbs> ;
+    foaf:homepage <https://baspo.admin.ch> ;
     foaf:name "Bundesamt für Sport (BASPO)"@de,
         "Federal Office of Sport (BASPO)"@en,
         "Office fédéral de Sport (BASPO)"@fr,
         "Ufficio federale di Sport (BASPO)"@it .
+
+<https://baspo.admin.ch> a foaf:Document .
 

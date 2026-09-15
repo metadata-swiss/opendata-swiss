@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-zivi> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "Autorité de la Confédération responsable de toutes les questions relatives au service civil."@fr,
         "L’Ufficio federale del servizio civile (CIVI) è l’autorità competente della Confederazione per tutte le questioni concernenti il servizio civile."@it ;
     dcterms:identifier "CH_ZIVI" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE255286924" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ZIVI"@de,
         "ZIVI"@en,
         "CIVI"@fr,
         "CIVI"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Malerweg 6, 3600, Thun, BE"@de,
+                "Malerweg 6, 3600, Thun, BE"@en,
+                "Malerweg 6, 3600, Thun, BE"@fr,
+                "Malerweg 6, 3600, Thun, BE"@it ;
+            vcard:hasEmail <mailto:info@zivi.admin.ch> ;
+            vcard:hasTelephone "+41 58 468 19 99" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-wbf> ;
     foaf:homepage <https://www.zivi.admin.ch/> ;

@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-wbf-gs-wbf-isceco> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,19 @@
         "En tant que prestataire de services informatiques du Département fédéral de l’économie, de la formation et de la recherche (DEFR), nous développons des applications métiers, accompagnons comme partenaire la transformation numérique des offices du DEFR et gérons la solution fédérale de gestion électronique des affaires (GEVER)."@fr,
         "Come fornitore di servizi informatici del Dipartimento federale dell’economia, della formazione e della ricerca (DEFR) sviluppiamo applicazioni specialistiche, supportiamo gli uffici del DEFR come partner per la trasformazione digitale e gestiamo la soluzione di gestione aziendale GEVER a livello nazionale."@it ;
     dcterms:identifier "CH_WBF_GS_WBF_ISCECO" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE200143304" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "ISCeco"@de,
         "ISCeco"@en,
         "ISCeco"@fr,
         "ISCeco"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Eichenweg 3, 3052, Zollikofen, BE"@de,
+                "Eichenweg 3, 3052, Zollikofen, BE"@en,
+                "Eichenweg 3, 3052, Zollikofen, BE"@fr,
+                "Eichenweg 3, 3052, Zollikofen, BE"@it ;
+            vcard:hasEmail <mailto:info@isceco.admin.ch> ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-wbf-gs-wbf> ;
     foaf:homepage <https://isceco.admin.ch> ;

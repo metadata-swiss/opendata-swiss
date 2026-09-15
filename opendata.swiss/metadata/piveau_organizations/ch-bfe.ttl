@@ -1,7 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://opendata.swiss/id/organization/ch-bfe> a org:Organization,
         foaf:Organization ;
@@ -10,10 +13,20 @@
         "L'Office fédéral de l'énergie (OFEN) est le centre de compétences du Département fédéral de l'environnement, des transports, de l'énergie et de la communication (DETEC) pour les questions liées à l'approvisionnement en énergie et à son utilisation."@fr,
         "L'Ufficio federale dell'energia (UFE) è il centro di competenza in materia di approvvigionamento e di impiego dell'energia in seno al Dipartimento federale dell'ambiente, dei trasporti, dell'energia e delle comunicazioni (DATEC)."@it ;
     dcterms:identifier "CH_BFE" ;
+    dcterms:spatial "CH" ;
+    schema1:identifier "CHE157957462" ;
+    schema1:image <https://input-backend.i14y.c.bfs.admin.ch/api/Media/logo_ch.png> ;
     skos:prefLabel "BFE"@de,
         "SFOE"@en,
         "OFEN"@fr,
         "UFE"@it ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasAddress "Pulverstrasse 13, 3063 Ittigen, BE"@de,
+                "Pulverstrasse 13, 3063 Ittigen, BE"@en,
+                "Pulverstrasse 13, 3063 Ittigen, BE"@fr,
+                "Pulverstrasse 13, 3063 Ittigen, BE"@it ;
+            vcard:hasEmail <mailto:info@bfe.admin.ch> ;
+            vcard:hasTelephone "+41 58 462 56 11" ] ;
     org:classification <https://register.ld.admin.ch/i14y/concept/legalForm/0220> ;
     org:subOrganizationOf <https://opendata.swiss/id/organization/ch-uvek> ;
     foaf:homepage <https://www.bfe.admin.ch> ;

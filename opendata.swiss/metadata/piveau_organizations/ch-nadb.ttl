@@ -6,6 +6,7 @@
 <https://opendata.swiss/id/organization/ch-nadb> a org:Organization,
         foaf:Organization ;
     dcterms:identifier "CH_NADB" ;
+    dcterms:spatial "CH" ;
     skos:prefLabel "NaDB - Swiss Data Steward"@de,
         "NaDB - Swiss Data Steward"@en,
         "NaDB - Swiss Data Steward"@fr,
