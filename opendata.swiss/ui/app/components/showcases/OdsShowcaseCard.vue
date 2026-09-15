@@ -15,7 +15,7 @@
     <template #top-meta>
       <div>
         <span class="meta-info__item">
-          {{ (showcaseType(showcase)?.pref_label && getCurrentTranslation(showcaseType(showcase)!.pref_label, locale)) || '' }}
+          {{ getCurrentTranslation(showcaseType(showcase)?.pref_label, locale) }}
         </span>
         <span
           v-if="showcase.references?.length"
