@@ -1,5 +1,3 @@
-import logging
-
 # Manual mapping between CKAN organization ids and I14Y slugs.
 # This manually curated mapping becomes obsolete, when I14Y itself provides the mapping back to CKAN organization id.
 # In the meantime, this mapping can be manually extended when necessary.
@@ -179,10 +177,6 @@ def resolve_i14y_publisher_slug(
     1) Manual mapping table (CKAN_TO_I14Y_ORG_MAPPING)
     """
     if ckan_org_id and ckan_org_id in CKAN_TO_I14Y_ORG_MAPPING:
-        i14y_org_id = CKAN_TO_I14Y_ORG_MAPPING[ckan_org_id]
-        logging.info(f"ckan_org_id: '{ckan_org_id}'  ->  i14y_org_id: '{i14y_org_id}'")
-
         return CKAN_TO_I14Y_ORG_MAPPING[ckan_org_id]
 
-    logging.warning(f"no mapping found for ckan_org_id: '{ckan_org_id}'")
     return None

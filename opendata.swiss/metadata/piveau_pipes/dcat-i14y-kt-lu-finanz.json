@@ -1,0 +1,56 @@
+{
+  "header": {
+    "id": "fbb5e113-4df8-4e0c-9986-43e43b2b91e7",
+    "name": "dcat-i14y-kt-lu-finanz",
+    "title": "DCAT I14Y Kt. LU Finanz",
+    "context": "piveau",
+    "transport": "payload",
+    "version": "1.0.0"
+  },
+  "body": {
+    "segments": [
+      {
+        "header": {
+          "name": "piveau-consus-importing-rdf",
+          "segmentNumber": 1,
+          "title": "Importing RDF",
+          "processed": false
+        },
+        "body": {
+          "config": {
+            "address": "https://api.i14y.admin.ch/api/public/v1/catalogs/019ef96e-1ce0-79bc-87f7-923245ef65c5/dcat/exports/rdf",
+            "catalogue": "dcat-i14y-kt-lu-finanz",
+            "preProcessing": true,
+            "accept": "application/rdf+xml",
+            "inputFormat": "application/rdf+xml",
+            "org_name": "Finance Department"
+          }
+        }
+      },
+      {
+        "header": {
+          "name": "piveau-consus-filter",
+          "segmentNumber": 2,
+          "title": "Filtering",
+          "processed": false
+        },
+        "body": {
+          "config": {
+            "org_id": "finanzen-lu",
+            "catalogue": "dcat-i14y-kt-lu-finanz",
+            "preProcessing": true
+          }
+        }
+      },
+      {
+        "header": {
+          "name": "piveau-consus-exporting-hub",
+          "segmentNumber": 3,
+          "title": "Exporting hub",
+          "processed": false
+        },
+        "body": {}
+      }
+    ]
+  }
+}

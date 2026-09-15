@@ -1,0 +1,19 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.eu/id/catalogue/dcat-i14y-kt-lu-finanz> a dcat:Catalog ;
+    dcterms:created "2026-08-17T09:59:37.254703"^^xsd:dateTime ;
+    dcterms:description "Die Dienststelle Finanzen ist das Kompetenzzentrum der kantonalen Verwaltung für Finanz- und Controlling-Fragen. Sie sorgt dafür, dass die öffentlichen Gelder zuverlässig verwaltet werden. Sie organisiert das Rechnungswesen inklusive Betrieb des Buchungszentrums und stellt sicher, dass der Kanton Luzern jederzeit zahlungsfähig bleibt."@de,
+        "The Finance Department is the cantonal administration's center of expertise for financial and controlling matters. It ensures the reliable management of public funds. It organizes the accounting system, including the operation of the accounting center, and ensures that the Canton of Lucerne remains solvent at all times."@en,
+        "Le service des Finances est le centre d'expertise de l'administration cantonale en matière financière et de contrôle. Il garantit la gestion rigoureuse des fonds publics. Il organise le système comptable, notamment le fonctionnement du centre de comptabilité, et veille à la solvabilité du canton de Lucerne en toutes circonstances."@fr,
+        "Il Dipartimento delle Finanze è il centro di competenza dell'amministrazione cantonale per le questioni finanziarie e di controllo. Assicura la gestione affidabile dei fondi pubblici, organizza il sistema contabile, compreso il funzionamento del centro contabile, e garantisce che il Cantone di Lucerna rimanga solvibile in ogni momento."@it ;
+    dcterms:modified "2026-08-18T09:23:20.714755"^^xsd:dateTime ;
+    dcterms:publisher <https://opendata.swiss/id/organization/ch-kt-luzern-finanzen> ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CHE> ;
+    dcterms:title "Dienststelle Finanzen"@de,
+        "Finance Department"@en,
+        "Service des Finances"@fr,
+        "Dipartimento delle Finanze"@it ;
+    dcterms:type "ckan"^^xsd:string .
+
