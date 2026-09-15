@@ -187,8 +187,7 @@ prefix theme: <http://publications.europa.eu/resource/authority/data-theme/>
     ?res tuner:body ?body .
     {
       ?body log:includes {
-        </showcase/showcase> schema:image ?image .
-        ?image schema:url <http://localhost:3000/cms/92.png> .
+        </showcase/showcase> schema:image <http://localhost:3000/cms/92.png> .
       } .
     }!tuner:assertThat .
   } ;
