@@ -87,9 +87,8 @@ const ldContext: Context = {
     '@type': '@id',
   },
   'identifier': dcterms.identifier.value,
-  'images': schema.image.value,
-  'url': {
-    '@id': schema.url.value,
+  'images': {
+    '@id': schema.image.value,
     '@type': '@id',
   },
   'keywords': dcat.keyword.value,
