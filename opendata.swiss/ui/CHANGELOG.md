@@ -1,5 +1,21 @@
 # piveau-opendata-swiss
 
+## 0.1.3
+
+### Patch Changes
+
+- [#384](https://github.com/metadata-swiss/opendata-swiss/pull/384) [`9030c97`](https://github.com/metadata-swiss/opendata-swiss/commit/9030c977d57523cc28cae44fc19d474ba65584bd) Thanks [@tpluscode](https://github.com/tpluscode)! - Fixing the display of long showcase abstract and tags which broke card layout
+
+- [#377](https://github.com/metadata-swiss/opendata-swiss/pull/377) [`63be6b6`](https://github.com/metadata-swiss/opendata-swiss/commit/63be6b65cb4cf3c07cbf5c17e20744b04bddb3cf) Thanks [@tpluscode](https://github.com/tpluscode)! - Organisation search input synced to browser address
+
+- [#380](https://github.com/metadata-swiss/opendata-swiss/pull/380) [`4e7202e`](https://github.com/metadata-swiss/opendata-swiss/commit/4e7202ebaa6cfd8c5ebe11c3b072205e0c96ee63) Thanks [@tpluscode](https://github.com/tpluscode)! - Added pager to showcase search page
+
+- [#383](https://github.com/metadata-swiss/opendata-swiss/pull/383) [`f3d0e67`](https://github.com/metadata-swiss/opendata-swiss/commit/f3d0e67319fbaef9e50282eec90ffa506696abf1) Thanks [@tpluscode](https://github.com/tpluscode)! - Fix the missing showcase images not imported from the CMS
+
+- [#384](https://github.com/metadata-swiss/opendata-swiss/pull/384) [`9030c97`](https://github.com/metadata-swiss/opendata-swiss/commit/9030c977d57523cc28cae44fc19d474ba65584bd) Thanks [@tpluscode](https://github.com/tpluscode)! - Fixed the display of showcase's type on cards (was not showing)
+
+- [#384](https://github.com/metadata-swiss/opendata-swiss/pull/384) [`9030c97`](https://github.com/metadata-swiss/opendata-swiss/commit/9030c977d57523cc28cae44fc19d474ba65584bd) Thanks [@tpluscode](https://github.com/tpluscode)! - Hiding the number of datasets when none are used in a showcase
+
 ## 0.1.2
 
 ### Patch Changes
