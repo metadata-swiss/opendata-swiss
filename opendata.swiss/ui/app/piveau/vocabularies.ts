@@ -15,10 +15,5 @@ export function useVocabularySearch() {
       in_scheme: z.string(),
       index: z.string(),
     }),
-  }, (resource, localeInstance) => {
-    return {
-      ...resource,
-      pref_label: resource.pref_label[localeInstance.currentLocale],
-    }
-  })
+  }, resource => resource)
 }

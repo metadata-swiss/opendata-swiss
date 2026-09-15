@@ -43,7 +43,11 @@ const schema = z.object({
     modified: z.string(),
     issued: z.string(),
   }),
-  type: z.url(),
+  type: z.object({
+    id: z.string(),
+    label: z.record(z.string(), z.string()),
+    resource: z.string(),
+  }),
 })
 
 export type PiveauShowcase = z.infer<typeof schema>

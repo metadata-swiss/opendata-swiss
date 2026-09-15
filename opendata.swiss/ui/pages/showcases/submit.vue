@@ -443,6 +443,7 @@ import type { $ZodIssue as ZodIssue } from 'zod/v4/core'
 import type { SearchParamsBase } from '@piveau/sdk-core/hubSearch'
 import { debounce } from 'perfect-debounce'
 import OdsMultiSelect from '../../app/components/dataset/OdsMultiSelect.vue'
+import { getCurrentTranslation } from '../../app/lib/getCurrentTranslation'
 import { useDatasetsSearch } from '../../app/piveau/datasets'
 import { useVocabularySearch } from '../../app/piveau/vocabularies'
 import OdsNotificationBanner from '../../app/components/OdsNotificationBanner.vue'
@@ -469,7 +470,7 @@ const searchDataThemes = useSearch({
 const dataThemes = computed(() => {
   return searchDataThemes.getSearchResultsEnhanced.value.map(item => ({
     id: item.resource,
-    title: item.pref_label,
+    title: item.pref_label ? getCurrentTranslation(item.pref_label, locale.value) : '',
   }))
 })
 
@@ -482,7 +483,7 @@ const searchShowcaseTypes = useSearch({
 const showcaseType = computed(() => {
   return searchShowcaseTypes.getSearchResultsEnhanced.value.map(item => ({
     id: item.resource,
-    title: item.pref_label,
+    title: item.pref_label ? getCurrentTranslation(item.pref_label, locale.value) : '',
   }))
 })
 

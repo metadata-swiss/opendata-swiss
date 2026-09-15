@@ -15,30 +15,27 @@
     <template #top-meta>
       <div>
         <span class="meta-info__item">
-          {{ (showcaseType(showcase) && showcaseType(showcase)!.pref_label) || '' }}
+          {{ (showcaseType(showcase)?.pref_label && getCurrentTranslation(showcaseType(showcase)!.pref_label, locale)) || '' }}
         </span>
-        <span class="meta-info__item">
-          {{ t('message.showcase.search.dataset_references', { count: showcase.references?.length || 0 }) }}
+        <span
+          v-if="showcase.references?.length"
+          class="meta-info__item"
+        >
+          {{ t('message.showcase.search.dataset_references', { count: showcase.references?.length }) }}
         </span>
       </div>
     </template>
 
     <template #footer-info>
-      <div>
-        <span
-          v-for="tag in showcase.keywords"
-          :key="tag.id"
-          class="tag"
-        >
-          {{ tag.label }}
-        </span>
-      </div>
+      {{ showcase.keywords?.map(({ label }) => label).join(', ') }}
     </template>
 
-    <MDC
-      v-if="!noExcerpt"
-      :value="getCurrentTranslation(showcase.abstract, locale)"
-    />
+    <div class="body">
+      <MDC
+        v-if="!noExcerpt"
+        :value="getCurrentTranslation(showcase.abstract, locale)"
+      />
+    </div>
 
     <template #footer-action>
       <NuxtLinkLocale
@@ -75,6 +72,16 @@ const { data: showcaseTypes, ensureLoaded } = useShowcaseTypes()
 await ensureLoaded()
 
 function showcaseType(showcase: PiveauShowcase) {
-  return showcaseTypes.value?.find(type => type.resource === showcase.type)
+  return showcaseTypes.value?.find(type => type.resource === showcase.type.resource)
 }
 </script>
+
+<style lang="scss" scoped>
+.body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 15em;
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+}
+</style>
