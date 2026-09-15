@@ -618,7 +618,10 @@ dcatap:Dataset_Shape
                       ],  [
                           pv:mappingClass "StandardText" ;
                           pv:mappingName "publisher_id"
-                      ] , [
+                      ], [
+                          pv:mappingClass "StandardText" ;
+                          pv:mappingName "publisher_ancestors"
+                      ], [
                           sh:path  org:classification ;
                           pv:mappingClass "Theme" ;
                           pv:mappingName "classification"
@@ -1017,19 +1020,6 @@ dcatap:QualifiedAttribution_MappingShape
           pv:mappingClass "Nested" ;
           pv:mappingName "agent" ;
           pv:mappingLink dcatap:QualifiedAttributionAgent_MappingShape
-      ] .
-
-dcatap:SchemaImage_MappingShape
-    a sh:NodeShape ;
-    sh:name "schema:image mapping"@en ;
-    sh:property [
-          sh:maxCount 1 ;
-          pv:mappingClass "StandardResourceKeyword" ;
-          pv:mappingName "resource"
-      ], [
-          sh:path schema:url ;
-          pv:mappingClass "StandardResourceKeyword" ;
-          pv:mappingName "url"
       ] .
 
 dcatap:Relationship_Shape
