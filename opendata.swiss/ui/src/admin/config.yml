@@ -322,7 +322,7 @@ collections:
               - label: Name
                 name: name
                 widget: string
-              - label: Github
+              - label: GitHub
                 name: github
                 widget: string
                 required: false
