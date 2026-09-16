@@ -41,6 +41,7 @@ collections:
         widget: boolean
         default: true
         i18n: duplicate
+        required: false
       - label: Title
         name: title
         widget: string
@@ -229,6 +230,7 @@ collections:
         widget: boolean
         default: true
         i18n: duplicate
+        required: false
       - label: Pinned
         name: pinned
         widget: boolean
