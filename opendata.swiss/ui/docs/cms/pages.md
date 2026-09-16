@@ -15,7 +15,7 @@ Pages represent static and informational content across the website, such as the
 - Image displayed on the top of the page (`heroImage`, image, optional)
   - Optional lead/hero image, displayed in the banner at the top of the page.
 - Parent page (`parent`, relation, optional)
-  - Select another page to nest this page under in the main navigation menu. Top-level pages have no parent selected.
+  - Select a parent page for navigation hierarchy or leave unassigned for top-level pages.
 - Show in the main menu (`mainMenu`, boolean, optional, default: true)
   - Controls whether the page appears in the "More" dropdown menu in the header navigation. Turn off for unlisted or standalone pages.
 - Disables sidebar (`fullWidth`, boolean, optional, default: false)
