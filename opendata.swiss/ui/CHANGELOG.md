@@ -1,5 +1,29 @@
 # piveau-opendata-swiss
 
+## 0.1.3
+
+### Patch Changes
+
+- [#384](https://github.com/metadata-swiss/opendata-swiss/pull/384) [`9030c97`](https://github.com/metadata-swiss/opendata-swiss/commit/9030c977d57523cc28cae44fc19d474ba65584bd) Thanks [@tpluscode](https://github.com/tpluscode)! - Fixing the display of long showcase abstract and tags which broke card layout
+
+- [#377](https://github.com/metadata-swiss/opendata-swiss/pull/377) [`63be6b6`](https://github.com/metadata-swiss/opendata-swiss/commit/63be6b65cb4cf3c07cbf5c17e20744b04bddb3cf) Thanks [@tpluscode](https://github.com/tpluscode)! - Organisation search input synced to browser address
+
+- [#367](https://github.com/metadata-swiss/opendata-swiss/pull/367) [`b296a91`](https://github.com/metadata-swiss/opendata-swiss/commit/b296a91917d997c1ea2bdd552d2745a63f78d241) Thanks [@tpluscode](https://github.com/tpluscode)! - GitHub field in decap was labeled "Name"
+
+- [#380](https://github.com/metadata-swiss/opendata-swiss/pull/380) [`4e7202e`](https://github.com/metadata-swiss/opendata-swiss/commit/4e7202ebaa6cfd8c5ebe11c3b072205e0c96ee63) Thanks [@tpluscode](https://github.com/tpluscode)! - Added pager to showcase search page
+
+- [#383](https://github.com/metadata-swiss/opendata-swiss/pull/383) [`f3d0e67`](https://github.com/metadata-swiss/opendata-swiss/commit/f3d0e67319fbaef9e50282eec90ffa506696abf1) Thanks [@tpluscode](https://github.com/tpluscode)! - Fix the missing showcase images not imported from the CMS
+
+- [#384](https://github.com/metadata-swiss/opendata-swiss/pull/384) [`9030c97`](https://github.com/metadata-swiss/opendata-swiss/commit/9030c977d57523cc28cae44fc19d474ba65584bd) Thanks [@tpluscode](https://github.com/tpluscode)! - Fixed the display of showcase's type on cards (was not showing)
+
+- [#343](https://github.com/metadata-swiss/opendata-swiss/pull/343) [`aff17d6`](https://github.com/metadata-swiss/opendata-swiss/commit/aff17d663607655336d24cf0693a9a415e46d072) Thanks [@tpluscode](https://github.com/tpluscode)! - Sends email notifications when a showcase is submitted
+
+- [#386](https://github.com/metadata-swiss/opendata-swiss/pull/386) [`0b7bebb`](https://github.com/metadata-swiss/opendata-swiss/commit/0b7bebb0a20c09db0eca9172e3ee070d09b10d73) Thanks [@tpluscode](https://github.com/tpluscode)! - Showcase and handbook fields `active` would prevent the content from being saved when unchecked
+
+- [#386](https://github.com/metadata-swiss/opendata-swiss/pull/386) [`1464651`](https://github.com/metadata-swiss/opendata-swiss/commit/1464651d9ade1546d023ebaf318e2adb3c319ac0) Thanks [@tpluscode](https://github.com/tpluscode)! - Adds a widget to upload any file, displayed as a link
+
+- [#384](https://github.com/metadata-swiss/opendata-swiss/pull/384) [`9030c97`](https://github.com/metadata-swiss/opendata-swiss/commit/9030c977d57523cc28cae44fc19d474ba65584bd) Thanks [@tpluscode](https://github.com/tpluscode)! - Hiding the number of datasets when none are used in a showcase
+
 ## 0.1.2
 
 ### Patch Changes
