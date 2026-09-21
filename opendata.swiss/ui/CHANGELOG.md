@@ -1,5 +1,11 @@
 # piveau-opendata-swiss
 
+## 0.1.4
+
+### Patch Changes
+
+- [#392](https://github.com/metadata-swiss/opendata-swiss/pull/392) [`6d97d00`](https://github.com/metadata-swiss/opendata-swiss/commit/6d97d00de32f8fa7d57ebb94a87a045bd1ab8833) Thanks [@tpluscode](https://github.com/tpluscode)! - Organization filtering by classification
+
 ## 0.1.3
 
 ### Patch Changes
