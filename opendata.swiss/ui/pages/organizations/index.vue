@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
 
 import OdsPage from '../../app/components/OdsPage.vue'
 import OdsBreadcrumbs from '../../app/components/OdsBreadcrumbs.vue'
@@ -8,34 +8,16 @@ import OdsOrganizationTree from '../../app/components/organizations/OdsOrganizat
 import { homePageBreadcrumb } from '../../app/composables/breadcrumbs'
 import { useFetch, useRuntimeConfig, useSeoMeta } from 'nuxt/app'
 import { useI18n } from 'vue-i18n'
-import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
-
-interface OrganizationItem {
-  id: string
-  resource: string
-  sub_organization_of?: string[]
-  pref_label?: Record<string, string>
-  name?: Record<string, string>
-  ancestors?: Array<{
-    id?: string
-    resource?: string
-    name?: Record<string, string>
-    pref_label?: Record<string, string>
-  }>
-}
-
-interface OrganizationTreeNode {
-  id: string
-  organization: OrganizationItem
-  children: OrganizationTreeNode[]
-}
-
-interface HubSearchOrganizationResponse {
-  result?: {
-    count?: number
-    results?: OrganizationItem[]
-  }
-}
+import {
+  syncFacetsFromRoute,
+  useActiveFacets,
+  useFacets,
+  useFacetSync,
+} from '../../app/composables/useFacets'
+import type { Organization } from '../../app/piveau/organizations'
+import { useOrganizationSearch, facets } from '../../app/piveau/organizations'
+import type { SearchParamsBase } from '@piveau/sdk-core/hubSearch'
+import type { OrganizationTreeNode } from '../../app/model/organizations'
 
 interface HubSearchFacetItem {
   id: string
@@ -69,11 +51,40 @@ const onSearch = () => {
   })
 }
 
-const { data, pending, error } = await useFetch<HubSearchOrganizationResponse>(() => `${baseUrl}search`, {
-  query: {
-    filter: 'organization',
-    limit: 1000,
-  },
+const { useSearch } = await useOrganizationSearch()
+
+const { facetRefs, resetAllFacets } = useFacets(facets)
+
+const piveauQueryParams: SearchParamsBase = reactive({
+  limit: 1000,
+  q: Array.isArray(route.query.q) ? route.query.q.join(' ') : route.query.q || '',
+})
+
+watch(() => route.query.q, (searchTerm) => {
+  if (searchTerm) {
+    searchInput.value = Array.isArray(searchTerm) ? searchTerm.join(' ') : searchTerm
+  }
+  else {
+    searchInput.value = ''
+  }
+  piveauQueryParams.q = searchInput.value
+})
+
+const {
+  query,
+  getSearchResultsEnhanced: organizations,
+  getAvailableFacetsLocalized,
+  getSearchResultsCount,
+} = useSearch({
+  queryParams: toRefs(piveauQueryParams),
+  selectedFacets: facetRefs,
+})
+
+await query.suspense()
+
+const activeFacets = useActiveFacets({
+  facets,
+  getAvailableFacetsLocalized,
 })
 
 const { data: datasetFacets } = await useFetch<HubSearchDatasetFacetsResponse>(() => `${baseUrl}search`, {
@@ -99,7 +110,7 @@ function getLocalizedValue(value?: Record<string, string>) {
   return value[locale.value] || Object.values(value)[0] || ''
 }
 
-function getOrganizationLabel(organization: OrganizationItem) {
+function getOrganizationLabel(organization: Organization) {
   return getLocalizedValue(organization.name) || getLocalizedValue(organization.pref_label) || organization.id
 }
 
@@ -107,7 +118,7 @@ function getIdFromReference(reference: string) {
   return reference.split('/').filter(Boolean).at(-1) || reference
 }
 
-function getParentId(organization: OrganizationItem) {
+function getParentId(organization: Organization) {
   const directParent = organization.sub_organization_of?.[0]
 
   if (directParent) {
@@ -130,8 +141,6 @@ function getParentId(organization: OrganizationItem) {
 
   return undefined
 }
-
-const organizations = computed(() => data.value?.result?.results ?? [])
 
 const sortedOrganizations = computed(() => {
   const collator = new Intl.Collator(locale.value)
@@ -214,25 +223,8 @@ const showcaseCountByOrganizationId = computed<Record<string, number>>(() => {
   return counts
 })
 
-const filteredOrganizations = computed(() => {
-  const searchTerm = searchInput.value.trim().toLowerCase()
-
-  if (!searchTerm) {
-    return sortedOrganizations.value
-  }
-
-  return sortedOrganizations.value.filter((organization) => {
-    const localizedName = getLocalizedValue(organization.name).toLowerCase()
-    const localizedLabel = getLocalizedValue(organization.pref_label).toLowerCase()
-
-    return localizedName.includes(searchTerm)
-      || localizedLabel.includes(searchTerm)
-      || organization.id.toLowerCase().includes(searchTerm)
-  })
-})
-
 const matchingOrganizationIds = computed(() => {
-  return new Set(filteredOrganizations.value.map(organization => organization.id))
+  return new Set(organizations.value.map(organization => organization.id))
 })
 
 function filterTree(nodes: OrganizationTreeNode[], matches: Set<string>): OrganizationTreeNode[] {
@@ -268,8 +260,6 @@ useSeoMeta({
   title: `${t('message.header.navigation.organizations')} | opendata.swiss`,
 })
 
-const { facetRefs, resetAllFacets } = useFacets(['organization'])
-
 onMounted(() => {
   syncFacetsFromRoute({
     facetRefs,
@@ -288,10 +278,11 @@ onMounted(() => {
     </template>
 
     <OdsSearchPanel
-      auto-search
       :search-input="searchInput"
       :search-prompt="t('message.organizations.search_placeholder')"
       :title="t('message.header.navigation.organizations')"
+      :facet-refs="facetRefs"
+      :active-facets="activeFacets"
       @search="onSearch"
       @reset-all-facets="resetAllFacets"
       @update:search-input="value => searchInput = value"
@@ -300,26 +291,19 @@ onMounted(() => {
     <section class="section section--default">
       <div class="container">
         <p class="organization-count">
-          <strong>{{ filteredOrganizations.length }}</strong>
+          <strong>{{ getSearchResultsCount }}</strong>
           {{ t('message.header.navigation.organizations') }}
         </p>
 
-        <p
-          v-if="error"
-          class="notification notification--danger"
-        >
-          {{ t('message.organizations.load_error') }}
-        </p>
-
         <OdsOrganizationTree
-          v-else-if="!pending && filteredOrganizations.length > 0"
+          v-if="organizations.length > 0"
           :nodes="filteredOrganizationTree"
           :dataset-count-by-organization-id="datasetCountByOrganizationId"
           :showcase-count-by-organization-id="showcaseCountByOrganizationId"
         />
 
         <p
-          v-else-if="!pending"
+          v-else
           class="notification notification--info"
         >
           {{ t('message.organizations.empty') }}

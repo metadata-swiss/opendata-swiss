@@ -1,6 +1,8 @@
+import type { ComputedRef, MaybeRefOrGetter } from 'vue'
 import { reactive, watch } from 'vue'
 import type { LocationQuery, LocationQueryValue } from 'vue-router'
 import { useRoute, useRouter } from '#vue-router'
+import type { SearchResultFacetGroupLocalized } from '@piveau/sdk-vue'
 
 type FacetRefs<F extends string> = Record<F, Ref<string[]>>
 
@@ -84,5 +86,20 @@ export function useFacetSync<F extends string>({
 
       router.push({ query })
     })
+  })
+}
+
+interface UseActiveFacetsArgs {
+  facets: string[]
+  getAvailableFacetsLocalized: (locale?: MaybeRefOrGetter<string>) => ComputedRef<SearchResultFacetGroupLocalized[]>
+}
+
+export function useActiveFacets({ facets, getAvailableFacetsLocalized }: UseActiveFacetsArgs) {
+  const { locale } = useI18n()
+
+  const availableFacets = getAvailableFacetsLocalized(locale)
+
+  return computed<SearchResultFacetGroupLocalized[]>(() => {
+    return availableFacets.value.filter(f => facets.includes(f.id)).sort((a, b) => a.title.localeCompare(b.title))
   })
 }

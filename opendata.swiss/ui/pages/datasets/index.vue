@@ -5,7 +5,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '#imports'
 
 import type { SearchParamsBase } from '@piveau/sdk-core/hubSearch'
-import type { SearchResultFacetGroupLocalized } from '@piveau/sdk-vue'
 
 import { useDatasetsSearch, facets } from '../../app/piveau/datasets'
 import OdsBreadcrumbs, { type BreadcrumbItem } from '../../app/components/OdsBreadcrumbs.vue'
@@ -18,7 +17,7 @@ import SvgIcon from '../../app/components/SvgIcon.vue'
 import { useSeoMeta } from 'nuxt/app'
 import { clearDatasetBreadcrumbFromSessionStorage } from './[datasetId]/breadcrumb-session-stoage'
 import { DcatApChV2DatasetAdapter } from '../../app/components/dataset-detail/model/dcat-ap-ch-v2-dataset-adapter'
-import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
+import { syncFacetsFromRoute, useActiveFacets, useFacets, useFacetSync } from '../../app/composables/useFacets'
 
 import OdsSearchPanel from '../../app/components/OdsSearchPanel.vue'
 import OdsSearchResults from '../../app/components/OdsSearchResults.vue'
@@ -101,10 +100,9 @@ watch(listType, (newType) => {
   }
 })
 
-const availableFacets = getAvailableFacetsLocalized(locale.value)
-
-const activeFacets = computed<SearchResultFacetGroupLocalized[]>(() => {
-  return availableFacets.value.filter(f => facets.includes(f.id)).sort((a, b) => a.title.localeCompare(b.title))
+const activeFacets = useActiveFacets({
+  facets,
+  getAvailableFacetsLocalized,
 })
 
 function goToPage(newPage: number | string, query = route.query) {

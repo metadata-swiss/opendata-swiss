@@ -1,19 +1,8 @@
 <script setup lang="ts">
 import OdsOrganizationListItem from './OdsOrganizationListItem.vue'
 import OdsCard from '../content/OdsCard.vue'
-
-interface OrganizationItem {
-  id: string
-  resource: string
-  pref_label?: Record<string, string>
-  name?: Record<string, string>
-}
-
-interface OrganizationTreeNode {
-  id: string
-  organization: OrganizationItem
-  children: OrganizationTreeNode[]
-}
+import type { Organization } from '~/piveau/organizations.ts'
+import type { OrganizationTreeNode } from '~/model/organizations.ts'
 
 const props = defineProps<{
   nodes: OrganizationTreeNode[]
@@ -32,11 +21,11 @@ function getLocalizedValue(value?: Record<string, string>) {
   return value[locale.value] || Object.values(value)[0] || ''
 }
 
-function organizationLabel(organization: OrganizationItem) {
+function organizationLabel(organization: Organization) {
   return getLocalizedValue(organization.name) || getLocalizedValue(organization.pref_label) || organization.id
 }
 
-function organizationLink(organization: OrganizationItem) {
+function organizationLink(organization: Organization) {
   return localePath(`/organizations/${encodeURIComponent(organization.id)}`)
 }
 
@@ -48,7 +37,7 @@ function getShowcaseCount(organizationId: string) {
   return props.showcaseCountByOrganizationId?.[organizationId] || 0
 }
 
-function organizationLabelShort(organization: OrganizationItem) {
+function organizationLabelShort(organization: Organization) {
   const label = getLocalizedValue(organization.name) || getLocalizedValue(organization.pref_label) || organization.id
   const parts = label
     .split(/[\s-]+/)
