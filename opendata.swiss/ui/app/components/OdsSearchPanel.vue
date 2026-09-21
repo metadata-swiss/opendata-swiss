@@ -76,7 +76,7 @@ interface PropTypes {
   autoSearch?: boolean
 }
 
-const { searchInput, autoSearch } = defineProps<PropTypes>()
+const { searchInput, autoSearch, activeFacets } = defineProps<PropTypes>()
 
 const emit = defineEmits({
   'search': (_: string) => true,

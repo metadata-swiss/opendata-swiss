@@ -9,10 +9,14 @@ import OdsPage from '../../app/components/OdsPage.vue'
 import { homePageBreadcrumb } from '../../app/composables/breadcrumbs.js'
 import OdsBreadcrumbs from '../../app/components/OdsBreadcrumbs.vue'
 import { useShowcaseSearch, facets } from '../../app/piveau/showcases'
-import type { SearchResultFacetGroupLocalized } from '@piveau/sdk-vue'
 import OdsSearchPanel from '../../app/components/OdsSearchPanel.vue'
 import OdsSearchResults from '../../app/components/OdsSearchResults.vue'
-import { syncFacetsFromRoute, useFacets, useFacetSync } from '../../app/composables/useFacets'
+import {
+  syncFacetsFromRoute,
+  useActiveFacets,
+  useFacets,
+  useFacetSync,
+} from '../../app/composables/useFacets'
 import OdsSortSelect from '../../app/components/dataset/OdsSortSelect.vue'
 import { useSorting } from '../../app/composables/sort'
 import OdsShowcaseCard from '../../app/components/showcases/OdsShowcaseCard.vue'
@@ -71,10 +75,9 @@ const {
   selectedFacets: facetRefs,
 })
 
-const availableFacets = getAvailableFacetsLocalized(locale.value)
-
-const activeFacets = computed<SearchResultFacetGroupLocalized[]>(() => {
-  return availableFacets.value.filter(f => facets.includes(f.id)).sort((a, b) => a.title.localeCompare(b.title))
+const activeFacets = useActiveFacets({
+  facets,
+  getAvailableFacetsLocalized,
 })
 
 const breadcrumbs = [
