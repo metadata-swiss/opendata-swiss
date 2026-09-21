@@ -31,7 +31,6 @@
 #   - opendata.swiss/metadata/piveau_profile/showcase.hub.shapes.ttl
 #   - opendata.swiss/metadata/piveau_profile/piveau.json
 #   - opendata.swiss/piveau_modules/piveau-consus-filter        (license/identifier/spatial normalisation)
-#   - opendata.swiss/piveau_modules/piveau-consus-patching      (showcase de-cloaking, reference unwrapping)
 #   - opendata.swiss/piveau_modules/piveau-consus-importing-showcases
 #   - opendata.swiss/metadata/piveau_scripts/geocat-transform.js (CSW → DCAT)
 #   - opendata.swiss/metadata/piveau_systemtests/src/test/resources/*.ttl

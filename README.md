@@ -12,7 +12,6 @@ The repository is organized as an npm workspace managing both JavaScript/TypeScr
 | `piveau-consus-filter` | `opendata.swiss/piveau_modules/piveau-consus-filter` | Java 17, Vert.x, Maven | Piveau Consus pipe module for filtering RDF datasets |
 | `piveau-consus-importing-csw` | `opendata.swiss/piveau_modules/piveau-consus-importing-csw` | Java 17, Vert.x, Maven | Piveau Consus pipe module for importing data via CSW |
 | `piveau-consus-importing-showcases` | `opendata.swiss/piveau_modules/piveau-consus-importing-showcases` | Java 17, Vert.x, Maven | Piveau Consus pipe module for harvesting showcases |
-| `piveau-consus-patching` | `opendata.swiss/piveau_modules/piveau-consus-patching` | Java 17, Vert.x, Maven | Piveau Consus pipe module for metadata and catalogue patching |
 
 Additional components in the repository:
 * `opendata.swiss/metadata`: Metadata catalogues, pipelines, system tests, and harvester scripts.
