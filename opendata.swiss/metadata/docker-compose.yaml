@@ -403,13 +403,6 @@ services:
       - OTEL_SDK_DISABLED=true
       - CSW_IMPORT_DELAY=20
 
-  piveau-consus-patching:
-    build: ../piveau_modules/piveau-consus-patching
-    restart: unless-stopped
-    logging:
-      options:
-        max-size: "50m"
-
   piveau-consus-filter:
     build: ../piveau_modules/piveau-consus-filter
     restart: unless-stopped
