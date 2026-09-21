@@ -2,23 +2,7 @@
   <OdsPage :page="{ title }">
     <template #header>
       <OdsNotificationBanner
-        :open="success === true"
-        type="success"
-      >
-        {{ t('success_message') }}
-
-        <template #buttons>
-          <OdsButton
-            variant="outline"
-            title="Close"
-            icon-right
-            icon="Checkmark"
-            @click="closeMessages"
-          />
-        </template>
-      </OdsNotificationBanner>
-      <OdsNotificationBanner
-        :open="success === false"
+        :open="error"
         type="error"
       >
         {{ t('failure_message') }}
@@ -39,7 +23,7 @@
         <template #buttons>
           <OdsButton
             variant="outline"
-            title="Close"
+            :title="i18n.t('message.header.navigation.close')"
             icon-right
             icon="Checkmark"
             @click="closeMessages"
@@ -491,7 +475,7 @@ const title = t('title')
 useSeoMeta({ title: `${title} | opendata.swiss` })
 
 const submitting = ref(false)
-const success = ref<boolean | null>(null)
+const error = ref<boolean>(false)
 const submissionError = ref<string | null>(null)
 const submissionValidationIssues = ref<{ error: string } | ZodIssue[]>([])
 
@@ -514,22 +498,22 @@ async function submit(e: Event) {
       },
     })
     if (response.ok) {
-      success.value = true
+      error.value = false
       newShowcaseForm.value?.reset()
     }
     else if (response.status === 400 || response.status === 409) {
       submissionError.value = 'Form contains invalid data:'
       submissionValidationIssues.value = await response.json()
-      success.value = false
+      error.value = true
     }
     else {
       submissionError.value = `Server responded with: ${response.status} - ${response.statusText}`
-      success.value = false
+      error.value = true
     }
   }
   catch (e) {
     submissionError.value = `${e.message}\n${e.stack}`
-    success.value = false
+    error.value = true
   }
   finally {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -538,7 +522,7 @@ async function submit(e: Event) {
 }
 
 function closeMessages() {
-  success.value = null
+  error.value = false
   submissionError.value = null
 }
 
