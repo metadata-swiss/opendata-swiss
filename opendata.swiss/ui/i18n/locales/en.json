@@ -316,17 +316,17 @@
       "block_3": {
         "title": "Further Information"
       }
-    }
-  },
-  "server": {
-    "api": {
-      "showcases": {
-        "post": {
-          "error": {
-            "submission_exists": "A submission with the exact same title already exists.",
-            "unspecified_error": "An unspecified error occurred. Please try again later."
-          },
-          "success": "Your submission has been received and is pending review."
+    },
+    "server": {
+      "api": {
+        "showcases": {
+          "post": {
+            "error": {
+              "submission_exists": "A submission with the exact same title already exists.",
+              "unspecified_error": "An unspecified error occurred. Please try again later."
+            },
+            "success": "Your submission has been received and is pending review."
+          }
         }
       }
     }

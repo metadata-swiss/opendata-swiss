@@ -2,8 +2,6 @@ name: "[UI] Build and push Docker image"
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "piveau-opendata-swiss@*"
     paths:
